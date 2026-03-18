@@ -1,6 +1,12 @@
 # Adventure Story Generator
 
 [![Auto Versioning & Badges](https://github.com/dgaida/adventure-story-generator/actions/workflows/versioning-and-badges.yml/badge.svg)](https://github.com/dgaida/adventure-story-generator/actions/workflows/versioning-and-badges.yml)
+[![Version](https://img.shields.io/github/v/tag/dgaida/choose_adventure?label=version)](https://github.com/dgaida/choose_adventure/tags)
+[![Python](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Docs](https://img.shields.io/badge/docs-GitHub%20Pages-blue)](https://dgaida.github.io/choose_adventure/)
+[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/dgaida/choose_adventure/graphs/commit-activity)
+![Last commit](https://img.shields.io/github/last-commit/dgaida/choose_adventure)
 
 A "choose your own adventure" story generator for English learners in Germany.
 
