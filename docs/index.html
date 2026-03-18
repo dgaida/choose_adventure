@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A Mysterious Forest Adventure</title>
+    <title>Warriors Adventure Stories</title>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -19,6 +19,21 @@
             padding: 30px;
             border-radius: 8px;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .controls {
+            margin-bottom: 20px;
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            background: #eee;
+            padding: 15px;
+            border-radius: 5px;
+        }
+        select {
+            padding: 8px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            flex-grow: 1;
         }
         h1 {
             color: #2c3e50;
@@ -45,6 +60,12 @@
         }
         button:hover {
             background-color: #2980b9;
+        }
+        .load-btn {
+            background-color: #27ae60;
+        }
+        .load-btn:hover {
+            background-color: #219150;
         }
         .vocab {
             border-bottom: 2px dotted #e67e22;
@@ -75,24 +96,78 @@
         .restart-btn:hover {
             background-color: #7f8c8d;
         }
+        .hidden {
+            display: none;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1 id="title">A Mysterious Forest Adventure</h1>
-        <div id="story-text"></div>
-        <div id="choices"></div>
-        <button class="restart-btn" onclick="showNode('start')">Restart Story</button>
+        <div class="controls">
+            <select id="story-select">
+                <option value="">-- Select a Story --</option>
+            </select>
+            <button class="load-btn" onclick="loadSelectedStory()">Load Story</button>
+        </div>
+
+        <h1 id="story-title">Welcome to Warriors Adventures</h1>
+
+        <div id="story-content" class="hidden">
+            <div id="story-text"></div>
+            <div id="choices"></div>
+            <button class="restart-btn" onclick="showNode('start')">Restart Story</button>
+        </div>
+
+        <div id="welcome-message" style="text-align: center;">
+            <p>Select a story from the dropdown above to begin your journey in the world of Clans!</p>
+        </div>
     </div>
 
     <script>
-        const storyData = {"title": "A Mysterious Forest Adventure", "nodes": {"start": {"text": "You stand at the edge of a mysterious forest. The trees are tall and dark. You see a path going left and a path going right.", "choices": [{"text": "Go left", "next_node": "left_path"}, {"text": "Go right", "next_node": "right_path"}]}, "left_path": {"text": "The left path is narrow. You find a shiny key on the ground.", "choices": []}, "right_path": {"text": "The right path is wide. You see a friendly deer.", "choices": []}}, "vocabulary": {"mysterious": "strange and unknown", "edge": "the part where something begins or ends", "narrow": "not wide"}};
-        const vocabData = storyData.vocabulary || {};
+        let currentStoryData = null;
+        let vocabData = {};
+
+        async function init() {
+            try {
+                const response = await fetch('stories/manifest.json');
+                const manifest = await response.json();
+                const select = document.getElementById('story-select');
+
+                manifest.stories.forEach(story => {
+                    const option = document.createElement('option');
+                    option.value = story.filename;
+                    option.textContent = story.title;
+                    select.appendChild(option);
+                });
+            } catch (e) {
+                console.error("Failed to load manifest:", e);
+            }
+        }
+
+        async function loadSelectedStory() {
+            const select = document.getElementById('story-select');
+            const filename = select.value;
+            if (!filename) return;
+
+            try {
+                const response = await fetch(`stories/${filename}`);
+                currentStoryData = await response.json();
+                vocabData = currentStoryData.vocabulary || {};
+
+                document.getElementById('story-title').textContent = currentStoryData.title;
+                document.getElementById('welcome-message').classList.add('hidden');
+                document.getElementById('story-content').classList.remove('hidden');
+
+                showNode('start');
+            } catch (e) {
+                console.error("Failed to load story:", e);
+                alert("Error loading story.");
+            }
+        }
 
         function highlightVocab(text) {
             let highlightedText = text;
             for (const [word, explanation] of Object.entries(vocabData)) {
-                // Use regex to replace words, case insensitive, matching full words
                 const regex = new RegExp(`\\b(${word})\\b`, 'gi');
                 highlightedText = highlightedText.replace(regex, `<span class="vocab" data-explanation="${explanation}">$1</span>`);
             }
@@ -100,7 +175,8 @@
         }
 
         function showNode(nodeId) {
-            const node = storyData.nodes[nodeId];
+            if (!currentStoryData) return;
+            const node = currentStoryData.nodes[nodeId];
             if (!node) return;
 
             const textElement = document.getElementById('story-text');
@@ -127,10 +203,7 @@
             window.scrollTo(0, 0);
         }
 
-        // Initialize story
-        document.addEventListener('DOMContentLoaded', () => {
-            showNode('start');
-        });
+        document.addEventListener('DOMContentLoaded', init);
     </script>
 </body>
 </html>

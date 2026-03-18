@@ -1,0 +1,21 @@
+{
+  "title": "Story of ThunderClan",
+  "nodes": {
+    "start": {
+      "text": "Welcome to Story of ThunderClan. You are a cat of the forest.",
+      "choices": [
+        {
+          "text": "Explore",
+          "next_node": "explore"
+        }
+      ]
+    },
+    "explore": {
+      "text": "You find something interesting.",
+      "choices": []
+    }
+  },
+  "vocabulary": {
+    "interesting": "capturing interest"
+  }
+}
