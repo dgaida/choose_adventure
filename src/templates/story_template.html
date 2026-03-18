@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f4f9;
+        }
+        .container {
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+        }
+        #story-text {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+        #choices {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        button {
+            padding: 12px 20px;
+            font-size: 1em;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        .vocab {
+            border-bottom: 2px dotted #e67e22;
+            cursor: help;
+            position: relative;
+            display: inline-block;
+        }
+        .vocab:hover::after {
+            content: attr(data-explanation);
+            position: absolute;
+            bottom: 125%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            border-radius: 6px;
+            white-space: normal;
+            z-index: 1;
+            width: 200px;
+            font-size: 0.9em;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        .restart-btn {
+            margin-top: 40px;
+            background-color: #95a5a6;
+        }
+        .restart-btn:hover {
+            background-color: #7f8c8d;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 id="title">{{ title }}</h1>
+        <div id="story-text"></div>
+        <div id="choices"></div>
+        <button class="restart-btn" onclick="showNode('start')">Restart Story</button>
+    </div>
+
+    <script>
+        const storyData = {{ story_json }};
+        const vocabData = storyData.vocabulary || {};
+
+        function highlightVocab(text) {
+            let highlightedText = text;
+            for (const [word, explanation] of Object.entries(vocabData)) {
+                // Use regex to replace words, case insensitive, matching full words
+                const regex = new RegExp(`\\b(${word})\\b`, 'gi');
+                highlightedText = highlightedText.replace(regex, `<span class="vocab" data-explanation="${explanation}">$1</span>`);
+            }
+            return highlightedText;
+        }
+
+        function showNode(nodeId) {
+            const node = storyData.nodes[nodeId];
+            if (!node) return;
+
+            const textElement = document.getElementById('story-text');
+            const choicesElement = document.getElementById('choices');
+
+            textElement.innerHTML = highlightVocab(node.text);
+            choicesElement.innerHTML = '';
+
+            if (node.choices && node.choices.length > 0) {
+                node.choices.forEach(choice => {
+                    const btn = document.createElement('button');
+                    btn.innerText = choice.text;
+                    btn.onclick = () => showNode(choice.next_node);
+                    choicesElement.appendChild(btn);
+                });
+            } else {
+                const endMsg = document.createElement('p');
+                endMsg.innerText = "The End.";
+                endMsg.style.textAlign = "center";
+                endMsg.style.fontWeight = "bold";
+                choicesElement.appendChild(endMsg);
+            }
+
+            window.scrollTo(0, 0);
+        }
+
+        // Initialize story
+        document.addEventListener('DOMContentLoaded', () => {
+            showNode('start');
+        });
+    </script>
+</body>
+</html>
