@@ -1,0 +1,113 @@
+{
+  "title": "Shadowpaw's Secret Mission",
+  "nodes": {
+    "start": {
+      "text": "The moon is high over the marsh. You are Shadowpaw, an apprentice of ShadowClan. Your leader, Tigerstar, calls you to his den. 'Shadowpaw,' he growls. 'I have a secret mission for you. You must go to the edge of the forest and find the glowing herb. Do not let the other Clans see you.'",
+      "choices": [
+        { "text": "Accept the mission bravely", "next_node": "leave_camp" },
+        { "text": "Ask why it must be a secret", "next_node": "ask_leader" }
+      ]
+    },
+    "ask_leader": {
+      "text": "Tigerstar narrows his eyes. 'Because the other Clans are greedy! They would steal the herb for themselves. Now, go!' You realize you have no choice but to obey.",
+      "choices": [
+        { "text": "Leave the camp quickly", "next_node": "leave_camp" }
+      ]
+    },
+    "leave_camp": {
+      "text": "You creep out of the ShadowClan camp. The pine needles are soft under your paws. Soon, you reach the border with ThunderClan. You hear the sound of snapping twigs. A patrol is nearby!",
+      "choices": [
+        { "text": "Hide in a thick gorse bush", "next_node": "hide_bushes" },
+        { "text": "Try to run past them quickly", "next_node": "run_past" }
+      ]
+    },
+    "hide_bushes": {
+      "text": "You squeeze into the prickly bush. Your heart beats fast. Two ThunderClan warriors walk past. 'I smell ShadowClan,' one says, but they don't see you. They keep walking towards the lake.",
+      "choices": [
+        { "text": "Wait until they are gone, then continue", "next_node": "continue_path" }
+      ]
+    },
+    "run_past": {
+      "text": "You dash across the clearing, but a ginger warrior spots you! 'Hey! ShadowClan cat!' he yells. You are fast, but they know this forest better than you.",
+      "choices": [
+        { "text": "Climb a tall oak tree", "next_node": "climb_tree" },
+        { "text": "Hide in a deep rabbit hole", "next_node": "rabbit_hole" }
+      ]
+    },
+    "climb_tree": {
+      "text": "ShadowClan cats aren't famous for climbing, but fear makes you fast. You reach a high branch just as the warriors arrive below. They growl but eventually leave to continue their patrol.",
+      "choices": [
+        { "text": "Climb down and find the herb", "next_node": "continue_path" }
+      ]
+    },
+    "continue_path": {
+      "text": "You reach the edge of the forest where the trees are thin. In a small valley, you see a strange, glowing green herb. It smells like fresh rain. This must be it!",
+      "choices": [
+        { "text": "Pick the herb carefully", "next_node": "pick_herb" },
+        { "text": "Check if anyone is watching first", "next_node": "watch_valley" }
+      ]
+    },
+    "watch_valley": {
+      "text": "You look around and see a WindClan apprentice watching the valley from a hill. He hasn't seen you yet. If you move quietly, you can get the herb.",
+      "choices": [
+        { "text": "Creep down into the valley", "next_node": "pick_herb" }
+      ]
+    },
+    "pick_herb": {
+      "text": "You take the herb in your mouth. It tastes bitter. Now you must return to Tigerstar. You decide to take a different way back, near the river.",
+      "choices": [
+        { "text": "Follow the river bank", "next_node": "river_bank" },
+        { "text": "Cross the slippery stepping stones", "next_node": "stepping_stones" }
+      ]
+    },
+    "stepping_stones": {
+      "text": "The stones are covered in green slime. You slip! The river is cold and fast. You manage to climb out, but you are soaking wet and tired.",
+      "choices": [
+        { "text": "Keep moving despite the cold", "next_node": "return_approach" }
+      ]
+    },
+    "river_bank": {
+      "text": "The walk is longer, but safer. You see a RiverClan cat fishing, but you stay hidden in the long grass. You are almost home.",
+      "choices": [
+        { "text": "Enter ShadowClan territory", "next_node": "return_approach" }
+      ]
+    },
+    "return_approach": {
+      "text": "As you approach the camp, your mentor, Nightfeather, stops you. 'Where have you been, Shadowpaw?' she asks suspiciously.",
+      "choices": [
+        { "text": "Tell her the truth", "next_node": "tell_truth" },
+        { "text": "Say you were just hunting", "next_node": "lie_mentor" }
+      ]
+    },
+    "tell_truth": {
+      "text": "Nightfeather sighs. 'Tigerstar shouldn't send apprentices on such dangerous missions alone. But you were brave. Go to him.'",
+      "choices": [
+        { "text": "Give the herb to Tigerstar", "next_node": "success" }
+      ]
+    },
+    "lie_mentor": {
+      "text": "'Hunting? Without any prey?' Nightfeather narrows her eyes. She knows you are lying, but she lets you pass. 'Tigerstar is waiting for you.'",
+      "choices": [
+        { "text": "Go to Tigerstar's den", "next_node": "success" }
+      ]
+    },
+    "success": {
+      "text": "Tigerstar takes the herb. 'Well done, Shadowpaw. You have proven your loyalty to ShadowClan. One day, you will be a great warrior.' You feel proud as you go to the apprentices' den to sleep.",
+      "choices": []
+    },
+    "rabbit_hole": {
+      "text": "You jump into the hole, but it's occupied by a very angry badger! You have to run away as fast as you can. You get lost in the deep woods. The mission is a failure.",
+      "choices": []
+    }
+  },
+  "vocabulary": {
+    "apprentice": "a young cat training to become a warrior",
+    "marsh": "a type of wet land with lots of grass and water",
+    "patrol": "a group of cats walking around to protect their territory",
+    "gorse": "a prickly bush with yellow flowers",
+    "clearing": "an open space in the forest with no trees",
+    "loyalty": "staying true and faithful to your friends or Clan",
+    "mentor": "an older cat who teaches a younger cat",
+    "suspiciously": "acting like you think someone is doing something wrong"
+  }
+}
