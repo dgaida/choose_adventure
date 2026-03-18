@@ -2,4 +2,3 @@ __pycache__/
 *.pyc
 .env
 verification/
-test_generation.py
