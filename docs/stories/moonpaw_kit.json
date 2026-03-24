@@ -86,18 +86,25 @@
     }
   },
   "vocabulary": {
-    "apprentice": "Schüler / Lehrling (a young cat learning to hunt and fight)",
-    "mentor": "Lehrer (an older cat who teaches the apprentice)",
-    "kit": "Kätzchen (a baby cat)",
-    "tracks": "Spuren (footprints on the ground)",
-    "brave": "mutig (not afraid)",
-    "dangerous": "gefährlich (not safe)",
-    "hiss": "fauchen (the sound an angry cat makes)",
-    "scared": "verängstigt (feeling afraid)",
-    "distract": "ablenken (to make someone look at something else)",
-    "log": "Baumstamm (a part of a dead tree on the ground)",
-    "heavy": "schwer (difficult to carry)",
-    "proud": "stolz (feeling good about someone's work)",
-    "moss": "Moos (soft green plant cats use for beds)"
+    "apprentice": "a young cat learning to hunt and fight",
+    "mentor": "an older cat who teaches a younger one",
+    "kit": "a baby cat",
+    "tracks": "footprints on the ground",
+    "brave": "not afraid",
+    "dangerous": "not safe",
+    "hiss": "the sound an angry cat makes",
+    "scared": "feeling afraid",
+    "distract": "to make someone look at something else",
+    "log": "a part of a dead tree on the ground",
+    "heavy": "difficult to carry",
+    "proud": "feeling good about someone's work",
+    "moss": "soft green plant cats use for beds",
+    "stand tall": "to stand straight and look strong to show confidence",
+    "paw prints": "the marks left on the ground by a cat's feet",
+    "nose": "the part of the face used for smelling",
+    "tail": "the long part at the back of a cat's body",
+    "hiding": "being in a place where you cannot be seen",
+    "slow": "not moving fast",
+    "surprised": "feeling shock because something unexpected happened"
   }
 }

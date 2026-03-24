@@ -2,6 +2,7 @@ import os
 import json
 import gradio as gr
 from adventure_generator import generate_story
+from update_manifest import update_manifest
 
 def process_and_save_story(topic, age):
     story_data = generate_story(topic, age)
@@ -23,23 +24,8 @@ def process_and_save_story(topic, age):
     with open(story_path, 'w') as f:
         json.dump(story_data, f, indent=2)
 
-    # Update manifest.json
-    manifest_path = os.path.join(stories_dir, 'manifest.json')
-    if os.path.exists(manifest_path):
-        with open(manifest_path, 'r') as f:
-            manifest = json.load(f)
-    else:
-        manifest = {"stories": []}
-
-    # Check if story already in manifest, if not add it
-    if not any(s['filename'] == filename for s in manifest['stories']):
-        manifest['stories'].append({
-            "title": story_data.get('title', topic),
-            "filename": filename
-        })
-
-    with open(manifest_path, 'w') as f:
-        json.dump(manifest, f, indent=2)
+    # Update manifest.json automatically by scanning stories directory
+    update_manifest()
 
     # Ensure index.html is initialized from template
     template_path = os.path.join(os.path.dirname(__file__), 'templates', 'story_template.html')
