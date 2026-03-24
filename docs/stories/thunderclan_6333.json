@@ -116,16 +116,16 @@
     }
   },
   "vocabulary": {
-    "apprentice": "a young cat training to become a warrior",
-    "patrol": "a group of cats that protects the Clan territory",
-    "territory": "the area of land that belongs to a specific Clan",
+    "apprentice": "a young cat training to become a fighter",
+    "patrol": "a group of cats that protects the forest area",
+    "territory": "the area of land that belongs to a specific group",
     "scent markers": "smells left by cats to show where their borders are",
-    "rogue": "a cat who lives alone and does not follow the Warrior Code",
+    "rogue": "a cat who lives alone and does not follow the rules",
     "ravine": "a deep, narrow valley with steep sides",
     "patience": "the ability to wait without getting angry or upset",
     "virtue": "a good quality or way of behaving",
     "escort": "to go with someone to make sure they get to a place safely or leave",
-    "Twolegplace": "the area where humans (Twolegs) live in houses",
+    "Twolegplace": "the area where humans live in houses",
     "ancestors": "family members from a long time ago",
     "prophetic": "predicting what will happen in the future",
     "deceased": "dead; no longer living",
@@ -134,7 +134,7 @@
     "destiny": "what is supposed to happen in the future",
     "courage": "bravery; being able to do something even if you are afraid",
     "sternly": "in a serious and strict way",
-    "rustle": "a soft, crackling sound made by dry leaves or ferns",
+    "rustle": "a soft, crackling sound made by dry leaves or plants",
     "undergrowth": "small trees and bushes growing under taller trees"
   }
 }
