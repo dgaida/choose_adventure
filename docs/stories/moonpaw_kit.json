@@ -1,0 +1,103 @@
+{
+  "title": "Moonpaw and the Lost Kit",
+  "nodes": {
+    "start": {
+      "text": "The sun is warm. You are Moonpaw. You are a cat in WindClan. You are an apprentice. You are learning to be a warrior. Your mentor is Crowfeather. He is grey and fast. 'Moonpaw!' he calls. 'We must go to the forest. A kit is lost. The kit is from RiverClan. We must find it before the big dog finds it!'",
+      "choices": [
+        { "text": "Run to the forest quickly", "next_node": "run_forest" },
+        { "text": "Ask if it is dangerous", "next_node": "ask_danger" },
+        { "text": "Look for tracks on the grass", "next_node": "look_tracks" }
+      ]
+    },
+    "ask_danger": {
+      "text": "Crowfeather looks at you. 'Yes, it is dangerous. There is a big dog near the river. But we are warriors! We are brave.' He starts to run. You follow him.",
+      "choices": [
+        { "text": "Follow him to the forest", "next_node": "run_forest" }
+      ]
+    },
+    "look_tracks": {
+      "text": "You look at the ground. You see small paw prints. They go to the dark forest. 'Good job, Moonpaw!' Crowfeather says. 'You have a good nose.'",
+      "choices": [
+        { "text": "Follow the paw prints", "next_node": "run_forest" }
+      ]
+    },
+    "run_forest": {
+      "text": "The forest is dark. The trees are very tall. You hear a sound. *Woof! Woof!* The dog is near! You see the small kit. It is a silver cat. It is hiding under a log. The kit is crying.",
+      "choices": [
+        { "text": "Hiss at the dog to scare it", "next_node": "hiss_dog" },
+        { "text": "Grab the kit and run", "next_node": "grab_kit" },
+        { "text": "Climb a tree to see the dog", "next_node": "climb_tree" }
+      ]
+    },
+    "climb_tree": {
+      "text": "You climb the tall oak tree. You see the dog. It is big and brown. It is sniffing the log. The kit is very scared. You must act now!",
+      "choices": [
+        { "text": "Jump on the dog's back", "next_node": "jump_dog" },
+        { "text": "Meow loudly to distract the dog", "next_node": "distract_dog" }
+      ]
+    },
+    "hiss_dog": {
+      "text": "You stand tall. You make your fur big. 'HSSSS!' you cry. The dog stops. It is surprised. Crowfeather jumps from a bush and bites the dog's tail. The dog runs away!",
+      "choices": [
+        { "text": "Help the kit get out", "next_node": "save_kit" }
+      ]
+    },
+    "jump_dog": {
+      "text": "You are brave! You jump from the tree onto the dog. The dog is angry. It spins around. Crowfeather helps you. The dog is scared and runs to the Twolegplace.",
+      "choices": [
+        { "text": "Check if the kit is okay", "next_node": "save_kit" }
+      ]
+    },
+    "distract_dog": {
+      "text": "You meow very loudly. The dog looks at you. It starts to run toward your tree. The kit is now safe. Crowfeather grabs the kit by the neck and runs to the bushes.",
+      "choices": [
+        { "text": "Climb down and follow them", "next_node": "save_kit" }
+      ]
+    },
+    "grab_kit": {
+      "text": "You run to the log. You grab the kit. But you are an apprentice, and the kit is heavy. You are slow. The dog sees you!",
+      "choices": [
+        { "text": "Drop the kit and fight", "next_node": "hiss_dog" },
+        { "text": "Hide in a hole", "next_node": "hide_hole" }
+      ]
+    },
+    "hide_hole": {
+      "text": "You find a small hole under a rock. You and the kit go inside. It is very tight. The dog barks outside, but it cannot get in. After a long time, it goes away.",
+      "choices": [
+        { "text": "Go out and find Crowfeather", "next_node": "save_kit" }
+      ]
+    },
+    "save_kit": {
+      "text": "The kit is safe! Its name is Silverkit. 'Thank you, Moonpaw!' the kit squeaks. You walk back to the river. The RiverClan leader is there. She is happy.",
+      "choices": [
+        { "text": "Say 'You are welcome'", "next_node": "ending" },
+        { "text": "Ask for a reward", "next_node": "reward" }
+      ]
+    },
+    "reward": {
+      "text": "The RiverClan leader smiles. She gives you a big, tasty fish. 'This is for a brave apprentice,' she says. You eat the fish. It is delicious!",
+      "choices": [
+        { "text": "Go home to WindClan", "next_node": "ending" }
+      ]
+    },
+    "ending": {
+      "text": "You return to the WindClan camp. Your leader, Onestar, is proud. 'Moonpaw, you saved a life today. You are a good apprentice.' You go to sleep in your soft moss bed. You are happy.",
+      "choices": []
+    }
+  },
+  "vocabulary": {
+    "apprentice": "Schüler / Lehrling (a young cat learning to hunt and fight)",
+    "mentor": "Lehrer (an older cat who teaches the apprentice)",
+    "kit": "Kätzchen (a baby cat)",
+    "tracks": "Spuren (footprints on the ground)",
+    "brave": "mutig (not afraid)",
+    "dangerous": "gefährlich (not safe)",
+    "hiss": "fauchen (the sound an angry cat makes)",
+    "scared": "verängstigt (feeling afraid)",
+    "distract": "ablenken (to make someone look at something else)",
+    "log": "Baumstamm (a part of a dead tree on the ground)",
+    "heavy": "schwer (difficult to carry)",
+    "proud": "stolz (feeling good about someone's work)",
+    "moss": "Moos (soft green plant cats use for beds)"
+  }
+}
