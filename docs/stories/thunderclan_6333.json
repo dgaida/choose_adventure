@@ -1,21 +1,140 @@
 {
-  "title": "Story of ThunderClan",
+  "title": "Firepaw's First Patrol",
   "nodes": {
     "start": {
-      "text": "Welcome to Story of ThunderClan. You are a cat of the forest.",
+      "text": "The sun is rising over the ThunderClan camp. You are Firepaw, a new apprentice. Your ginger fur glows in the light. Your mentor, Lionheart, approaches you. 'Today, Firepaw, you will go on your first border patrol. We must check the scent markers near the ShadowClan border. Are you ready?'",
       "choices": [
-        {
-          "text": "Explore",
-          "next_node": "explore"
-        }
+        { "text": "Ready and eager to go!", "next_node": "leave_camp" },
+        { "text": "Ask what a border patrol does", "next_node": "explain_patrol" }
       ]
     },
-    "explore": {
-      "text": "You find something interesting.",
+    "explain_patrol": {
+      "text": "Lionheart smiles. 'A patrol checks our borders to make sure other Clans are not stealing our prey or entering our territory. We also leave fresh scent markers. It is the duty of every warrior.'",
+      "choices": [
+        { "text": "Let's go!", "next_node": "leave_camp" }
+      ]
+    },
+    "leave_camp": {
+      "text": "You, Lionheart, and a grey warrior named Graypaw leave the camp. The forest is full of smells. You reach the Sunningrocks. These rocks are often fought over by ThunderClan and RiverClan. Suddenly, you hear a rustle in the ferns.",
+      "choices": [
+        { "text": "Investigate the noise alone", "next_node": "investigate_alone" },
+        { "text": "Tell Lionheart about the noise", "next_node": "tell_lionheart" }
+      ]
+    },
+    "investigate_alone": {
+      "text": "You creep toward the ferns, trying to be silent. But you trip over a fallen branch! *Snap!* A large RiverClan warrior jumps out and pins you down! 'What is a ThunderClan apprentice doing here?' he growls.",
+      "choices": [
+        { "text": "Wait for Lionheart to rescue you", "next_node": "lionheart_rescue" }
+      ]
+    },
+    "lionheart_rescue": {
+      "text": "Lionheart leaps from the shadows and knocks the RiverClan cat away. 'Go back to your own territory!' he bellows. The RiverClan cat flees. Lionheart looks at you sternly. 'Firepaw, you must never investigate alone on a patrol. It was a mistake.'",
+      "choices": [
+        { "text": "I'm sorry, I've learned my lesson", "next_node": "leave_camp" }
+      ]
+    },
+    "tell_lionheart": {
+      "text": "Lionheart signals for you to stay back. He creeps forward and finds... a small mouse! 'Good ears, Firepaw,' he says. 'But we are here for the border, not for hunting. Let's continue toward the ShadowClan border.'",
+      "choices": [
+        { "text": "Continue the patrol", "next_node": "shadowclan_border" }
+      ]
+    },
+    "shadowclan_border": {
+      "text": "The forest becomes darker and the air smells like pine needles. This is the edge of ShadowClan territory. You see a fresh scent marker, but it doesn't smell like ShadowClan. It smells like a rogue cat!",
+      "choices": [
+        { "text": "Follow the rogue's scent", "next_node": "follow_rogue" },
+        { "text": "Ignore it and keep marking the border", "next_node": "ignore_rogue" }
+      ]
+    },
+    "ignore_rogue": {
+      "text": "You continue marking the border, but Lionheart stops you. 'Firepaw, do you not smell that? A rogue is near our territory. We cannot ignore a threat to the Clan.' You realize you should have paid more attention.",
+      "choices": [
+        { "text": "Let's track the rogue together", "next_node": "shadowclan_border" }
+      ]
+    },
+    "follow_rogue": {
+      "text": "The scent leads you to a deep ravine. At the bottom, you see a ragged-looking tomcat eating a piece of prey—a squirrel stolen from ThunderClan territory! Lionheart whispers, 'We must surround him.'",
+      "choices": [
+        { "text": "Go left to cut off his escape", "next_node": "go_left" },
+        { "text": "Go right to trap him against the rocks", "next_node": "go_right" },
+        { "text": "Charge down the middle immediately", "next_node": "charge_middle" }
+      ]
+    },
+    "charge_middle": {
+      "text": "You let out a battle cry and dash down the slope! The rogue is startled, but he is an experienced fighter. He swats you aside and disappears into the thick undergrowth. Lionheart sighs. 'Patience is a warrior's virtue, Firepaw. Now we have lost him.'",
+      "choices": [
+        { "text": "Let's try to find his trail again", "next_node": "follow_rogue" }
+      ]
+    },
+    "go_left": {
+      "text": "You move silently to the left. Graypaw goes right, and Lionheart stays in the middle. The rogue sees Lionheart and tries to run your way! You stand your ground.",
+      "choices": [
+        { "text": "Use the 'front paw swipe'", "next_node": "fight_rogue" },
+        { "text": "Try to talk to him", "next_node": "talk_rogue" }
+      ]
+    },
+    "go_right": {
+      "text": "You move to the right, but the ground is slippery with wet moss. You slide down the bank with a loud yowl! The rogue hears you and vanishes before the patrol can close in. 'Be more careful where you step,' Lionheart warns.",
+      "choices": [
+        { "text": "Climb back up and look for the scent", "next_node": "follow_rogue" }
+      ]
+    },
+    "talk_rogue": {
+      "text": "You try to speak, but the rogue isn't interested in words. He hisses and scratches your nose! He manages to scramble past you and escapes. Lionheart says, 'Rogues do not follow the Warrior Code. You cannot reason with a thief.'",
+      "choices": [
+        { "text": "I won't let him get away next time", "next_node": "follow_rogue" }
+      ]
+    },
+    "fight_rogue": {
+      "text": "You swipe at the rogue's face as he tries to pass. He is surprised by your speed! Lionheart and Graypaw close in. The rogue realizes he is trapped. 'Fine!' he snarls. 'Take your scrawny squirrel. I was leaving anyway.'",
+      "choices": [
+        { "text": "Make sure he leaves the territory", "next_node": "chase_out" }
+      ]
+    },
+    "chase_out": {
+      "text": "The three of you escort the rogue back to the Twolegplace. He won't be coming back soon. On the way back to camp, Lionheart looks pleased. 'You showed great courage, Firepaw. But remember, a warrior's strength comes from his Clan, not just himself.'",
+      "choices": [
+        { "text": "Ask about StarClan", "next_node": "ask_starclan" },
+        { "text": "Head back to the camp", "next_node": "return_camp" }
+      ]
+    },
+    "ask_starclan": {
+      "text": "'Do you think StarClan was watching us?' you ask. Lionheart looks up at the sky, where the first stars are appearing. 'StarClan is always watching, Firepaw. They guide our paws when the path is dark. They would be proud of you today.'",
+      "choices": [
+        { "text": "Walk back to camp", "next_node": "return_camp" }
+      ]
+    },
+    "return_camp": {
+      "text": "You return to the ThunderClan camp as heroes. Bluestar, the leader, is waiting. Lionheart tells her of your bravery and your mistakes. Bluestar nods. 'Mistakes are the best teachers, Firepaw. You have done well for your first patrol.'",
+      "choices": [
+        { "text": "Share your prey with the elders", "next_node": "ending" }
+      ]
+    },
+    "ending": {
+      "text": "You take a fresh-kill mouse to the elders' den. They tell you stories of great battles from the past. You feel like a true part of ThunderClan now. You fall asleep in the apprentices' den, dreaming of the silver stars of StarClan.",
       "choices": []
     }
   },
   "vocabulary": {
-    "interesting": "capturing interest"
+    "apprentice": "a young cat training to become a warrior",
+    "patrol": "a group of cats that protects the Clan territory",
+    "territory": "the area of land that belongs to a specific Clan",
+    "scent markers": "smells left by cats to show where their borders are",
+    "rogue": "a cat who lives alone and does not follow the Warrior Code",
+    "ravine": "a deep, narrow valley with steep sides",
+    "patience": "the ability to wait without getting angry or upset",
+    "virtue": "a good quality or way of behaving",
+    "escort": "to go with someone to make sure they get to a place safely or leave",
+    "Twolegplace": "the area where humans (Twolegs) live in houses",
+    "ancestors": "family members from a long time ago",
+    "prophetic": "predicting what will happen in the future",
+    "deceased": "dead; no longer living",
+    "feral": "living in the wild; not tame",
+    "hierarchy": "a system where members are ranked according to status",
+    "destiny": "what is supposed to happen in the future",
+    "courage": "bravery; being able to do something even if you are afraid",
+    "sternly": "in a serious and strict way",
+    "rustle": "a soft, crackling sound made by dry leaves or ferns",
+    "undergrowth": "small trees and bushes growing under taller trees"
   }
 }

@@ -41,7 +41,7 @@ def generate_story(topic, age=12):
            "word2": "simple English explanation"
          }}
        }}
-    5. Vocabulary: Identify 5-10 difficult or advanced words used in the story and provide simple English explanations for them.
+    5. Vocabulary: Identify 10-20 difficult or advanced words used in the story and provide simple English explanations for them.
     6. Ensure the JSON is valid and complete.
     """
 

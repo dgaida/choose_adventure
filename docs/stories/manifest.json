@@ -1,16 +1,16 @@
 {
   "stories": [
     {
-      "title": "Story of ThunderClan",
-      "filename": "thunderclan_6333.json"
-    },
-    {
       "title": "Moonpaw and the Lost Kit",
       "filename": "moonpaw_kit.json"
     },
     {
       "title": "Shadowpaw's Secret Mission",
       "filename": "shadowpaw_mission.json"
+    },
+    {
+      "title": "Firepaw's First Patrol",
+      "filename": "thunderclan_6333.json"
     }
   ]
 }
