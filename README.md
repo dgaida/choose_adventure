@@ -29,10 +29,21 @@ A "choose your own adventure" story generator for English learners in Germany.
    ```bash
    python src/app.py
    ```
-2. Enter a topic and the age of the student.
+2. Enter a story description and select the English level (A1-C2).
 3. Click "Generate and Add to Collection".
 4. The story will be saved in `docs/stories/`.
 5. Commit and push the changes to GitHub.
+
+### 🚀 Deploying to Render.com
+You can host the Gradio interface on Render.com:
+1. Create a new **Web Service** on Render.
+2. Connect your GitHub repository.
+3. Render will automatically detect the `render.yaml` file (Blueprint) or you can manually configure:
+   - **Runtime**: `Python`
+   - **Build Command**: `pip install -r requirements.txt`
+   - **Start Command**: `python src/app.py`
+4. Add an environment variable `PORT` set to `7860`.
+5. The app will be available at your Render URL.
 
 ### 🚀 Enabling GitHub Pages
 To host your stories, you must **manually enable** GitHub Pages in your repository settings:

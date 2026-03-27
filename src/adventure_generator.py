@@ -1,23 +1,15 @@
 import json
 from llm_client import LLMClient
 
-def generate_story(topic, age=12):
+def generate_story(topic, level="B1"):
     client = LLMClient()
 
     prompt = f"""
-    Create a "choose your own adventure" story about "{topic}" for a {age}-year-old student in Germany who is learning English.
-    The story should be set in the universe of the "Warriors" book series by Erin Hunter.
-
-    Warriors Series Elements:
-    - Setting: A forest or lake area where wild cat Clans live (ThunderClan, ShadowClan, RiverClan, WindClan, SkyClan).
-    - Beliefs: Cats follow the "Warrior Code" and believe in "StarClan" (ancestor spirits).
-    - Ranks: Leader, Deputy, Medicine Cat, Warrior, Apprentice, Queen, Kit, Elder.
-    - Naming: Kits (suffix -kit, e.g., Bluekit), Apprentices (suffix -paw, e.g., Bluepaw), Warriors/Leaders (suffix -star for leaders, or various others for warriors, e.g., Bluestar).
-    - Themes: Clan loyalty, prophecy, destiny, and nature vs. nurture.
+    Create a "choose your own adventure" story about "{topic}" for a student in Germany who is learning English at the CEFR {level} level.
 
     Guidelines:
     1. Language: English.
-    2. Difficulty: Appropriate for a {age}-year-old English learner (Grade level).
+    2. Difficulty: Appropriate for the CEFR {level} level.
     3. Structure: A branching narrative with 10-15 nodes.
     4. Format: Return ONLY a JSON object with the following structure:
        {{
@@ -70,6 +62,6 @@ def generate_story(topic, age=12):
 
 if __name__ == "__main__":
     # Test generation
-    story = generate_story("A mysterious forest")
+    story = generate_story("A mysterious forest", level="A2")
     if story:
         print(json.dumps(story, indent=2))
