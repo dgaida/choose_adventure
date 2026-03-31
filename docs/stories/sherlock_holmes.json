@@ -1,0 +1,131 @@
+{
+  "title": "A Trip to London with Sherlock Holmes",
+  "nodes": {
+    "start": {
+      "text": "You arrive in London on a grey morning, the air thick with mist. At Baker Street, you are greeted by the legendary detective Sherlock Holmes, who immediately informs you of a mysterious case. A valuable manuscript has been stolen, and he needs your assistance. You feel both nervous and excited. Holmes studies your face carefully. \"Shall we begin at once,\" he asks, \"or would you prefer to gather some preliminary information first?\"",
+      "choices": [
+        { "text": "Start the investigation immediately with Holmes.", "next_node": "investigate_now" },
+        { "text": "Ask Holmes for more background information.", "next_node": "background_info" }
+      ]
+    },
+    "investigate_now": {
+      "text": "Holmes nods approvingly at your decisiveness. You both leave Baker Street and head toward the crime scene, a quiet study in Kensington. The room appears undisturbed, yet Holmes insists that every detail matters.",
+      "choices": [
+        { "text": "Examine the desk closely.", "next_node": "desk" },
+        { "text": "Inspect the window for signs of entry.", "next_node": "window" }
+      ]
+    },
+    "background_info": {
+      "text": "Holmes explains that the manuscript belonged to a renowned historian and contained controversial ideas. \"Many would benefit from its disappearance,\" he says. You realize the case may involve powerful individuals.",
+      "choices": [
+        { "text": "Ask about possible suspects.", "next_node": "suspects" },
+        { "text": "Suggest visiting the crime scene.", "next_node": "investigate_now" }
+      ]
+    },
+    "desk": {
+      "text": "You notice a faint scratch on the desk surface and a small piece of torn paper. Holmes smiles slightly, impressed by your observation.",
+      "choices": [
+        { "text": "Show the paper to Holmes.", "next_node": "paper" },
+        { "text": "Ignore it and search elsewhere.", "next_node": "ignore_paper" }
+      ]
+    },
+    "window": {
+      "text": "The window is slightly open. Outside, you see a narrow alley. Holmes points out footprints that suggest someone entered from here.",
+      "choices": [
+        { "text": "Follow the footprints into the alley.", "next_node": "alley" },
+        { "text": "Return inside to search more.", "next_node": "desk" }
+      ]
+    },
+    "suspects": {
+      "text": "Holmes lists three suspects: a rival historian, a wealthy collector, and the victim's assistant. Each has a possible motive.",
+      "choices": [
+        { "text": "Investigate the rival historian.", "next_node": "historian" },
+        { "text": "Visit the assistant.", "next_node": "assistant" }
+      ]
+    },
+    "paper": {
+      "text": "Holmes examines the torn paper. \"A fragment of a letter,\" he concludes. \"It mentions a meeting at midnight.\"",
+      "choices": [
+        { "text": "Wait for midnight at the location mentioned.", "next_node": "midnight" },
+        { "text": "Ask Holmes to analyze it further.", "next_node": "analysis" }
+      ]
+    },
+    "ignore_paper": {
+      "text": "You overlook the paper and find nothing else of value. Holmes appears slightly disappointed. \"Every detail matters,\" he reminds you.",
+      "choices": [
+        { "text": "Return to examine the desk again.", "next_node": "desk" },
+        { "text": "Leave the house to follow other leads.", "next_node": "suspects" }
+      ]
+    },
+    "alley": {
+      "text": "The alley leads to a busy street. The trail disappears among the crowd. Holmes sighs. \"We must rely on deduction now.\"",
+      "choices": [
+        { "text": "Return to the crime scene.", "next_node": "desk" },
+        { "text": "Question nearby witnesses.", "next_node": "witness" }
+      ]
+    },
+    "witness": {
+      "text": "A shopkeeper recalls seeing a nervous man late at night. He describes someone matching the assistant.",
+      "choices": [
+        { "text": "Confront the assistant.", "next_node": "assistant" },
+        { "text": "Investigate the historian instead.", "next_node": "historian" }
+      ]
+    },
+    "historian": {
+      "text": "The historian denies involvement but seems evasive. Holmes notices inconsistencies in his statements.",
+      "choices": [
+        { "text": "Press him harder.", "next_node": "confession" },
+        { "text": "Leave and pursue another suspect.", "next_node": "assistant" }
+      ]
+    },
+    "assistant": {
+      "text": "The assistant appears anxious and avoids eye contact. Holmes observes silently.",
+      "choices": [
+        { "text": "Accuse the assistant directly.", "next_node": "confession" },
+        { "text": "Pretend to trust him and gather more information.", "next_node": "trick" }
+      ]
+    },
+    "confession": {
+      "text": "Under pressure, the suspect confesses. The manuscript was stolen for financial gain. Holmes nods, satisfied with your reasoning.",
+      "choices": [
+        { "text": "End the investigation successfully.", "next_node": "end_success" }
+      ]
+    },
+    "trick": {
+      "text": "Your strategy works. The assistant reveals a hidden meeting place where the manuscript is kept.",
+      "choices": [
+        { "text": "Go to the meeting place at midnight.", "next_node": "midnight" }
+      ]
+    },
+    "midnight": {
+      "text": "At midnight, you and Holmes catch the thief attempting to sell the manuscript. The operation is a success.",
+      "choices": [
+        { "text": "Celebrate solving the case.", "next_node": "end_success" }
+      ]
+    },
+    "analysis": {
+      "text": "Holmes deduces the identity of the thief from the handwriting style. \"Remarkable, is it not?\" he says.",
+      "choices": [
+        { "text": "Follow Holmes to confront the thief.", "next_node": "confession" }
+      ]
+    },
+    "end_success": {
+      "text": "The case is solved. Holmes congratulates you on your contribution. As you walk through London, you feel a sense of accomplishment and a deeper appreciation for observation and logic.",
+      "choices": []
+    }
+  },
+  "vocabulary": {
+    "manuscript": "an old written document or text",
+    "renowned": "known and respected by many people",
+    "controversial": "causing disagreement or strong opinions",
+    "preliminary": "done at the beginning before something else",
+    "decisiveness": "ability to make quick and firm decisions",
+    "undisturbed": "not changed or touched",
+    "fragment": "a small part of something larger",
+    "deduction": "reasoning from known facts to a conclusion",
+    "evasive": "avoiding giving a clear answer",
+    "inconsistencies": "parts that do not match or agree",
+    "confesses": "admits to doing something wrong",
+    "anxious": "feeling worried or nervous"
+  }
+}
