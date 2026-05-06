@@ -24,3 +24,8 @@ This repository contains a "choose your own adventure" story generator designed 
 ## Development Setup
 - Install dependencies: `pip install -r requirements.txt`
 - Set `PYTHONPATH` to `src` when running scripts locally: `export PYTHONPATH=$PYTHONPATH:$(pwd)/src`
+
+## Repository Health & Maintenance
+- **Testing**: A test suite exists in `tests/`. Always run `pytest` before submitting changes.
+- **Temporary Files**: Do not commit log files (`*.log`) or temporary verification scripts (`verify_*.py`, `verify_*.js`) to the repository.
+- **Code Standards**: Maintain type hints and descriptive docstrings for all new Python functions.
