@@ -1,6 +1,6 @@
 [project]
 name = "adventure-story-generator"
-version = "0.2.3"
+version = "0.2.4"
 description = "A choose-your-own-adventure story generator for English learners."
 authors = [{ name = "Jules" }]
 requires-python = ">=3.11"
