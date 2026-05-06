@@ -1,3 +1,5 @@
+import logging
+logger = logging.getLogger(__name__)
 import os
 import json
 
@@ -21,7 +23,7 @@ def update_manifest():
                             "filename": filename
                         })
                 except Exception as e:
-                    print(f"Error reading {filename}: {e}")
+                    logger.error(f"Error reading {filename}: {e}")
 
     manifest = {"stories": stories}
 
@@ -29,7 +31,7 @@ def update_manifest():
     os.makedirs(stories_dir, exist_ok=True)
     with open(manifest_path, 'w') as f:
         json.dump(manifest, f, indent=2)
-    print(f"Updated {manifest_path} with {len(stories)} stories.")
+    logger.info(f"Updated {manifest_path} with {len(stories)} stories.")
 
 if __name__ == "__main__":
     update_manifest()
