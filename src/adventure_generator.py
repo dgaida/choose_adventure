@@ -1,9 +1,22 @@
 import logging
-logger = logging.getLogger(__name__)
 import json
+from typing import Optional, Dict, Any
 from llm_client import LLMClient
 
-def generate_story(topic, level="B1"):
+logger = logging.getLogger(__name__)
+
+def generate_story(topic: str, level: str = "B1") -> Optional[Dict[str, Any]]:
+    """
+    Generates a branching adventure story using an LLM.
+
+    Args:
+        topic: The description or theme of the story.
+        level: The CEFR English level (A1, A2, B1, B2, C1, C2).
+
+    Returns:
+        A dictionary containing the story title, nodes, and vocabulary,
+        or None if generation fails.
+    """
     client = LLMClient()
 
     prompt = f"""
