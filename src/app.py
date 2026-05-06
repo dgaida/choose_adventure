@@ -10,19 +10,21 @@ from update_manifest import update_manifest
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(name)s - %(levelname)s - %(message)s")
 logger = logging.getLogger(__name__)
 
-def process_and_save_story(topic: str, level: str) -> str:
+def process_and_save_story(topic: str, level: str, length: str, age_range: str) -> str:
     """
     Orchestrates story generation, saving, and manifest update.
 
     Args:
         topic: The description of the story to generate.
         level: The CEFR English level.
+        length: The length of the story.
+        age_range: The age range of the reader.
 
     Returns:
         A status message indicating success or failure.
     """
     try:
-        story_data = generate_story(topic, level)
+        story_data = generate_story(topic, level, length, age_range)
         if not story_data:
             return "Error: Could not generate story. Please check the logs for details."
 
@@ -67,16 +69,28 @@ with gr.Blocks(title="Adventure Story Generator") as demo:
     gr.Markdown("Create branching stories for English learners.")
 
     with gr.Row():
-        default_topic = "Create a branching story set in the universe of the 'Warriors' book series by Erin Hunter. It should involve a young apprentice's first hunt and a mysterious prophecy. The story should be appropriate for English learners."
-        topic_input = gr.Textbox(label="Story Description", lines=10, value=default_topic)
-        level_input = gr.Dropdown(label="English Level", choices=["A1", "A2", "B1", "B2", "C1", "C2"], value="B1")
+        with gr.Column():
+            default_topic = "Create a branching story set in the universe of the 'Warriors' book series by Erin Hunter. It should involve a young apprentice's first hunt and a mysterious prophecy. The story should be appropriate for English learners."
+            topic_input = gr.Textbox(label="Story Description", lines=10, value=default_topic)
+        with gr.Column():
+            level_input = gr.Dropdown(label="English Level", choices=["A1", "A2", "B1", "B2", "C1", "C2"], value="B1")
+            length_input = gr.Dropdown(
+                label="Story Length",
+                choices=["short (15-20 nodes)", "medium (20-25 nodes)", "long (25-30 nodes)"],
+                value="short (15-20 nodes)"
+            )
+            age_input = gr.Dropdown(
+                label="Reader Age Range",
+                choices=["6-12", "12-18", "18-30", "30-50", "50+"],
+                value="12-18"
+            )
 
     generate_btn = gr.Button("Generate and Add to Collection")
     output_text = gr.Textbox(label="Status")
 
     generate_btn.click(
         fn=process_and_save_story,
-        inputs=[topic_input, level_input],
+        inputs=[topic_input, level_input, length_input, age_input],
         outputs=output_text
     )
 

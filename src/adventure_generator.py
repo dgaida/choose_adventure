@@ -5,27 +5,35 @@ from llm_client import LLMClient
 
 logger = logging.getLogger(__name__)
 
-def generate_story(topic: str, level: str = "B1") -> Optional[Dict[str, Any]]:
+def generate_story(
+    topic: str,
+    level: str = "B1",
+    length: str = "short (15-20 nodes)",
+    age_range: str = "12-18"
+) -> Optional[Dict[str, Any]]:
     """
     Generates a branching adventure story using an LLM.
 
     Args:
         topic: The description or theme of the story.
         level: The CEFR English level (A1, A2, B1, B2, C1, C2).
+        length: The length of the story (number of nodes).
+        age_range: The age range of the reader.
 
     Returns:
         A dictionary containing the story title, nodes, and vocabulary,
         or None if generation fails.
     """
-    client = LLMClient()
+    client = LLMClient(llm="openai/gpt-oss-120b", max_tokens=4096)
 
     prompt = f"""
     Create a "choose your own adventure" story about "{topic}" for a student in Germany who is learning English at the CEFR {level} level.
+    The reader is in the age range: {age_range}. Ensure the content is age-appropriate and does not contain any adult content if the reader is a kid.
 
     Guidelines:
     1. Language: English.
     2. Difficulty: Appropriate for the CEFR {level} level.
-    3. Structure: A branching narrative with 10-15 nodes.
+    3. Structure: A branching narrative with {length}.
     4. Format: Return ONLY a JSON object with the following structure:
        {{
          "title": "Story Title",
