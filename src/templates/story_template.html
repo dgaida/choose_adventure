@@ -166,12 +166,24 @@
         }
 
         function highlightVocab(text) {
-            let highlightedText = text;
-            for (const [word, explanation] of Object.entries(vocabData)) {
-                const regex = new RegExp(`\\b(${word})\\b`, 'gi');
-                highlightedText = highlightedText.replace(regex, `<span class="vocab" data-explanation="${explanation}">$1</span>`);
-            }
-            return highlightedText;
+            // Sort words by length (descending) to match longest possible phrases first
+            const words = Object.keys(vocabData).sort((a, b) => b.length - a.length);
+            if (words.length === 0) return text;
+
+            // Create a single regex that matches all vocabulary words
+            const escapedWords = words.map(w => w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
+            const regex = new RegExp(`\\b(${escapedWords.join('|')})\\b`, 'gi');
+
+            // Replace in a single pass to avoid nested tags or double-processing
+            return text.replace(regex, (match) => {
+                // Find the original key to get the correct explanation (case-insensitive)
+                const originalWord = words.find(w => w.toLowerCase() === match.toLowerCase());
+                const explanation = vocabData[originalWord];
+
+                // Escape explanation for use in data-explanation attribute
+                const escapedExplanation = explanation.replace(/"/g, '&quot;');
+                return `<span class="vocab" data-explanation="${escapedExplanation}">${match}</span>`;
+            });
         }
 
         function showNode(nodeId) {

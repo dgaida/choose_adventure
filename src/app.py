@@ -2,6 +2,7 @@ import os
 import json
 import logging
 import gradio as gr
+from typing import Optional
 from adventure_generator import generate_story
 from update_manifest import update_manifest
 
@@ -9,7 +10,17 @@ from update_manifest import update_manifest
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(name)s - %(levelname)s - %(message)s")
 logger = logging.getLogger(__name__)
 
-def process_and_save_story(topic, level):
+def process_and_save_story(topic: str, level: str) -> str:
+    """
+    Orchestrates story generation, saving, and manifest update.
+
+    Args:
+        topic: The description of the story to generate.
+        level: The CEFR English level.
+
+    Returns:
+        A status message indicating success or failure.
+    """
     try:
         story_data = generate_story(topic, level)
         if not story_data:
@@ -38,18 +49,18 @@ def process_and_save_story(topic, level):
         template_path = os.path.join(os.path.dirname(__file__), "templates", "story_template.html")
         index_path = os.path.join(docs_dir, "index.html")
 
-        with open(template_path, "r") as f:
-            template_content = f.read()
+        if os.path.exists(template_path):
+            with open(template_path, "r") as f:
+                template_content = f.read()
 
-        # For the multi-story version, the template doesn't need replacements
-        # as it loads data via JS. Just copy it.
-        with open(index_path, "w") as f:
-            f.write(template_content)
+            with open(index_path, "w") as f:
+                f.write(template_content)
 
         return f"Story '{story_data.get('title')}' generated successfully! Saved to {story_path} and manifest updated. Push to GitHub to publish."
     except Exception as e:
         logger.exception("Error in process_and_save_story")
         return f"An unexpected error occurred: {str(e)}"
+
 # Create Gradio UI
 with gr.Blocks(title="Adventure Story Generator") as demo:
     gr.Markdown("# 🗺️ Adventure Story Generator")
