@@ -1,3 +1,5 @@
+import logging
+logger = logging.getLogger(__name__)
 import json
 from llm_client import LLMClient
 
@@ -56,8 +58,8 @@ def generate_story(topic, level="B1"):
         story_data = json.loads(json_str)
         return story_data
     except Exception as e:
-        print(f"Error parsing story JSON: {e}")
-        print(f"Raw response: {response}")
+        logger.error(f"Error parsing story JSON: {e}")
+        logger.error(f"Raw response: {response}")
         return None
 
 if __name__ == "__main__":

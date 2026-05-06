@@ -1,47 +1,55 @@
 import os
 import json
+import logging
 import gradio as gr
 from adventure_generator import generate_story
 from update_manifest import update_manifest
 
+# Configure logging
+logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(name)s - %(levelname)s - %(message)s")
+logger = logging.getLogger(__name__)
+
 def process_and_save_story(topic, level):
-    story_data = generate_story(topic, level)
-    if not story_data:
-        return "Error: Could not generate story. Please try again."
+    try:
+        story_data = generate_story(topic, level)
+        if not story_data:
+            return "Error: Could not generate story. Please check the logs for details."
 
-    # Ensure docs and docs/stories directories exist
-    base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    docs_dir = os.path.join(base_dir, 'docs')
-    stories_dir = os.path.join(docs_dir, 'stories')
-    os.makedirs(stories_dir, exist_ok=True)
+        # Ensure docs and docs/stories directories exist
+        base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        docs_dir = os.path.join(base_dir, "docs")
+        stories_dir = os.path.join(docs_dir, "stories")
+        os.makedirs(stories_dir, exist_ok=True)
 
-    # Generate a filename for the story
-    title = story_data.get("title", "story")
-    story_id = "".join(x for x in title if x.isalnum())[:20].lower() or "story"
-    filename = f"{story_id}_{int(os.getpid())}.json"
-    story_path = os.path.join(stories_dir, filename)
+        # Generate a filename for the story
+        title = story_data.get("title", "story")
+        story_id = "".join(x for x in title if x.isalnum())[:20].lower() or "story"
+        filename = f"{story_id}_{int(os.getpid())}.json"
+        story_path = os.path.join(stories_dir, filename)
 
-    # Save the story JSON
-    with open(story_path, 'w') as f:
-        json.dump(story_data, f, indent=2)
+        # Save the story JSON
+        with open(story_path, "w") as f:
+            json.dump(story_data, f, indent=2)
 
-    # Update manifest.json automatically by scanning stories directory
-    update_manifest()
+        # Update manifest.json automatically by scanning stories directory
+        update_manifest()
 
-    # Ensure index.html is initialized from template
-    template_path = os.path.join(os.path.dirname(__file__), 'templates', 'story_template.html')
-    index_path = os.path.join(docs_dir, 'index.html')
+        # Ensure index.html is initialized from template
+        template_path = os.path.join(os.path.dirname(__file__), "templates", "story_template.html")
+        index_path = os.path.join(docs_dir, "index.html")
 
-    with open(template_path, 'r') as f:
-        template_content = f.read()
+        with open(template_path, "r") as f:
+            template_content = f.read()
 
-    # For the multi-story version, the template doesn't need replacements
-    # as it loads data via JS. Just copy it.
-    with open(index_path, 'w') as f:
-        f.write(template_content)
+        # For the multi-story version, the template doesn't need replacements
+        # as it loads data via JS. Just copy it.
+        with open(index_path, "w") as f:
+            f.write(template_content)
 
-    return f"Story '{story_data.get('title')}' generated successfully! Saved to {story_path} and manifest updated. Push to GitHub to publish."
-
+        return f"Story '{story_data.get('title')}' generated successfully! Saved to {story_path} and manifest updated. Push to GitHub to publish."
+    except Exception as e:
+        logger.exception("Error in process_and_save_story")
+        return f"An unexpected error occurred: {str(e)}"
 # Create Gradio UI
 with gr.Blocks(title="Adventure Story Generator") as demo:
     gr.Markdown("# 🗺️ Adventure Story Generator")
