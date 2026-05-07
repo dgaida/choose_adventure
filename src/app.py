@@ -25,9 +25,9 @@ def process_and_save_story(topic: str, level: str, length: str, age_range: str) 
         A tuple of (status message, file path for download, story data).
     """
     try:
-        story_data = generate_story(topic, level, length, age_range)
+        story_data, raw_response = generate_story(topic, level, length, age_range)
         if not story_data:
-            return "Error: Could not generate story. Please check the logs for details.", None, None, ""
+            return "Error: Could not parse story JSON. Showing raw response in preview.", None, None, raw_response
 
         # Ensure docs and docs/stories directories exist
         base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
