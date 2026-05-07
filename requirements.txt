@@ -1,2 +1,3 @@
 gradio
 llm-client @ git+https://github.com/dgaida/llm_client.git
+PyGithub
