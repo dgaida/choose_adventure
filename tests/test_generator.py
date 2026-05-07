@@ -8,11 +8,14 @@ def test_generate_story_success(mock_client_class):
     mock_instance = mock_client_class.return_value
     mock_instance.chat_completion.return_value = '{"title": "Test Story", "nodes": {"start": {"text": "Once upon a time", "choices": []}}, "vocabulary": {}}'
 
-    result = generate_story("A test topic", "B1")
+    result = generate_story("A test topic", "B1", "short (15-20 nodes)", "12-18")
 
     assert result is not None
     assert result['title'] == "Test Story"
     assert "start" in result['nodes']
+
+    # Verify LLMClient was initialized with the correct model and max_tokens
+    mock_client_class.assert_called_once_with(llm="openai/gpt-oss-120b", max_tokens=4096)
     mock_instance.chat_completion.assert_called_once()
 
 @patch('adventure_generator.LLMClient')
