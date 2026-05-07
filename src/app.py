@@ -11,7 +11,7 @@ from update_manifest import update_manifest
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(name)s - %(levelname)s - %(message)s")
 logger = logging.getLogger(__name__)
 
-def process_and_save_story(topic: str, level: str, length: str, age_range: str) -> Tuple[str, Optional[str], Optional[Dict[str, Any]]]:
+def process_and_save_story(topic: str, level: str, length: str, age_range: str) -> Tuple[str, Optional[str], Optional[Dict[str, Any]], str]:
     """
     Orchestrates story generation, saving, and manifest update.
 
@@ -27,7 +27,7 @@ def process_and_save_story(topic: str, level: str, length: str, age_range: str) 
     try:
         story_data = generate_story(topic, level, length, age_range)
         if not story_data:
-            return "Error: Could not generate story. Please check the logs for details.", None, None
+            return "Error: Could not generate story. Please check the logs for details.", None, None, ""
 
         # Ensure docs and docs/stories directories exist
         base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -59,18 +59,25 @@ def process_and_save_story(topic: str, level: str, length: str, age_range: str) 
             with open(index_path, "w") as f:
                 f.write(template_content)
 
-        return f"Story '{story_data.get('title')}' generated successfully!", story_path, story_data
+        return f"Story '{story_data.get('title')}' generated successfully!", story_path, story_data, json.dumps(story_data, indent=2)
     except Exception as e:
         logger.exception("Error in process_and_save_story")
-        return f"An unexpected error occurred: {str(e)}", None, None
+        return f"An unexpected error occurred: {str(e)}", None, None, ""
 
-def create_github_pr(story_data: Optional[Dict[str, Any]]) -> str:
+def create_github_pr(story_json: str) -> str:
     """
     Creates a Pull Request on GitHub with the new story.
     """
-    if not story_data:
+    if not story_json:
         return "Error: No story data found. Please generate a story first."
 
+    try:
+        story_data = json.loads(story_json)
+    except Exception as e:
+        return f"Error: Invalid JSON in story preview: {str(e)}"
+
+    if not story_data:
+        return "Error: No story data found. Please generate a story first."
     token = os.environ.get("GITHUB_TOKEN")
     if not token:
         return "Error: GITHUB_TOKEN environment variable not set."
@@ -157,18 +164,20 @@ with gr.Blocks(title="Adventure Story Generator") as demo:
         output_text = gr.Textbox(label="Status")
         download_file = gr.File(label="Download Story JSON")
 
+    story_preview = gr.Textbox(label="Story Preview (JSON)", lines=15)
+
     pr_btn = gr.Button("Create Pull Request on GitHub", variant="primary")
     pr_status = gr.Textbox(label="PR Status")
 
     generate_btn.click(
         fn=process_and_save_story,
         inputs=[topic_input, level_input, length_input, age_input],
-        outputs=[output_text, download_file, story_state]
+        outputs=[output_text, download_file, story_state, story_preview]
     )
 
     pr_btn.click(
         fn=create_github_pr,
-        inputs=[story_state],
+        inputs=[story_preview],
         outputs=pr_status
     )
 
