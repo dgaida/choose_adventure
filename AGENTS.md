@@ -27,5 +27,5 @@ This repository contains a "choose your own adventure" story generator designed 
 
 ## Repository Health & Maintenance  
 - **Testing**: A test suite exists in `tests/`. Always run `pytest` before submitting changes.  
-- **Temporary Files**: Do not commit log files (`*.log`) or temporary verification scripts (`verify_*.py`, `verify_*.js`) to the repository.  
+- **Temporary Files**: Do not commit log files (`*.log`) or temporary verification scripts (`verify_*.py`, `verify_*.js`) to the repository. Always delete any temporary files created during development and verification before submitting a PR.
 - **Code Standards**: Maintain type hints and descriptive docstrings for all new Python functions.  
