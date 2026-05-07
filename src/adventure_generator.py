@@ -24,7 +24,7 @@ def generate_story(
         A dictionary containing the story title, nodes, and vocabulary,
         or None if generation fails.
     """
-    client = LLMClient(llm="openai/gpt-oss-120b", max_tokens=4096)
+    client = LLMClient(llm="openai/gpt-oss-120b", max_tokens=8192)
 
     prompt = f"""
     Create a "choose your own adventure" story about "{topic}" for a student in Germany who is learning English at the CEFR {level} level.
