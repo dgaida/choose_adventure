@@ -17,7 +17,7 @@ permissions:
 
 concurrency:
   group: "pages"
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   deploy:
@@ -42,7 +42,7 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add docs/stories/manifest.json
-          git diff --quiet && git diff --staged --quiet || (git commit -m "Auto-update story manifest" && git push)
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Auto-update story manifest [skip ci]" && git push)
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
