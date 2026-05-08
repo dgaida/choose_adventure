@@ -48,7 +48,14 @@ def generate_story(
         A dictionary containing the story title, nodes, and vocabulary,
         or None if generation fails.
     """
-    client = LLMClient(llm="openai/gpt-oss-120b", max_tokens=8192)
+    if "long" in length.lower():
+        model = "llama-3.3-70b-versatile"
+        max_tokens = 12288
+    else:
+        model = "openai/gpt-oss-120b"
+        max_tokens = 8192
+
+    client = LLMClient(llm=model, max_tokens=max_tokens)
 
     prompt = f"""
     Create a "choose your own adventure" story about "{topic}" for a student
