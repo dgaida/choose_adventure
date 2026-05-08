@@ -1,427 +1,424 @@
 {
-  "title": "The Multiverse Odyssey",
+  "title": "The Multiverse Dilemma",
   "nodes": {
     "start": {
-      "text": "You are Evelyn, a Chinese immigrant living in California. You run a small laundromat with your husband, Waymond. Your life is ordinary, but you're struggling to make ends meet. The IRS is auditing your business, and you're worried about the future. As you sort laundry, you receive a visit from a tense IRS agent, Deirdre Beaubeirdre. She's stern and demanding. Suddenly, Waymond does something strange, and his body starts to change.",
+      "text": "You are Evelyn Quan Wang, a middle-aged Chinese immigrant living in Simi Valley, California. You run a laundromat with your husband Waymond. Your life is a struggle, with an impending IRS audit and a strained relationship with your daughter Joy. As you navigate these challenges, you begin to feel overwhelmed by the expectations placed upon you. Suddenly, Waymond approaches you with a serious look on his face, holding a stack of papers.",
       "choices": [
         {
-          "text": "Ask Waymond what's happening to him",
+          "text": "Ask Waymond what's going on and what the papers are for",
           "next_node": "node_1"
         },
         {
-          "text": "Try to ignore the situation and focus on the IRS audit",
+          "text": "Tell Waymond you're busy and don't have time for this",
           "next_node": "node_2"
         }
       ]
     },
     "node_1": {
-      "text": "Waymond's body is taken over by Alpha-Waymond, a version of himself from a parallel universe. Alpha-Waymond explains that many universes exist, and every life choice creates a new one. He tells you that you're about to embark on a journey through the multiverse.",
+      "text": "Waymond explains that he wants to discuss their marriage and is considering filing for divorce. He hands you the papers, which are divorce documents. You're taken aback, feeling like your world is crumbling. Just then, the IRS Revenue Agent Deirdre Beaubeirdre arrives for the audit.",
       "choices": [
         {
-          "text": "Agree to explore the multiverse with Alpha-Waymond",
+          "text": "Ask Deirdre if you can delay the audit, citing your personal issues",
           "next_node": "node_3"
         },
         {
-          "text": "Refuse to get involved and try to return to your normal life",
+          "text": "Try to discuss the divorce papers with Waymond while Deirdre is present",
           "next_node": "node_4"
         }
       ]
     },
     "node_2": {
-      "text": "You try to focus on the IRS audit, but Deirdre is relentless. She threatens to shut down your laundromat if you don't comply with her demands. Just as things are getting out of hand, Waymond interrupts the meeting, holding a strange device.",
+      "text": "You brush Waymond off, telling him you're busy with the IRS audit and can't deal with his issues right now. Waymond looks concerned but leaves the room. You're left alone, feeling anxious about the audit and your life.",
       "choices": [
         {
-          "text": "Ask Waymond what the device is and what he's doing",
+          "text": "Focus on preparing for the IRS audit, hoping to resolve it quickly",
           "next_node": "node_5"
         },
         {
-          "text": "Tell Deirdre that you're not interested in discussing anything further",
+          "text": "Go after Waymond, feeling a need to talk to him about your marriage",
           "next_node": "node_6"
         }
       ]
     },
     "node_3": {
-      "text": "Alpha-Waymond takes you to a strange, futuristic world. You see versions of yourself and your loved ones from different universes. Alpha-Waymond explains that a rogue entity, Jobu Tupaki, threatens the multiverse.",
+      "text": "Deirdre agrees to delay the audit but warns you that it's not a permanent reprieve. As she leaves, Waymond approaches you again, this time with a strange look in his eyes. He whispers that he needs to tell you something important.",
       "choices": [
         {
-          "text": "Agree to help Alpha-Waymond stop Jobu Tupaki",
+          "text": "Ask Waymond what's going on and what he wants to tell you",
           "next_node": "node_7"
         },
         {
-          "text": "Refuse to get involved and try to return to your own universe",
+          "text": "Tell Waymond you're not interested in talking right now",
           "next_node": "node_8"
         }
       ]
     },
     "node_4": {
-      "text": "You refuse to get involved and try to return to your normal life. However, you soon realize that your decisions have consequences in the multiverse. You start to experience strange occurrences and encounter alternate versions of yourself.",
+      "text": "Deirdre interrupts your conversation, insisting that you focus on the audit. You try to compose yourself, but the tension between you and Waymond is palpable. As Deirdre begins questioning you, you notice a strange, glowing light emanating from outside.",
       "choices": [
         {
-          "text": "Try to find a way to control your abilities and navigate the multiverse",
+          "text": "Investigate the strange light, feeling a sense of curiosity",
           "next_node": "node_9"
         },
         {
-          "text": "Seek help from Alpha-Waymond and his allies",
+          "text": "Stay focused on the audit, hoping to resolve it quickly",
           "next_node": "node_10"
         }
       ]
     },
     "node_5": {
-      "text": "Waymond explains that the device is a verse-jumping tool, which allows him to access skills and memories from parallel universes. He offers to teach you how to use it.",
+      "text": "You spend the next few hours preparing for the audit, but your mind keeps wandering back to Waymond and your marriage. As you're about to leave, Deirdre returns, looking stern.",
       "choices": [
         {
-          "text": "Accept Waymond's offer and learn how to use the device",
+          "text": "Try to negotiate with Deirdre, hoping to find a resolution",
           "next_node": "node_11"
         },
         {
-          "text": "Decline the offer and focus on your laundromat business",
+          "text": "Feel overwhelmed and ask for a break, hoping to regroup",
           "next_node": "node_12"
         }
       ]
     },
     "node_6": {
-      "text": "Deirdre becomes increasingly aggressive and threatens to arrest you. Waymond intervenes, and you manage to escape the situation. However, you realize that you need to take action to protect your business and your family.",
+      "text": "You catch up to Waymond, demanding to know what's going on. He takes a deep breath, explaining that he's been experiencing strange occurrences and has discovered a way to communicate with alternate versions of himself.",
       "choices": [
         {
-          "text": "Seek help from a lawyer to deal with the IRS",
+          "text": "Listen to Waymond, intrigued by his story",
           "next_node": "node_13"
         },
         {
-          "text": "Take a more drastic approach to resolve the situation",
+          "text": "Dismiss Waymond's claims, thinking he's lost his mind",
           "next_node": "node_14"
         }
       ]
     },
     "node_7": {
-      "text": "Alpha-Waymond takes you to meet his allies, a group of rebels fighting against Jobu Tupaki. They explain that Jobu has created a black hole-like entity, the 'Everything Bagel,' which could destroy the multiverse.",
+      "text": "Waymond reveals that he's discovered a way to jump between parallel universes. He explains that many versions of you and him exist across the multiverse, and that one of these versions has developed a technology to communicate with and access the skills and memories of their parallel selves.",
       "choices": [
         {
-          "text": "Join the rebels and help them stop Jobu Tupaki",
+          "text": "Ask Waymond to explain more about this technology and the multiverse",
           "next_node": "node_15"
         },
         {
-          "text": "Refuse to get involved and try to find another way to stop Jobu",
+          "text": "Tell Waymond that you're not interested in hearing more",
           "next_node": "node_16"
         }
       ]
     },
     "node_8": {
-      "text": "You try to return to your own universe but find that it's not possible. You're stuck in the multiverse, and you need to find a way to survive.",
+      "text": "Waymond looks disappointed but insists that you need to hear this. He explains that a version of you from another universe has developed a technology that allows you to access the skills and memories of your parallel selves.",
       "choices": [
         {
-          "text": "Seek help from Alpha-Waymond and his allies",
+          "text": "Ask Waymond to prove this, demanding concrete evidence",
           "next_node": "node_17"
         },
         {
-          "text": "Try to find a way to navigate the multiverse on your own",
+          "text": "Tell Waymond that you need time to think about this",
           "next_node": "node_18"
         }
       ]
     },
     "node_9": {
-      "text": "You start to experience strange occurrences and encounter alternate versions of yourself. You realize that you have abilities that you never knew you had.",
+      "text": "As you investigate the strange light, you notice that it's coming from a glowing portal. Waymond approaches you, telling you that this is a gateway to another universe.",
       "choices": [
         {
-          "text": "Try to control your abilities and use them to your advantage",
+          "text": "Step through the portal with Waymond, curious about the multiverse",
           "next_node": "node_19"
         },
         {
-          "text": "Seek help from someone who understands the multiverse",
+          "text": "Refuse to go through the portal, feeling scared and uncertain",
           "next_node": "node_20"
         }
       ]
     },
     "node_10": {
-      "text": "You seek help from Alpha-Waymond and his allies. They teach you how to navigate the multiverse and control your abilities.",
+      "text": "Deirdre becomes increasingly aggressive, demanding that you answer her questions. You start to feel overwhelmed, wondering if you'll ever resolve this audit.",
       "choices": [
         {
-          "text": "Use your new abilities to help Alpha-Waymond and the rebels",
+          "text": "Try to remain calm and answer Deirdre's questions",
           "next_node": "node_21"
         },
         {
-          "text": "Try to use your abilities for personal gain",
+          "text": "Demand to speak to Deirdre's supervisor, feeling frustrated",
           "next_node": "node_22"
         }
       ]
     },
     "node_11": {
-      "text": "Waymond teaches you how to use the verse-jumping tool. You start to explore the multiverse and discover new abilities and skills.",
+      "text": "Deirdre seems unwilling to negotiate, but you try to reason with her. Just as it seems like you're making progress, Waymond interrupts, telling you that he needs to talk to you urgently.",
       "choices": [
         {
-          "text": "Use your new abilities to help Waymond and the rebels",
+          "text": "Excuse yourself to talk to Waymond, feeling a sense of urgency",
           "next_node": "node_23"
         },
         {
-          "text": "Try to use your abilities for personal gain",
+          "text": "Tell Waymond to wait, focusing on resolving the audit",
           "next_node": "node_24"
         }
       ]
     },
     "node_12": {
-      "text": "You decline the offer and focus on your laundromat business. However, you soon realize that your decisions have consequences in the multiverse.",
+      "text": "Deirdre grants you a short break, but you know you need to compose yourself. As you step outside, you notice Waymond waiting for you, looking concerned.",
       "choices": [
         {
-          "text": "Try to find a way to control your abilities and navigate the multiverse",
+          "text": "Ask Waymond what's wrong, feeling a sense of concern",
           "next_node": "node_25"
         },
         {
-          "text": "Seek help from Alpha-Waymond and his allies",
+          "text": "Tell Waymond you're fine, trying to brush him off",
           "next_node": "node_26"
         }
       ]
     },
     "node_13": {
-      "text": "You seek help from a lawyer to deal with the IRS. However, you realize that the situation is more complex than you thought.",
+      "text": "Waymond explains that he's been communicating with an alternate version of himself, who calls himself Alpha-Waymond. Alpha-Waymond claims that the multiverse is under threat from a powerful entity known as Jobu Tupaki.",
       "choices": [
         {
-          "text": "Take a more drastic approach to resolve the situation",
+          "text": "Ask Waymond to explain more about Jobu Tupaki and the threat",
           "next_node": "node_27"
         },
         {
-          "text": "Try to find a way to negotiate with the IRS",
+          "text": "Tell Waymond that you don't believe him, feeling skeptical",
           "next_node": "node_28"
         }
       ]
     },
     "node_14": {
-      "text": "You take a more drastic approach to resolve the situation. However, you soon realize that your actions have unintended consequences.",
+      "text": "Waymond looks disappointed but insists that you need to hear this. He explains that Jobu Tupaki is a being with immense power, capable of manipulating the fabric of reality.",
       "choices": [
         {
-          "text": "Try to find a way to undo the damage you've done",
+          "text": "Ask Waymond to prove this, demanding concrete evidence",
           "next_node": "node_29"
         },
         {
-          "text": "Seek help from Alpha-Waymond and his allies",
+          "text": "Tell Waymond that you need time to think about this",
           "next_node": "node_30"
         }
       ]
     },
     "node_15": {
-      "text": "You join the rebels and help them stop Jobu Tupaki. However, you realize that the situation is more complex than you thought.",
+      "text": "Waymond explains that this technology, known as verse-jumping, allows you to access the skills and memories of your parallel selves. He claims that you have the potential to become a powerful force in the multiverse.",
       "choices": [
         {
-          "text": "Try to find a way to defeat Jobu Tupaki",
-          "next_node": "node_25"
+          "text": "Ask Waymond to teach you how to use this technology",
+          "next_node": "node_31"
         },
         {
-          "text": "Seek help from Alpha-Waymond and his allies",
-          "next_node": "node_26"
+          "text": "Refuse to get involved, feeling scared and uncertain",
+          "next_node": "node_32"
         }
       ]
     },
     "node_16": {
-      "text": "You refuse to get involved and try to find another way to stop Jobu. However, you soon realize that your decisions have consequences in the multiverse.",
+      "text": "Waymond looks concerned, telling you that you're in grave danger. He explains that Jobu Tupaki's minions are searching for you, intent on capturing you and using your powers for their own purposes.",
       "choices": [
         {
-          "text": "Try to find a way to control your abilities and navigate the multiverse",
-          "next_node": "node_27"
+          "text": "Ask Waymond to protect you, feeling a sense of fear",
+          "next_node": "node_33"
         },
         {
-          "text": "Seek help from Alpha-Waymond and his allies",
-          "next_node": "node_28"
+          "text": "Tell Waymond that you can handle yourself, feeling confident",
+          "next_node": "node_34"
         }
       ]
     },
     "node_17": {
-      "text": "You seek help from Alpha-Waymond and his allies. They teach you how to navigate the multiverse and control your abilities.",
+      "text": "Waymond shows you a device that allows you to communicate with your parallel selves. He explains that this device will allow you to access the skills and memories of your parallel selves.",
       "choices": [
         {
-          "text": "Use your new abilities to help Alpha-Waymond and the rebels",
-          "next_node": "node_29"
+          "text": "Use the device to communicate with your parallel selves",
+          "next_node": "node_35"
         },
         {
-          "text": "Try to use your abilities for personal gain",
-          "next_node": "node_30"
+          "text": "Refuse to use the device, feeling skeptical",
+          "next_node": "node_36"
         }
       ]
     },
     "node_18": {
-      "text": "You try to find a way to navigate the multiverse on your own. However, you soon realize that it's not possible.",
+      "text": "Waymond tells you that you need to be careful, as Jobu Tupaki's minions are searching for you. He explains that they'll stop at nothing to capture you and use your powers for their own purposes.",
       "choices": [
         {
-          "text": "Seek help from Alpha-Waymond and his allies",
-          "next_node": "node_1"
+          "text": "Ask Waymond to help you prepare for the minions",
+          "next_node": "node_37"
         },
         {
-          "text": "Try to find another way to survive in the multiverse",
-          "next_node": "node_2"
+          "text": "Tell Waymond that you'll handle it yourself",
+          "next_node": "node_38"
         }
       ]
     },
     "node_19": {
-      "text": "You start to experience strange occurrences and encounter alternate versions of yourself. You realize that you have abilities that you never knew you had.",
+      "text": "As you step through the portal, you find yourself in a strange, unfamiliar universe. Waymond is by your side, explaining that this universe is similar to your own but with some key differences.",
       "choices": [
         {
-          "text": "Try to control your abilities and use them to your advantage",
-          "next_node": "node_3"
+          "text": "Explore this new universe with Waymond",
+          "next_node": "node_39"
         },
         {
-          "text": "Seek help from someone who understands the multiverse",
-          "next_node": "node_4"
+          "text": "Try to return to your own universe",
+          "next_node": "node_40"
         }
       ]
     },
     "node_20": {
-      "text": "You seek help from someone who understands the multiverse. They teach you how to navigate the multiverse and control your abilities.",
+      "text": "Waymond tries to reassure you, telling you that you'll be safe. But you're not convinced, feeling scared and uncertain.",
       "choices": [
         {
-          "text": "Use your new abilities to help others",
-          "next_node": "node_5"
+          "text": "Step through the portal with Waymond",
+          "next_node": "node_41"
         },
         {
-          "text": "Try to use your abilities for personal gain",
-          "next_node": "node_6"
+          "text": "Refuse to go through the portal",
+          "next_node": "node_42"
         }
       ]
     },
     "node_21": {
-      "text": "You use your new abilities to help Alpha-Waymond and the rebels. However, you realize that the situation is more complex than you thought.",
+      "text": "You try to remain calm, answering Deirdre's questions to the best of your ability. But Deirdre seems aggressive, pushing you for more information.",
       "choices": [
         {
-          "text": "Try to find a way to defeat Jobu Tupaki",
-          "next_node": "node_7"
+          "text": "Try to negotiate with Deirdre",
+          "next_node": "node_43"
         },
         {
-          "text": "Seek help from Alpha-Waymond and his allies",
-          "next_node": "node_8"
+          "text": "Demand to speak to Deirdre's supervisor",
+          "next_node": "node_44"
         }
       ]
     },
     "node_22": {
-      "text": "You try to use your abilities for personal gain. However, you soon realize that your actions have unintended consequences.",
+      "text": "Deirdre's supervisor arrives, looking stern. You explain your situation, hoping to gain sympathy.",
       "choices": [
         {
-          "text": "Try to find a way to undo the damage you've done",
-          "next_node": "node_9"
+          "text": "Try to reason with the supervisor",
+          "next_node": "node_45"
         },
         {
-          "text": "Seek help from Alpha-Waymond and his allies",
-          "next_node": "node_10"
+          "text": "Demand to know what's going on",
+          "next_node": "node_46"
         }
       ]
     },
     "node_23": {
-      "text": "You use your new abilities to help Waymond and the rebels. However, you realize that the situation is more complex than you thought.",
+      "text": "You excuse yourself to talk to Waymond, feeling a sense of urgency. He explains that Jobu Tupaki's minions have been spotted in the area.",
       "choices": [
         {
-          "text": "Try to find a way to defeat Jobu Tupaki",
-          "next_node": "node_11"
+          "text": "Ask Waymond to help you prepare for the minions",
+          "next_node": "node_47"
         },
         {
-          "text": "Seek help from Alpha-Waymond and his allies",
-          "next_node": "node_12"
+          "text": "Tell Waymond that you'll handle it yourself",
+          "next_node": "node_48"
         }
       ]
     },
     "node_24": {
-      "text": "You try to use your abilities for personal gain. However, you soon realize that your actions have unintended consequences.",
+      "text": "Deirdre becomes increasingly aggressive, demanding that you answer her questions. You start to feel overwhelmed.",
       "choices": [
         {
-          "text": "Try to find a way to undo the damage you've done",
-          "next_node": "node_13"
+          "text": "Try to remain calm and answer Deirdre's questions",
+          "next_node": "node_49"
         },
         {
-          "text": "Seek help from Alpha-Waymond and his allies",
-          "next_node": "node_14"
+          "text": "Demand to speak to Deirdre's supervisor",
+          "next_node": "node_50"
         }
       ]
     },
     "node_25": {
-      "text": "You try to find a way to defeat Jobu Tupaki. However, you realize that it's not possible.",
+      "text": "Waymond explains that Jobu Tupaki's minions are getting closer. He tells you that you need to be careful, as they'll stop at nothing to capture you.",
       "choices": [
         {
-          "text": "Seek help from Alpha-Waymond and his allies",
-          "next_node": "node_15"
+          "text": "Ask Waymond to help you prepare for the minions",
+          "next_node": "node_51"
         },
         {
-          "text": "Try to find another way to survive in the multiverse",
-          "next_node": "node_16"
+          "text": "Tell Waymond that you'll handle it yourself",
+          "next_node": "node_52"
         }
       ]
     },
     "node_26": {
-      "text": "You seek help from Alpha-Waymond and his allies. They teach you how to navigate the multiverse and control your abilities.",
+      "text": "Waymond looks concerned, telling you that you're in grave danger. He explains that Jobu Tupaki's minions are searching for you.",
       "choices": [
         {
-          "text": "Use your new abilities to help others",
-          "next_node": "node_17"
+          "text": "Ask Waymond to protect you",
+          "next_node": "node_53"
         },
         {
-          "text": "Try to use your abilities for personal gain",
-          "next_node": "node_18"
+          "text": "Tell Waymond that you can handle yourself",
+          "next_node": "node_54"
         }
       ]
     },
     "node_27": {
-      "text": "You try to find a way to undo the damage you've done. However, you realize that it's not possible.",
+      "text": "Waymond explains that Jobu Tupaki is a being with immense power. He claims that Jobu Tupaki is capable of manipulating the fabric of reality.",
       "choices": [
         {
-          "text": "Seek help from Alpha-Waymond and his allies",
-          "next_node": "node_19"
+          "text": "Ask Waymond to explain more about Jobu Tupaki",
+          "next_node": "node_55"
         },
         {
-          "text": "Try to find another way to survive in the multiverse",
-          "next_node": "node_20"
+          "text": "Tell Waymond that you don't believe him",
+          "next_node": "node_56"
         }
       ]
     },
     "node_28": {
-      "text": "You seek help from Alpha-Waymond and his allies. They teach you how to navigate the multiverse and control your abilities.",
+      "text": "Waymond looks disappointed but insists that you need to hear this. He explains that Jobu Tupaki's powers are a threat to the multiverse.",
       "choices": [
         {
-          "text": "Use your new abilities to help others",
-          "next_node": "node_21"
+          "text": "Ask Waymond to prove this",
+          "next_node": "node_57"
         },
         {
-          "text": "Try to use your abilities for personal gain",
-          "next_node": "node_22"
+          "text": "Tell Waymond that you need time to think about this",
+          "next_node": "node_58"
         }
       ]
     },
     "node_29": {
-      "text": "You use your new abilities to help Alpha-Waymond and the rebels. However, you realize that the situation is more complex than you thought.",
+      "text": "Waymond shows you evidence of Jobu Tupaki's powers. You start to feel a sense of fear, realizing the gravity of the situation.",
       "choices": [
         {
-          "text": "Try to find a way to defeat Jobu Tupaki",
-          "next_node": "node_23"
+          "text": "Ask Waymond to help you stop Jobu Tupaki",
+          "next_node": "node_59"
         },
         {
-          "text": "Seek help from Alpha-Waymond and his allies",
-          "next_node": "node_24"
+          "text": "Tell Waymond that you'll handle it yourself",
+          "next_node": "node_60"
         }
       ]
     },
     "node_30": {
-      "text": "You try to use your abilities for personal gain. However, you soon realize that your actions have unintended consequences.",
+      "text": "Waymond tells you that you need to be careful, as Jobu Tupaki's minions are searching for you. He explains that they'll stop at nothing to capture you.",
       "choices": [
         {
-          "text": "Try to find a way to undo the damage you've done",
-          "next_node": "node_25"
+          "text": "Ask Waymond to help you prepare for the minions",
+          "next_node": "node_61"
         },
         {
-          "text": "Seek help from Alpha-Waymond and his allies",
-          "next_node": "node_26"
+          "text": "Tell Waymond that you'll handle it yourself",
+          "next_node": "node_62"
         }
       ]
+    },
+    "end": {
+      "text": "Congratulations, you have reached the end of the story."
     }
   },
   "vocabulary": {
-    "multiverse": "a hypothetical set of multiple universes",
-    "assimilation": "the process of becoming part of a different culture",
-    "relentless": "unwilling to give up or become weaker",
+    "multiverse": "the hypothetical set of all universes",
+    "parallel": "existing or occurring in a similar way",
+    "verse-jumping": "the act of moving between parallel universes",
+    "nihilistic": "having or showing a belief that life has no meaning",
+    "absurdist": "relating to or characterized by absurdity",
+    "humanitarian": "relating to or characterized by a concern for human welfare",
+    "existentialist": "relating to or characterized by a philosophical theory that emphasizes individual freedom and choice",
+    "empathetic": "showing an understanding and sharing of the feelings of another",
     "toroid": "a shape that is like a doughnut",
-    "singularity": "a point in space-time where the laws of physics do not apply",
-    "verse-jumping": "the act of moving from one universe to another",
-    "exacerbate": "to make a problem or situation worse",
-    "splintered": "broken or divided into small parts",
-    "entities": "things that exist, especially ones that are abstract or hard to understand",
-    "manipulate": "to control or influence someone or something",
-    "unintended": "not planned or expected",
-    "navigate": "to plan and control the route or course of something",
-    "complex": "complicated or difficult to understand",
-    "consequences": "the results or effects of an action",
-    "abstract": "existing in thought or idea rather than in physical reality",
-    "hypothetical": "based on possible ideas or situations rather than actual ones",
-    "rebels": "people who fight against authority or control"
+    "singularity": "a point in space-time where the laws of physics break down",
+    "CEFR": "Common European Framework of Reference for Languages"
   }
 }
