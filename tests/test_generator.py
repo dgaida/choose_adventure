@@ -52,3 +52,42 @@ def test_generate_story_empty_response(mock_client_class):
 
     assert result is None
     assert raw == ''
+
+from adventure_generator import validate_story_nodes
+
+def test_validate_story_nodes_success():
+    story_data = {
+        "nodes": {
+            "start": {
+                "choices": [
+                    {"next_node": "node1"},
+                    {"next_node": "node2"}
+                ]
+            },
+            "node1": {"choices": []},
+            "node2": {"choices": []}
+        }
+    }
+    assert validate_story_nodes(story_data) == []
+
+def test_validate_story_nodes_missing():
+    story_data = {
+        "nodes": {
+            "start": {
+                "choices": [
+                    {"next_node": "node1"},
+                    {"next_node": "missing_node"}
+                ]
+            },
+            "node1": {"choices": []}
+        }
+    }
+    assert validate_story_nodes(story_data) == ["missing_node"]
+
+def test_validate_story_nodes_no_choices():
+    story_data = {
+        "nodes": {
+            "start": {"text": "End of story"}
+        }
+    }
+    assert validate_story_nodes(story_data) == []
