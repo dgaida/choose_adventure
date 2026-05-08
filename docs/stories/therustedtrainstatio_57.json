@@ -1,0 +1,227 @@
+{
+  "title": "The Rusted Train Station",
+  "description": "A choose your own adventure story.",
+  "author": "Meta Llama 3",
+  "nodes": {
+    "start": {
+      "text": "Rain hammered the rusted roof of the train station as the last emergency lights flickered red. Mara stood alone on the platform, clutching the encrypted briefcase that half the city seemed willing to kill for. Then her phone vibrated. UNKNOWN NUMBER: 'Don\u2019t board the train. They already replaced the conductor.' A whistle echoed through the tunnel. The train was arriving. And someone behind her slowly began to clap.",
+      "choices": [
+        {
+          "text": "Board the train immediately",
+          "next_node": "train_immediately"
+        },
+        {
+          "text": "Confront the person behind you",
+          "next_node": "confront_person"
+        },
+        {
+          "text": "Run into the tunnel before the train arrives",
+          "next_node": "run_into_tunnel"
+        },
+        {
+          "text": "Open the briefcase right now",
+          "next_node": "open_briefcase"
+        }
+      ]
+    },
+    "train_immediately": {
+      "text": "You quickly grab your luggage and rush towards the train. As you step inside, the doors close behind you. The train starts moving, and you breathe a sigh of relief. But, you notice the new conductor doesn\u2019t seem to be watching you. He appears to be... distracted. Suddenly, the lights flicker, and the train screeches to a halt.",
+      "choices": [
+        {
+          "text": "Approach the conductor",
+          "next_node": "approach_conductor"
+        },
+        {
+          "text": "Find a seat and stay quiet",
+          "next_node": "stay_quiet"
+        },
+        {
+          "text": "The train seems abandoned; explore it",
+          "next_node": "explore_train",
+          "end": false
+        },
+        {
+          "text": "Emergency exit; you jump off",
+          "next_node": "emergency_exit",
+          "end": false
+        }
+      ]
+    },
+    "confront_person": {
+      "text": "You spin around to face the person behind you. A tall figure emerges from the shadows, dressed in a black coat. 'Bravo, Mara,' he says with a mocking smile. 'You have the briefcase. But do you have what it takes to survive?'",
+      "choices": [
+        {
+          "text": "Attack the person",
+          "next_node": "attack_person"
+        },
+        {
+          "text": "Try to reason with them",
+          "next_node": "reason_with_person"
+        },
+        {
+          "text": "Run away",
+          "next_node": "lose_game"
+        }
+      ]
+    },
+    "run_into_tunnel": {
+      "text": "You take a deep breath and sprint into the tunnel. The sound of the train grows louder, and you can feel the rush of air. You manage to find a small alcove just as the train zooms past. You catch your breath and realize you\u2019re not alone.",
+      "choices": [
+        {
+          "text": "Investigate the alcove",
+          "next_node": "investigate_alcove"
+        },
+        {
+          "text": "Wait for the train to pass",
+          "next_node": "wait_for_train"
+        }
+      ]
+    },
+    "open_briefcase": {
+      "text": "You unlock the briefcase and lift the lid. A faint hum emanates from within. You see a series of complex codes and a small device that seems to be counting down. Suddenly, your phone vibrates again.",
+      "choices": [
+        {
+          "text": "Read the codes",
+          "next_node": "read_codes"
+        },
+        {
+          "text": "Disable the device",
+          "next_node": "disable_device",
+          "end": true
+        }
+      ]
+    },
+    "approach_conductor": {
+      "text": "You walk towards the conductor, who seems oblivious to your presence. As you approach, he turns to face you. His eyes are black as coal, and his skin is deathly pale.",
+      "choices": [
+        {
+          "text": "Ask him what\u2019s wrong",
+          "next_node": "lose_game"
+        },
+        {
+          "text": "The conductor reacts; find help",
+          "next_node": "find_help",
+          "end": true
+        }
+      ]
+    },
+    "stay_quiet": {
+      "text": "You find a seat and try to blend in. The train continues to move, but you sense something is off. The other passengers seem... wrong. A scream echoes through the train; the passengers react.",
+      "choices": [
+        {
+          "text": "Investigate the scream",
+          "next_node": "investigate_scream",
+          "end": true
+        },
+        {
+          "text": "The train seems abandoned; explore it",
+          "next_node": "explore_train_abandoned",
+          "end": false
+        }
+      ]
+    },
+    "lose_game": {
+      "text": "You lose. Game over.",
+      "end": true
+    },
+    "win_game": {
+      "text": "Congratulations! You win!",
+      "end": true
+    },
+    "attack_person": {
+      "text": "You lunge at the person, but they dodge your attack with ease. They retaliate, and you find yourself in a fierce struggle. The outcome is uncertain.",
+      "choices": [
+        {
+          "text": "Continue to fight",
+          "next_node": "lose_game"
+        },
+        {
+          "text": "Try to reason with them now",
+          "next_node": "reason_now",
+          "end": true
+        }
+      ]
+    },
+    "reason_with_person": {
+      "text": "You try to reason with the person. They seem unmoved. 'You have something that belongs to us,' they say. 'Hand it over.'",
+      "choices": [
+        {
+          "text": "Refuse to give it up",
+          "next_node": "lose_game"
+        },
+        {
+          "text": "Agree to hand it over",
+          "next_node": "win_game"
+        }
+      ]
+    },
+    "investigate_alcove": {
+      "text": "You search the alcove and find a hidden compartment. Inside, you discover a cryptic message.",
+      "choices": [
+        {
+          "text": "Decode the message",
+          "next_node": "decode_message"
+        },
+        {
+          "text": "Leave the alcove; continue journey",
+          "next_node": "continue_journey",
+          "end": true
+        }
+      ]
+    },
+    "wait_for_train": {
+      "text": "You wait for the train to pass, and as it does, you see a figure watching you from the shadows.",
+      "choices": [
+        {
+          "text": "Approach the figure",
+          "next_node": "lose_game"
+        },
+        {
+          "text": "Stay hidden; wait",
+          "next_node": "stay_hidden_longer",
+          "end": true
+        }
+      ]
+    },
+    "read_codes": {
+      "text": "You study the codes, trying to make sense of them. As you do, you hear footsteps approaching.",
+      "choices": [
+        {
+          "text": "Conceal the briefcase",
+          "next_node": "lose_game"
+        },
+        {
+          "text": "Prepare to defend yourself",
+          "next_node": "defend_yourself",
+          "end": true
+        }
+      ]
+    },
+    "disable_device": {
+      "text": "You successfully disable the device. The countdown stops. You feel a sense of relief.",
+      "end": true
+    },
+    "investigate_scream": {
+      "text": "You investigate the scream and find a passenger in distress. You help them, and they provide crucial information.",
+      "end": true
+    },
+    "explore_train": {
+      "text": "You explore the train and find clues. You realize the train is not what it seems.",
+      "end": true
+    }
+  },
+  "vocabulary": {
+    "encrypted": "a message or information that has been coded to prevent others from reading it",
+    "momentum": "the force or speed of something that is moving",
+    "suspenseful": "causing feelings of anxiety or excitement because you are waiting for something to happen",
+    "cliffhanger": "a situation in which someone or something is in a difficult or dangerous situation, and you do not know what will happen next",
+    "confront": "to face someone or something directly and angrily",
+    "reason": "a cause or explanation for something",
+    "negotiate": "to discuss or talk about something in order to reach an agreement",
+    "decode": "to discover the meaning of something that has been coded or hidden",
+    "conceal": "to hide something or keep it secret",
+    "defend": "to protect someone or something from attack or harm",
+    "emerge": "to come out or become visible",
+    "cautious": "careful to avoid risks or dangers"
+  }
+}
