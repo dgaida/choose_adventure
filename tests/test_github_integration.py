@@ -38,7 +38,7 @@ def test_create_github_pr_success(mock_env_get, mock_github_class):
         "vocabulary": {}
     }
 
-    result = create_github_pr(story_data)
+    result = create_github_pr(json.dumps(story_data))
 
     assert "Pull Request created successfully" in result
     assert "https://github.com/owner/repo/pull/1" in result
@@ -55,9 +55,13 @@ def test_create_github_pr_success(mock_env_get, mock_github_class):
 def test_create_github_pr_no_token(mock_env_get):
     mock_env_get.return_value = None
 
-    result = create_github_pr({"title": "Test"})
+    result = create_github_pr(json.dumps({"title": "Test"}))
     assert "Error: GITHUB_TOKEN environment variable not set" in result
 
 def test_create_github_pr_no_data():
-    result = create_github_pr(None)
+    result = create_github_pr("")
     assert "Error: No story data found" in result
+
+def test_create_github_pr_invalid_json():
+    result = create_github_pr("not a json")
+    assert "Error: Invalid JSON" in result

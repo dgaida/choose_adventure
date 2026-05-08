@@ -10,7 +10,7 @@ def generate_story(
     level: str = "B1",
     length: str = "short (15-20 nodes)",
     age_range: str = "12-18"
-) -> Optional[Dict[str, Any]]:
+) -> tuple[Optional[Dict[str, Any]], str]:
     """
     Generates a branching adventure story using an LLM.
 
@@ -24,7 +24,7 @@ def generate_story(
         A dictionary containing the story title, nodes, and vocabulary,
         or None if generation fails.
     """
-    client = LLMClient(llm="openai/gpt-oss-120b", max_tokens=4096)
+    client = LLMClient(llm="openai/gpt-oss-120b", max_tokens=8192)
 
     prompt = f"""
     Create a "choose your own adventure" story about "{topic}" for a student in Germany who is learning English at the CEFR {level} level.
@@ -57,7 +57,7 @@ def generate_story(
          }}
        }}
     5. Vocabulary: Identify 10-20 difficult or advanced words used in the story and provide simple English explanations for them. IMPORTANT: Do not use any of the chosen vocabulary words within the explanations themselves, as this causes display issues.
-    6. Ensure the JSON is valid and complete.
+    6. Ensure the JSON is valid and complete. Do not include any conversational text, explanations, or notes outside the JSON structure. Just return the JSON object.
     """
 
     messages = [
@@ -77,11 +77,11 @@ def generate_story(
             json_str = response.strip()
 
         story_data = json.loads(json_str)
-        return story_data
+        return story_data, response
     except Exception as e:
         logger.error(f"Error parsing story JSON: {e}")
         logger.error(f"Raw response: {response}")
-        return None
+        return None, response
 
 if __name__ == "__main__":
     # Test generation
