@@ -45,7 +45,7 @@ jobs:
           git diff --quiet && git diff --staged --quiet || (git commit -m "Auto-update story manifest [skip ci]" && git push)
 
       - name: Setup Pages
-        uses: actions/configure-pages@v5
+        uses: actions/configure-pages@v6
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v5
         with:
