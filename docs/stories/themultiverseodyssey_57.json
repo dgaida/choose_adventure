@@ -1,424 +1,296 @@
 {
-  "title": "The Multiverse Dilemma",
+  "title": "The Multiverse Meltdown",
   "nodes": {
     "start": {
-      "text": "You are Evelyn Quan Wang, a middle-aged Chinese immigrant living in Simi Valley, California. You run a laundromat with your husband Waymond. Your life is a struggle, with an impending IRS audit and a strained relationship with your daughter Joy. As you navigate these challenges, you begin to feel overwhelmed by the expectations placed upon you. Suddenly, Waymond approaches you with a serious look on his face, holding a stack of papers.",
+      "text": "You are Evelyn, a Chinese immigrant living in California. You run a small laundromat with your husband Waymond. Your life is a mess - the laundromat is failing, and you're struggling to connect with your daughter Joy, who's been feeling depressed lately. As you sort through a pile of dirty laundry, you receive an unexpected visit from an IRS agent, Deirdre Beaubeirdre. She's here to audit your business, and you can't help but feel like your life is about to get even more complicated.",
       "choices": [
-        {
-          "text": "Ask Waymond what's going on and what the papers are for",
-          "next_node": "node_1"
-        },
-        {
-          "text": "Tell Waymond you're busy and don't have time for this",
-          "next_node": "node_2"
-        }
+        { "text": "Try to charm the agent with your wit and humor", "next_node": "node_charm" },
+        { "text": "Get defensive and argue with the agent", "next_node": "node_defensive" }
       ]
     },
-    "node_1": {
-      "text": "Waymond explains that he wants to discuss their marriage and is considering filing for divorce. He hands you the papers, which are divorce documents. You're taken aback, feeling like your world is crumbling. Just then, the IRS Revenue Agent Deirdre Beaubeirdre arrives for the audit.",
+    "node_charm": {
+      "text": "You flash a bright smile and try to disarm the agent with your wit. To your surprise, she seems to relax a bit, and the conversation becomes slightly more pleasant. However, you can't shake off the feeling that she's still hiding something. As you continue to chat, Waymond bursts in, holding a stack of papers. 'Evelyn, we need to talk,' he says, looking worried.",
       "choices": [
-        {
-          "text": "Ask Deirdre if you can delay the audit, citing your personal issues",
-          "next_node": "node_3"
-        },
-        {
-          "text": "Try to discuss the divorce papers with Waymond while Deirdre is present",
-          "next_node": "node_4"
-        }
+        { "text": "Ask Waymond what's going on and what the papers are about", "next_node": "node_waymond" },
+        { "text": "Tell the agent that you need to take care of this and ask if you can reschedule the audit", "next_node": "node_reschedule" }
       ]
     },
-    "node_2": {
-      "text": "You brush Waymond off, telling him you're busy with the IRS audit and can't deal with his issues right now. Waymond looks concerned but leaves the room. You're left alone, feeling anxious about the audit and your life.",
+    "node_defensive": {
+      "text": "You immediately go on the attack, arguing that the audit is unfair and that you're being targeted. The agent remains calm, but you can sense a hint of annoyance in her voice. 'I'm just doing my job, ma'am,' she says. Waymond tries to intervene, but you wave him off, determined to defend yourself.",
       "choices": [
-        {
-          "text": "Focus on preparing for the IRS audit, hoping to resolve it quickly",
-          "next_node": "node_5"
-        },
-        {
-          "text": "Go after Waymond, feeling a need to talk to him about your marriage",
-          "next_node": "node_6"
-        }
+        { "text": "Continue to argue with the agent, refusing to back down", "next_node": "node_argument" },
+        { "text": "Take a step back and try to calm down, realizing that you're not getting anywhere", "next_node": "node_calm_down" }
       ]
     },
-    "node_3": {
-      "text": "Deirdre agrees to delay the audit but warns you that it's not a permanent reprieve. As she leaves, Waymond approaches you again, this time with a strange look in his eyes. He whispers that he needs to tell you something important.",
+    "node_waymond": {
+      "text": "Waymond looks at you with a mixture of concern and fear in his eyes. 'Evelyn, I've been trying to talk to you about our marriage... and the laundromat. We need to make some changes, or... or I don't know what will happen.' He trails off, and you feel a pang of worry. What does he mean?",
       "choices": [
-        {
-          "text": "Ask Waymond what's going on and what he wants to tell you",
-          "next_node": "node_7"
-        },
-        {
-          "text": "Tell Waymond you're not interested in talking right now",
-          "next_node": "node_8"
-        }
+        { "text": "Tell Waymond that you're willing to listen and work through your issues together", "next_node": "node_listen" },
+        { "text": "Get angry and accuse Waymond of not supporting you or the laundromat", "next_node": "node_angry" }
       ]
     },
-    "node_4": {
-      "text": "Deirdre interrupts your conversation, insisting that you focus on the audit. You try to compose yourself, but the tension between you and Waymond is palpable. As Deirdre begins questioning you, you notice a strange, glowing light emanating from outside.",
+    "node_reschedule": {
+      "text": "The agent agrees to reschedule the audit, but warns you that it won't be a simple process. As you exchange phone numbers and make plans, you notice a strange look on Waymond's face. He seems... different. Almost like he's looking at you from a different perspective.",
       "choices": [
-        {
-          "text": "Investigate the strange light, feeling a sense of curiosity",
-          "next_node": "node_9"
-        },
-        {
-          "text": "Stay focused on the audit, hoping to resolve it quickly",
-          "next_node": "node_10"
-        }
+        { "text": "Ask Waymond what's wrong and why he's looking at you like that", "next_node": "node_waymond_glitch" },
+        { "text": "Let it slide and focus on getting out of there as quickly as possible", "next_node": "node_sliding" }
       ]
     },
-    "node_5": {
-      "text": "You spend the next few hours preparing for the audit, but your mind keeps wandering back to Waymond and your marriage. As you're about to leave, Deirdre returns, looking stern.",
+    "node_argument": {
+      "text": "The argument escalates, with both you and the agent getting more and more agitated. Waymond tries to intervene again, but you're too far gone. Suddenly, the agent pulls out a strange device and presses a button. Everything around you begins to distort and blur.",
       "choices": [
-        {
-          "text": "Try to negotiate with Deirdre, hoping to find a resolution",
-          "next_node": "node_11"
-        },
-        {
-          "text": "Feel overwhelmed and ask for a break, hoping to regroup",
-          "next_node": "node_12"
-        }
+        { "text": "Try to make sense of what's happening and what the device is doing", "next_node": "node_glitch" },
+        { "text": "Get pulled into the distortion, feeling like you're losing control", "next_node": "node_pulled_in" }
       ]
     },
-    "node_6": {
-      "text": "You catch up to Waymond, demanding to know what's going on. He takes a deep breath, explaining that he's been experiencing strange occurrences and has discovered a way to communicate with alternate versions of himself.",
+    "node_calm_down": {
+      "text": "You take a deep breath and try to calm down, realizing that you're not getting anywhere with the agent. She nods, seeming to appreciate your sudden change in demeanor. 'Let's reschedule for another time, shall we?' she suggests.",
       "choices": [
-        {
-          "text": "Listen to Waymond, intrigued by his story",
-          "next_node": "node_13"
-        },
-        {
-          "text": "Dismiss Waymond's claims, thinking he's lost his mind",
-          "next_node": "node_14"
-        }
+        { "text": "Agree to reschedule and try to make a good impression", "next_node": "node_reschedule_success" },
+        { "text": "Refuse to reschedule and try to storm out", "next_node": "node_storm_out" }
       ]
     },
-    "node_7": {
-      "text": "Waymond reveals that he's discovered a way to jump between parallel universes. He explains that many versions of you and him exist across the multiverse, and that one of these versions has developed a technology to communicate with and access the skills and memories of their parallel selves.",
+    "node_listen": {
+      "text": "You tell Waymond that you're willing to listen and work through your issues together. He looks relieved, and you begin to discuss the problems facing your marriage and the laundromat. As you talk, you start to feel a sense of hope that things might actually get better.",
       "choices": [
-        {
-          "text": "Ask Waymond to explain more about this technology and the multiverse",
-          "next_node": "node_15"
-        },
-        {
-          "text": "Tell Waymond that you're not interested in hearing more",
-          "next_node": "node_16"
-        }
+        { "text": "Continue the conversation, exploring ways to improve your relationship and the laundromat", "next_node": "node_conversation_continues" },
+        { "text": "Get sidetracked and start to worry about the IRS audit again", "next_node": "node_worry_audit" }
       ]
     },
-    "node_8": {
-      "text": "Waymond looks disappointed but insists that you need to hear this. He explains that a version of you from another universe has developed a technology that allows you to access the skills and memories of your parallel selves.",
+    "node_angry": {
+      "text": "You get angry and accuse Waymond of not supporting you or the laundromat. He looks hurt, and you realize that you've gone too far. The conversation ends abruptly, with both of you feeling frustrated and upset.",
       "choices": [
-        {
-          "text": "Ask Waymond to prove this, demanding concrete evidence",
-          "next_node": "node_17"
-        },
-        {
-          "text": "Tell Waymond that you need time to think about this",
-          "next_node": "node_18"
-        }
+        { "text": "Try to apologize and make amends", "next_node": "node_apologize" },
+        { "text": "Storm off, feeling angry and hurt", "next_node": "node_storm_off" }
       ]
     },
-    "node_9": {
-      "text": "As you investigate the strange light, you notice that it's coming from a glowing portal. Waymond approaches you, telling you that this is a gateway to another universe.",
+    "node_waymond_glitch": {
+      "text": "You ask Waymond what's wrong and why he's looking at you like that. He hesitates, and for a moment, you see a flicker of something... else. A different version of him, perhaps? 'Evelyn, I... I think I might be able to help you,' he says, his voice low and urgent.",
       "choices": [
-        {
-          "text": "Step through the portal with Waymond, curious about the multiverse",
-          "next_node": "node_19"
-        },
-        {
-          "text": "Refuse to go through the portal, feeling scared and uncertain",
-          "next_node": "node_20"
-        }
+        { "text": "Ask Waymond what he means and how he can help", "next_node": "node_waymond_help" },
+        { "text": "Tell Waymond that you're not interested and walk away", "next_node": "node_walk_away" }
       ]
     },
-    "node_10": {
-      "text": "Deirdre becomes increasingly aggressive, demanding that you answer her questions. You start to feel overwhelmed, wondering if you'll ever resolve this audit.",
+    "node_sliding": {
+      "text": "You let it slide and focus on getting out of there as quickly as possible. The agent nods, seeming to accept your sudden change in behavior. As you leave, you can't shake off the feeling that something strange just happened.",
       "choices": [
-        {
-          "text": "Try to remain calm and answer Deirdre's questions",
-          "next_node": "node_21"
-        },
-        {
-          "text": "Demand to speak to Deirdre's supervisor, feeling frustrated",
-          "next_node": "node_22"
-        }
+        { "text": "Go back to the laundromat and try to process what just happened", "next_node": "node_laundromat" },
+        { "text": "Meet up with Joy and try to forget about the weird encounter", "next_node": "node_meet_joy" }
       ]
     },
-    "node_11": {
-      "text": "Deirdre seems unwilling to negotiate, but you try to reason with her. Just as it seems like you're making progress, Waymond interrupts, telling you that he needs to talk to you urgently.",
+    "node_glitch": {
+      "text": "You try to make sense of what's happening and what the device is doing. The agent explains that it's a... a 'verse-jumper.' 'It allows us to access different versions of ourselves from parallel universes,' she says, her voice matter-of-fact.",
       "choices": [
-        {
-          "text": "Excuse yourself to talk to Waymond, feeling a sense of urgency",
-          "next_node": "node_23"
-        },
-        {
-          "text": "Tell Waymond to wait, focusing on resolving the audit",
-          "next_node": "node_24"
-        }
+        { "text": "Ask the agent to explain more about the multiverse and verse-jumping", "next_node": "node_multiverse" },
+        { "text": "Refuse to believe her and try to get back to reality", "next_node": "node_refuse" }
       ]
     },
-    "node_12": {
-      "text": "Deirdre grants you a short break, but you know you need to compose yourself. As you step outside, you notice Waymond waiting for you, looking concerned.",
+    "node_pulled_in": {
+      "text": "You get pulled into the distortion, feeling like you're losing control. Everything around you becomes a blur, and you're aware of multiple versions of yourself, all existing in different realities.",
       "choices": [
-        {
-          "text": "Ask Waymond what's wrong, feeling a sense of concern",
-          "next_node": "node_25"
-        },
-        {
-          "text": "Tell Waymond you're fine, trying to brush him off",
-          "next_node": "node_26"
-        }
+        { "text": "Try to navigate the multiverse and find a way back home", "next_node": "node_navigate" },
+        { "text": "Get overwhelmed and lose yourself in the infinite possibilities", "next_node": "node_overwhelmed" }
       ]
     },
-    "node_13": {
-      "text": "Waymond explains that he's been communicating with an alternate version of himself, who calls himself Alpha-Waymond. Alpha-Waymond claims that the multiverse is under threat from a powerful entity known as Jobu Tupaki.",
+    "node_reschedule_success": {
+      "text": "The agent agrees to reschedule the audit, and you exchange phone numbers and make plans. As you leave, you feel a sense of relief wash over you.",
       "choices": [
-        {
-          "text": "Ask Waymond to explain more about Jobu Tupaki and the threat",
-          "next_node": "node_27"
-        },
-        {
-          "text": "Tell Waymond that you don't believe him, feeling skeptical",
-          "next_node": "node_28"
-        }
+        { "text": "Go back to the laundromat and try to focus on your business", "next_node": "node_laundromat_success" },
+        { "text": "Meet up with Joy and try to reconnect", "next_node": "node_meet_joy_success" }
       ]
     },
-    "node_14": {
-      "text": "Waymond looks disappointed but insists that you need to hear this. He explains that Jobu Tupaki is a being with immense power, capable of manipulating the fabric of reality.",
+    "node_storm_out": {
+      "text": "You refuse to reschedule and try to storm out. The agent calls after you, but you don't look back. As you walk away, you feel a sense of frustration and anger.",
       "choices": [
-        {
-          "text": "Ask Waymond to prove this, demanding concrete evidence",
-          "next_node": "node_29"
-        },
-        {
-          "text": "Tell Waymond that you need time to think about this",
-          "next_node": "node_30"
-        }
+        { "text": "Go back to the laundromat and try to calm down", "next_node": "node_laundromat_storm" },
+        { "text": "Meet up with Joy and try to vent about your bad day", "next_node": "node_meet_joy_storm" }
       ]
     },
-    "node_15": {
-      "text": "Waymond explains that this technology, known as verse-jumping, allows you to access the skills and memories of your parallel selves. He claims that you have the potential to become a powerful force in the multiverse.",
+    "node_laundromat_success": {
+      "text": "You go back to the laundromat and try to focus on your business. As you sort through a pile of dirty laundry, you feel a sense of relief wash over you.",
       "choices": [
-        {
-          "text": "Ask Waymond to teach you how to use this technology",
-          "next_node": "node_31"
-        },
-        {
-          "text": "Refuse to get involved, feeling scared and uncertain",
-          "next_node": "node_32"
-        }
+        { "text": "Try to keep things normal and focus on your work", "next_node": "node_normal" },
+        { "text": "Get distracted and start to worry about the audit again", "next_node": "node_worry_audit_again" }
       ]
     },
-    "node_16": {
-      "text": "Waymond looks concerned, telling you that you're in grave danger. He explains that Jobu Tupaki's minions are searching for you, intent on capturing you and using your powers for their own purposes.",
+    "node_meet_joy_success": {
+      "text": "You meet up with Joy and try to reconnect. She seems happy to see you, and you start to feel a sense of hope that things might actually get better.",
       "choices": [
-        {
-          "text": "Ask Waymond to protect you, feeling a sense of fear",
-          "next_node": "node_33"
-        },
-        {
-          "text": "Tell Waymond that you can handle yourself, feeling confident",
-          "next_node": "node_34"
-        }
+        { "text": "Ask Joy about her girlfriend Becky and try to be supportive", "next_node": "node_ask_joy_becky" },
+        { "text": "Get sidetracked and start to worry about your relationship with Waymond", "next_node": "node_worry_waymond" }
       ]
     },
-    "node_17": {
-      "text": "Waymond shows you a device that allows you to communicate with your parallel selves. He explains that this device will allow you to access the skills and memories of your parallel selves.",
+    "node_laundromat_storm": {
+      "text": "You go back to the laundromat and try to calm down. As you sort through a pile of dirty laundry, you feel a sense of frustration and anger.",
       "choices": [
-        {
-          "text": "Use the device to communicate with your parallel selves",
-          "next_node": "node_35"
-        },
-        {
-          "text": "Refuse to use the device, feeling skeptical",
-          "next_node": "node_36"
-        }
+        { "text": "Try to focus on your work and push aside your thoughts", "next_node": "node_focus_work" },
+        { "text": "Get distracted and start to worry about the audit again", "next_node": "node_worry_audit_storm" }
       ]
     },
-    "node_18": {
-      "text": "Waymond tells you that you need to be careful, as Jobu Tupaki's minions are searching for you. He explains that they'll stop at nothing to capture you and use your powers for their own purposes.",
+    "node_meet_joy_storm": {
+      "text": "You meet up with Joy and try to vent about your bad day. She listens, seeming to understand your frustration.",
       "choices": [
-        {
-          "text": "Ask Waymond to help you prepare for the minions",
-          "next_node": "node_37"
-        },
-        {
-          "text": "Tell Waymond that you'll handle it yourself",
-          "next_node": "node_38"
-        }
+        { "text": "Ask Joy about her girlfriend Becky and try to be supportive", "next_node": "node_ask_joy_becky_storm" },
+        { "text": "Get sidetracked and start to worry about your relationship with Waymond", "next_node": "node_worry_waymond_storm" }
       ]
     },
-    "node_19": {
-      "text": "As you step through the portal, you find yourself in a strange, unfamiliar universe. Waymond is by your side, explaining that this universe is similar to your own but with some key differences.",
+    "node_conversation_continues": {
+      "text": "You continue the conversation, exploring ways to improve your relationship and the laundromat. As you talk, you start to feel a sense of hope that things might actually get better.",
       "choices": [
-        {
-          "text": "Explore this new universe with Waymond",
-          "next_node": "node_39"
-        },
-        {
-          "text": "Try to return to your own universe",
-          "next_node": "node_40"
-        }
+        { "text": "Make a plan to implement changes and work together", "next_node": "node_plan" },
+        { "text": "Get sidetracked and start to worry about the IRS audit again", "next_node": "node_worry_audit" }
       ]
     },
-    "node_20": {
-      "text": "Waymond tries to reassure you, telling you that you'll be safe. But you're not convinced, feeling scared and uncertain.",
+    "node_worry_audit": {
+      "text": "You get sidetracked and start to worry about the IRS audit again. Waymond tries to reassure you, but you're too anxious to listen.",
       "choices": [
-        {
-          "text": "Step through the portal with Waymond",
-          "next_node": "node_41"
-        },
-        {
-          "text": "Refuse to go through the portal",
-          "next_node": "node_42"
-        }
+        { "text": "Try to focus on the conversation and push aside your worries", "next_node": "node_focus" },
+        { "text": "Get defensive and accuse Waymond of not understanding your concerns", "next_node": "node_defensive_again" }
       ]
     },
-    "node_21": {
-      "text": "You try to remain calm, answering Deirdre's questions to the best of your ability. But Deirdre seems aggressive, pushing you for more information.",
+    "node_apologize": {
+      "text": "You try to apologize and make amends. Waymond looks surprised, but then nods, seeming to accept your apology.",
       "choices": [
-        {
-          "text": "Try to negotiate with Deirdre",
-          "next_node": "node_43"
-        },
-        {
-          "text": "Demand to speak to Deirdre's supervisor",
-          "next_node": "node_44"
-        }
+        { "text": "Continue the conversation, trying to move forward", "next_node": "node_conversation_continues_again" },
+        { "text": "Get emotional and start to cry", "next_node": "node_cry" }
       ]
     },
-    "node_22": {
-      "text": "Deirdre's supervisor arrives, looking stern. You explain your situation, hoping to gain sympathy.",
+    "node_storm_off": {
+      "text": "You storm off, feeling angry and hurt. Waymond calls after you, but you don't look back.",
       "choices": [
-        {
-          "text": "Try to reason with the supervisor",
-          "next_node": "node_45"
-        },
-        {
-          "text": "Demand to know what's going on",
-          "next_node": "node_46"
-        }
+        { "text": "Go back to the laundromat and try to calm down", "next_node": "node_laundromat_storm_off" },
+        { "text": "Meet up with Joy and try to vent about your bad day", "next_node": "node_meet_joy_storm_off" }
       ]
     },
-    "node_23": {
-      "text": "You excuse yourself to talk to Waymond, feeling a sense of urgency. He explains that Jobu Tupaki's minions have been spotted in the area.",
+    "node_waymond_help": {
+      "text": "Waymond explains that he's a version of himself from a parallel universe, one where things turned out differently. You listen, trying to wrap your head around the concept.",
       "choices": [
-        {
-          "text": "Ask Waymond to help you prepare for the minions",
-          "next_node": "node_47"
-        },
-        {
-          "text": "Tell Waymond that you'll handle it yourself",
-          "next_node": "node_48"
-        }
+        { "text": "Ask Waymond to explain more about his situation and how he can help", "next_node": "node_waymond_explain" },
+        { "text": "Refuse to believe him and try to walk away", "next_node": "node_refuse_waymond" }
       ]
     },
-    "node_24": {
-      "text": "Deirdre becomes increasingly aggressive, demanding that you answer her questions. You start to feel overwhelmed.",
+    "node_walk_away": {
+      "text": "You tell Waymond that you're not interested and walk away. He calls after you, but you don't look back.",
       "choices": [
-        {
-          "text": "Try to remain calm and answer Deirdre's questions",
-          "next_node": "node_49"
-        },
-        {
-          "text": "Demand to speak to Deirdre's supervisor",
-          "next_node": "node_50"
-        }
+        { "text": "Go back to the laundromat and try to focus on your business", "next_node": "node_laundromat_walk_away" },
+        { "text": "Meet up with Joy and try to forget about the weird encounter", "next_node": "node_meet_joy_walk_away" }
       ]
     },
-    "node_25": {
-      "text": "Waymond explains that Jobu Tupaki's minions are getting closer. He tells you that you need to be careful, as they'll stop at nothing to capture you.",
+    "node_laundromat": {
+      "text": "You go back to the laundromat and try to process what just happened. As you sort through a pile of dirty laundry, you can't shake off the feeling that your life is about to get a lot more complicated.",
       "choices": [
-        {
-          "text": "Ask Waymond to help you prepare for the minions",
-          "next_node": "node_51"
-        },
-        {
-          "text": "Tell Waymond that you'll handle it yourself",
-          "next_node": "node_52"
-        }
+        { "text": "Try to focus on your work and push aside your thoughts", "next_node": "node_focus_work" },
+        { "text": "Get distracted and start to worry about the multiverse and verse-jumping", "next_node": "node_worry_multiverse" }
       ]
     },
-    "node_26": {
-      "text": "Waymond looks concerned, telling you that you're in grave danger. He explains that Jobu Tupaki's minions are searching for you.",
+    "node_meet_joy": {
+      "text": "You meet up with Joy and try to forget about the weird encounter. She seems happy to see you, and you start to feel a sense of hope that things might actually get better.",
       "choices": [
-        {
-          "text": "Ask Waymond to protect you",
-          "next_node": "node_53"
-        },
-        {
-          "text": "Tell Waymond that you can handle yourself",
-          "next_node": "node_54"
-        }
+        { "text": "Ask Joy about her girlfriend Becky and try to be supportive", "next_node": "node_ask_joy_becky" },
+        { "text": "Get sidetracked and start to worry about your relationship with Waymond", "next_node": "node_worry_waymond" }
       ]
     },
-    "node_27": {
-      "text": "Waymond explains that Jobu Tupaki is a being with immense power. He claims that Jobu Tupaki is capable of manipulating the fabric of reality.",
+    "node_multiverse": {
+      "text": "The agent explains that the multiverse is a vast expanse of parallel universes, each with their own version of reality. You listen, trying to wrap your head around the concept.",
       "choices": [
-        {
-          "text": "Ask Waymond to explain more about Jobu Tupaki",
-          "next_node": "node_55"
-        },
-        {
-          "text": "Tell Waymond that you don't believe him",
-          "next_node": "node_56"
-        }
+        { "text": "Ask the agent to explain more about the implications of the multiverse", "next_node": "node_implications" },
+        { "text": "Get overwhelmed and try to shut down", "next_node": "node_overwhelmed_multiverse" }
       ]
     },
-    "node_28": {
-      "text": "Waymond looks disappointed but insists that you need to hear this. He explains that Jobu Tupaki's powers are a threat to the multiverse.",
+    "node_refuse": {
+      "text": "You refuse to believe her and try to get back to reality. The agent shrugs, seeming to expect your reaction. 'Suit yourself,' she says. 'But you're about to find out that the multiverse is very real.'",
       "choices": [
-        {
-          "text": "Ask Waymond to prove this",
-          "next_node": "node_57"
-        },
-        {
-          "text": "Tell Waymond that you need time to think about this",
-          "next_node": "node_58"
-        }
+        { "text": "Try to walk away and ignore the agent's warning", "next_node": "node_walk_away_refuse" },
+        { "text": "Get pulled into the distortion again, feeling like you're losing control", "next_node": "node_pulled_in_again" }
       ]
     },
-    "node_29": {
-      "text": "Waymond shows you evidence of Jobu Tupaki's powers. You start to feel a sense of fear, realizing the gravity of the situation.",
+    "node_navigate": {
+      "text": "You try to navigate the multiverse and find a way back home. It's disorienting, but you're determined to find a way back to your own reality.",
       "choices": [
-        {
-          "text": "Ask Waymond to help you stop Jobu Tupaki",
-          "next_node": "node_59"
-        },
-        {
-          "text": "Tell Waymond that you'll handle it yourself",
-          "next_node": "node_60"
-        }
+        { "text": "Keep navigating, trying to find a familiar reality", "next_node": "node_navigate_success" },
+        { "text": "Get lost and start to panic", "next_node": "node_lost" }
       ]
     },
-    "node_30": {
-      "text": "Waymond tells you that you need to be careful, as Jobu Tupaki's minions are searching for you. He explains that they'll stop at nothing to capture you.",
+    "node_overwhelmed": {
+      "text": "You get overwhelmed and lose yourself in the infinite possibilities. It's exhilarating and terrifying at the same time.",
       "choices": [
-        {
-          "text": "Ask Waymond to help you prepare for the minions",
-          "next_node": "node_61"
-        },
-        {
-          "text": "Tell Waymond that you'll handle it yourself",
-          "next_node": "node_62"
-        }
+        { "text": "Try to find a way back to reality, feeling overwhelmed", "next_node": "node_back_to_reality" },
+        { "text": "Give in to the possibilities and see where they take you", "next_node": "node_give_in" }
       ]
     },
-    "end": {
-      "text": "Congratulations, you have reached the end of the story."
+    "node_laundromat_success": {
+      "text": "You go back to the laundromat and try to focus on your business. As you sort through a pile of dirty laundry, you feel a sense of relief wash over you.",
+      "choices": [
+        { "text": "Try to keep things normal and focus on your work", "next_node": "node_normal" },
+        { "text": "Get distracted and start to worry about the audit again", "next_node": "node_worry_audit_again" }
+      ]
+    },
+    "node_laundromat_storm_off": {
+      "text": "You go back to the laundromat and try to calm down. As you sort through a pile of dirty laundry, you feel a sense of frustration and anger.",
+      "choices": [
+        { "text": "Try to focus on your work and push aside your thoughts", "next_node": "node_focus_work" },
+        { "text": "Get distracted and start to worry about the audit again", "next_node": "node_worry_audit_storm" }
+      ]
+    },
+    "node_meet_joy_storm_off": {
+      "text": "You meet up with Joy and try to vent about your bad day. She listens, seeming to understand your frustration.",
+      "choices": [
+        { "text": "Ask Joy about her girlfriend Becky and try to be supportive", "next_node": "node_ask_joy_becky_storm" },
+        { "text": "Get sidetracked and start to worry about your relationship with Waymond", "next_node": "node_worry_waymond_storm" }
+      ]
+    },
+    "node_laundromat_walk_away": {
+      "text": "You go back to the laundromat and try to focus on your business. As you sort through a pile of dirty laundry, you feel a sense of frustration and anger.",
+      "choices": [
+        { "text": "Try to focus on your work and push aside your thoughts", "next_node": "node_focus_work" },
+        { "text": "Get distracted and start to worry about the audit again", "next_node": "node_worry_audit_storm" }
+      ]
+    },
+    "node_meet_joy_walk_away": {
+      "text": "You meet up with Joy and try to forget about the weird encounter. She seems happy to see you, and you start to feel a sense of hope that things might actually get better.",
+      "choices": [
+        { "text": "Ask Joy about her girlfriend Becky and try to be supportive", "next_node": "node_ask_joy_becky" },
+        { "text": "Get sidetracked and start to worry about your relationship with Waymond", "next_node": "node_worry_waymond" }
+      ]
+    },
+    "node_normal": {
+      "text": "You try to keep things normal and focus on your work. As you sort through a pile of dirty laundry, you feel a sense of relief wash over you.",
+      "choices": [
+        { "text": "Continue to focus on your work and try to keep things normal", "next_node": "node_normal_again" },
+        { "text": "Get distracted and start to worry about the audit again", "next_node": "node_worry_audit_again" }
+      ]
+    },
+    "node_normal_again": {
+      "text": "You continue to focus on your work and try to keep things normal. As you sort through a pile of dirty laundry, you feel a sense of relief wash over you.",
+      "choices": [
+        { "text": "Continue on with your day", "next_node": "node_end" },
+        { "text": "Get distracted and start to worry about the audit again", "next_node": "node_worry_audit_again" }
+      ]
+    },
+    "node_end": {
+      "text": "Congratulations, you have reached the end of the story.",
+      "choices": []
     }
   },
   "vocabulary": {
-    "multiverse": "the hypothetical set of all universes",
-    "parallel": "existing or occurring in a similar way",
+    "multiverse": "a hypothetical set of all universes, each with its own version of reality",
     "verse-jumping": "the act of moving between parallel universes",
-    "nihilistic": "having or showing a belief that life has no meaning",
-    "absurdist": "relating to or characterized by absurdity",
-    "humanitarian": "relating to or characterized by a concern for human welfare",
-    "existentialist": "relating to or characterized by a philosophical theory that emphasizes individual freedom and choice",
-    "empathetic": "showing an understanding and sharing of the feelings of another",
-    "toroid": "a shape that is like a doughnut",
-    "singularity": "a point in space-time where the laws of physics break down",
-    "CEFR": "Common European Framework of Reference for Languages"
+    "laundromat": "a business that provides washing and drying machines for people to clean their clothes",
+    "audit": "an official inspection of a business or person's financial records",
+    "distortion": "a change in the shape or appearance of something",
+    "glitch": "a small technical problem or fault in a system or machine",
+    "overwhelmed": "feeling extremely upset or worried",
+    "sidetracked": "distracted or diverted from a main topic or goal",
+    "defensive": "protective or justifying of one's actions or behavior",
+    "frustration": "a feeling of anger or disappointment",
+    "angry": "feeling or showing anger",
+    "hurt": "feeling or showing pain or sadness",
+    "apologize": "to say sorry for something",
+    "amends": "changes made to improve a situation or relationship",
+    "compose": "to put together or arrange in a particular order",
+    "vent": "to express or release a strong emotion",
+    "sidetrack": "to distract or divert someone or something",
+    "refuse": "to decline or reject something",
+    "implications": "the possible effects or consequences of a particular action or situation"
   }
 }
