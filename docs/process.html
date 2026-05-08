@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-Agent Story Generation Process</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f4f9;
+        }
+        .container {
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1, h2 {
+            color: #2c3e50;
+        }
+        .diagram {
+            background: #eee;
+            padding: 20px;
+            border-radius: 5px;
+            font-family: monospace;
+            white-space: pre-wrap;
+            margin: 20px 0;
+        }
+        .agent {
+            font-weight: bold;
+            color: #3498db;
+        }
+        .validator {
+            color: #e67e22;
+        }
+        .pydantic {
+            color: #27ae60;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Multi-Agent Story Generation Process</h1>
+        <p>To ensure high-quality and structurally sound stories, we use a multi-agent workflow powered by LLMs and programmatic validation.</p>
+
+        <h2>Architecture</h2>
+        <div class="diagram">
+[User Input]
+    |
+    v
+<span class="agent">Creator Agent (LLM)</span> <--- (Feedback Loop) ---+
+    |                                        |
+    v                                        |
+[Story JSON]                                 |
+    |                                        |
+    v                                        |
+<span class="pydantic">Structural Validation (Pydantic)</span> ----------+
+    |                                        |
+    v                                        |
+<span class="validator">Validator Agent (LLM)</span> ----------------------+
+    |
+    v
+[Final Validated Story]
+        </div>
+
+        <h2>Step-by-Step</h2>
+        <ol>
+            <li><strong>Creator Agent:</strong> Generates the initial story based on the user's topic, CEFR level, and age range. It follows specialized storytelling skills.</li>
+            <li><strong>Structural Validation:</strong> A Pydantic model checks the JSON structure, ensuring all referenced nodes exist and the format is correct.</li>
+            <li><strong>Validator Agent:</strong> A second LLM pass reviews the story for narrative quality, age-appropriateness, and logical consistency. It also receives any errors from the structural validation.</li>
+            <li><strong>Feedback Loop:</strong> If either validation step fails, the feedback is sent back to the Creator Agent to fix the specific issues. This repeats up to 3 times.</li>
+        </ol>
+
+        <p><a href="index.html">Back to Story Viewer</a></p>
+    </div>
+</body>
+</html>
