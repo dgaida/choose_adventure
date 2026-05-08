@@ -155,7 +155,9 @@ def generate_story(
             messages.append({"role": "user", "content": error_message})
 
         except Exception as e:
-            logger.error(f"Error parsing story JSON on attempt {attempts}: {e}")
+            logger.error(
+                f"Error parsing story JSON on attempt {attempts}: {e}"
+            )
             if attempts == max_attempts:
                 return None, last_response
 
