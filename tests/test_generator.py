@@ -1,108 +1,98 @@
 import pytest
+import json
 from unittest.mock import MagicMock, patch
-from adventure_generator import generate_story
+from adventure_generator import generate_story, validate_story_data, extract_json
 
 @patch('adventure_generator.LLMClient')
-def test_generate_story_short_success(mock_client_class):
-    # Setup mock
-    mock_instance = mock_client_class.return_value
-    mock_instance.chat_completion.return_value = '{"title": "Short Story", "nodes": {"start": {"text": "Once upon a time", "choices": []}}, "vocabulary": {}}'
+def test_generate_story_two_agent_success(mock_client_class):
+    # Mock LLMClient instances for Creator and Validator
+    # Creator is called first, then Validator
 
-    result, raw = generate_story("A test topic", "B1", "short (15-20 nodes)", "12-18")
+    mock_creator_instance = MagicMock()
+    mock_validator_instance = MagicMock()
+
+    # Side effect to return different instances on subsequent calls
+    mock_client_class.side_effect = [mock_creator_instance, mock_validator_instance]
+
+    # Creator returns a valid story JSON
+    story_json = json.dumps({
+        "title": "Agent Story",
+        "nodes": {
+            "start": {"text": "Start", "choices": [{"text": "Next", "next_node": "end"}]},
+            "end": {"text": "End", "choices": []}
+        },
+        "vocabulary": {"word": "desc"}
+    })
+    mock_creator_instance.chat_completion.return_value = story_json
+
+    # Validator returns "VALID"
+    mock_validator_instance.chat_completion.return_value = "VALID"
+
+    result, raw = generate_story("Test", "B1")
 
     assert result is not None
-    assert isinstance(raw, str)
-    assert result['title'] == "Short Story"
-
-    # Verify LLMClient was initialized with the correct model and max_tokens for short story
-    mock_client_class.assert_called_once_with(llm="openai/gpt-oss-120b", max_tokens=8192)
-    mock_instance.chat_completion.assert_called_once()
+    assert result['title'] == "Agent Story"
+    assert raw == story_json
 
 @patch('adventure_generator.LLMClient')
-def test_generate_story_long_success(mock_client_class):
-    # Setup mock
-    mock_instance = mock_client_class.return_value
-    mock_instance.chat_completion.return_value = '{"title": "Long Story", "nodes": {"start": {"text": "A long time ago", "choices": []}}, "vocabulary": {}}'
+def test_generate_story_with_retry(mock_client_class):
+    mock_creator_instance = MagicMock()
+    mock_validator_instance = MagicMock()
+    mock_client_class.side_effect = [mock_creator_instance, mock_validator_instance]
 
-    result, raw = generate_story("A test topic", "B1", "long (35-50 nodes)", "12-18")
+    # 1. Creator returns story with missing node
+    story_v1 = json.dumps({
+        "title": "Broken Story",
+        "nodes": {
+            "start": {"text": "Start", "choices": [{"text": "Next", "next_node": "missing"}]}
+        },
+        "vocabulary": {}
+    })
+
+    # 2. Creator returns fixed story
+    story_v2 = json.dumps({
+        "title": "Fixed Story",
+        "nodes": {
+            "start": {"text": "Start", "choices": [{"text": "Next", "next_node": "end"}]},
+            "end": {"text": "End", "choices": []}
+        },
+        "vocabulary": {}
+    })
+
+    mock_creator_instance.chat_completion.side_effect = [story_v1, story_v2]
+
+    # Validator fails first time, succeeds second
+    mock_validator_instance.chat_completion.side_effect = ["Missing nodes!", "VALID"]
+
+    result, raw = generate_story("Test")
 
     assert result is not None
-    assert isinstance(raw, str)
-    assert result['title'] == "Long Story"
+    assert result['title'] == "Fixed Story"
+    assert mock_creator_instance.chat_completion.call_count == 2
+    assert mock_validator_instance.chat_completion.call_count == 2
 
-    # Verify LLMClient was initialized with the correct model and max_tokens for long story
-    mock_client_class.assert_called_once_with(llm="llama-3.3-70b-versatile", max_tokens=8192)
-    mock_instance.chat_completion.assert_called_once()
-
-@patch('adventure_generator.LLMClient')
-def test_generate_story_with_markdown(mock_client_class):
-    # Setup mock with markdown
-    mock_instance = mock_client_class.return_value
-    mock_instance.chat_completion.return_value = '```json\n{"title": "Markdown Story", "nodes": {}, "vocabulary": {}}\n```'
-
-    result, raw = generate_story("A test topic", "B1")
-
-    assert result is not None
-    assert isinstance(raw, str)
-    assert result['title'] == "Markdown Story"
-
-@patch('adventure_generator.LLMClient')
-def test_generate_story_failure(mock_client_class):
-    # Setup mock with invalid JSON
-    mock_instance = mock_client_class.return_value
-    mock_instance.chat_completion.return_value = 'Invalid Response'
-
-    result, raw = generate_story("A test topic", "B1")
-
-    assert result is None
-    assert raw == "Invalid Response"
-
-@patch('adventure_generator.LLMClient')
-def test_generate_story_empty_response(mock_client_class):
-    # Setup mock with empty response
-    mock_instance = mock_client_class.return_value
-    mock_instance.chat_completion.return_value = ''
-
-    result, raw = generate_story("A test topic", "B1")
-
-    assert result is None
-    assert raw == ''
-
-from adventure_generator import validate_story_nodes
-
-def test_validate_story_nodes_success():
-    story_data = {
-        "nodes": {
-            "start": {
-                "choices": [
-                    {"next_node": "node1"},
-                    {"next_node": "node2"}
-                ]
-            },
-            "node1": {"choices": []},
-            "node2": {"choices": []}
-        }
+def test_validate_story_data_success():
+    story = {
+        "title": "T",
+        "nodes": {"start": {"text": "X", "choices": []}},
+        "vocabulary": {}
     }
-    assert validate_story_nodes(story_data) == []
+    valid, errors = validate_story_data(story)
+    assert valid
+    assert not errors
 
-def test_validate_story_nodes_missing():
-    story_data = {
-        "nodes": {
-            "start": {
-                "choices": [
-                    {"next_node": "node1"},
-                    {"next_node": "missing_node"}
-                ]
-            },
-            "node1": {"choices": []}
-        }
+def test_validate_story_data_missing_node():
+    story = {
+        "title": "T",
+        "nodes": {"start": {"text": "X", "choices": [{"text": "Y", "next_node": "Z"}]}},
+        "vocabulary": {}
     }
-    assert validate_story_nodes(story_data) == ["missing_node"]
+    valid, errors = validate_story_data(story)
+    assert not valid
+    assert any("Missing nodes" in e for e in errors)
 
-def test_validate_story_nodes_no_choices():
-    story_data = {
-        "nodes": {
-            "start": {"text": "End of story"}
-        }
-    }
-    assert validate_story_nodes(story_data) == []
+def test_extract_json():
+    assert extract_json('{"a": 1}') == {"a": 1}
+    assert extract_json('```json\n{"a": 1}\n```') == {"a": 1}
+    assert extract_json('Plain text before\n```\n{"a": 1}\n```\nAfter') == {"a": 1}
+    assert extract_json('Not JSON') is None

@@ -64,6 +64,17 @@ To host your stories, you must **manually enable** GitHub Pages in your reposito
 2. Under **Build and deployment** > **Source**, select **GitHub Actions**.  
 3. Once enabled, every push to `main` that updates the `docs/` folder will automatically trigger a deployment.  
 
+## Multi-Agent Generation Workflow
+
+The generator uses a multi-agent approach to ensure story quality and structural integrity:
+
+1. **Creator Agent**: Generates the narrative following the [storytelling skill](choose_your_own_adventure_story_skill.md).
+2. **Structural Validator**: Uses Pydantic to programmatically verify that the JSON is valid and all "next_node" references point to existing nodes.
+3. **Validator Agent**: A second LLM pass that reviews the story for narrative quality, age-appropriateness, and logical consistency.
+4. **Feedback Loop**: If issues are found, the Validator provides feedback to the Creator, which then attempts to fix the story.
+
+You can find more details in the [Multi-Agent Process Documentation](docs/process.html).
+
 ## How it Works  
 - **Generation**: Uses the `llm_client` to prompt an LLM for a JSON-formatted branching story, following the storytelling skill.  
 - **Frontend**: A JavaScript-based HTML template renders the story nodes and handles navigation between choices.  
