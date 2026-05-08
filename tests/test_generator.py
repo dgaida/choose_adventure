@@ -31,7 +31,7 @@ def test_generate_story_long_success(mock_client_class):
     assert result['title'] == "Long Story"
 
     # Verify LLMClient was initialized with the correct model and max_tokens for long story
-    mock_client_class.assert_called_once_with(llm="llama-3.3-70b-versatile", max_tokens=12288)
+    mock_client_class.assert_called_once_with(llm="llama-3.3-70b-versatile", max_tokens=8192)
     mock_instance.chat_completion.assert_called_once()
 
 @patch('adventure_generator.LLMClient')
