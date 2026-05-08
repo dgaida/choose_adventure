@@ -6,15 +6,18 @@ from llm_client import LLMClient
 
 logger = logging.getLogger(__name__)
 
+
 # --- Pydantic Models for Validation ---
 
 class Choice(BaseModel):
     text: str
     next_node: str
 
+
 class StoryNode(BaseModel):
     text: str
     choices: List[Choice] = Field(default_factory=list)
+
 
 class StoryModel(BaseModel):
     title: str
@@ -28,10 +31,14 @@ class StoryModel(BaseModel):
             for choice in node_data.choices:
                 referenced_nodes.add(choice.next_node)
 
-        missing = [node_id for node_id in referenced_nodes if node_id not in self.nodes]
+        missing = [
+            node_id for node_id in referenced_nodes
+            if node_id not in self.nodes
+        ]
         if missing:
             raise ValueError(f"Missing nodes referenced in choices: {missing}")
         return self
+
 
 # --- Helper Functions ---
 
@@ -52,6 +59,7 @@ def validate_story_data(story_data: Dict[str, Any]) -> Tuple[bool, List[str]]:
     except Exception as e:
         return False, [str(e)]
 
+
 def extract_json(response: str) -> Optional[Dict[str, Any]]:
     """Extracts JSON from an LLM response string."""
     try:
@@ -64,6 +72,7 @@ def extract_json(response: str) -> Optional[Dict[str, Any]]:
         return json.loads(json_str)
     except Exception:
         return None
+
 
 # --- Agent Implementation ---
 
@@ -79,12 +88,15 @@ class CreatorAgent:
             "reader's decisions."
         )
 
-    def generate(self, prompt: str, history: List[Dict[str, str]] = None) -> str:
+    def generate(
+        self, prompt: str, history: List[Dict[str, str]] = None
+    ) -> str:
         messages = [{"role": "system", "content": self.system_prompt}]
         if history:
             messages.extend(history)
         messages.append({"role": "user", "content": prompt})
         return self.client.chat_completion(messages)
+
 
 class ValidatorAgent:
     def __init__(self, model: str, max_tokens: int):
@@ -97,7 +109,9 @@ class ValidatorAgent:
             "logical consistency, age-appropriateness, and node integrity."
         )
 
-    def validate(self, story_json: str, validation_errors: List[str]) -> Tuple[bool, str]:
+    def validate(
+        self, story_json: str, validation_errors: List[str]
+    ) -> Tuple[bool, str]:
         prompt = f"""
         Please validate the following "choose your own adventure" story.
 
@@ -109,10 +123,11 @@ class ValidatorAgent:
 
         Task:
         1. Review the story for logical consistency and engagement.
-        2. If there are missing nodes or structural issues, identify exactly where they are.
+        2. If there are missing nodes or structural issues, identify exactly
+           where they are.
         3. Check if the CEFR level and age-appropriateness are met.
         4. If everything is perfect, respond with "VALID".
-        5. If there are issues, provide a clear, concise list of what needs to be fixed.
+        5. If there are issues, provide a clear, concise list of fix items.
         """
 
         messages = [
@@ -123,6 +138,7 @@ class ValidatorAgent:
         response = self.client.chat_completion(messages)
         is_valid = response.strip().upper() == "VALID"
         return is_valid, response
+
 
 def generate_story(
     topic: str,
@@ -155,13 +171,17 @@ def generate_story(
        {{
          "title": "Story Title",
          "nodes": {{
-           "start": {{ "text": "...", "choices": [{{ "text": "...", "next_node": "node_id_1" }}] }},
+           "start": {{
+             "text": "...",
+             "choices": [{{ "text": "...", "next_node": "node_id_1" }}]
+           }},
            "node_id_1": {{ "text": "...", "choices": [...] }}
          }},
          "vocabulary": {{ "word": "explanation" }}
        }}
     4. Node Integrity: Every "next_node" MUST exist.
-    5. Vocabulary: 10-20 words with simple English explanations. Do not use the word in its explanation.
+    5. Vocabulary: 10-20 words with simple English explanations.
+       Do not use the word in its explanation.
     """
 
     attempts = 0
@@ -173,37 +193,59 @@ def generate_story(
         attempts += 1
         logger.info(f"Generation attempt {attempts}...")
 
-        last_creator_response = creator.generate(initial_prompt if attempts == 1 else "Fix the issues reported by the validator.", history)
+        last_creator_response = creator.generate(
+            initial_prompt if attempts == 1
+            else "Fix the issues reported by the validator.", history
+        )
 
         story_data = extract_json(last_creator_response)
         if not story_data:
             logger.warning(f"Attempt {attempts}: Failed to extract JSON.")
-            history.append({"role": "assistant", "content": last_creator_response})
-            history.append({"role": "user", "content": "The output was not valid JSON. Please return ONLY the JSON object."})
+            history.append({
+                "role": "assistant", "content": last_creator_response
+            })
+            history.append({
+                "role": "user",
+                "content": "Invalid JSON. Please return ONLY the JSON object."
+            })
             continue
 
         # Programmatic validation
         is_structurally_valid, errors = validate_story_data(story_data)
 
         # Agent validation
-        is_agent_valid, feedback = validator.validate(json.dumps(story_data), errors)
+        is_agent_valid, feedback = validator.validate(
+            json.dumps(story_data), errors
+        )
 
         if is_structurally_valid and is_agent_valid:
             logger.info("Story validated successfully.")
             return story_data, last_creator_response
 
-        logger.warning(f"Attempt {attempts}: Validation failed. Feedback: {feedback}")
+        logger.warning(
+            f"Attempt {attempts}: Validation failed. Feedback: {feedback}"
+        )
 
         # Provide feedback to creator
-        history.append({"role": "assistant", "content": last_creator_response})
-        feedback_msg = f"The validator found issues with your story:\n\n{feedback}\n\n"
+        history.append({
+            "role": "assistant", "content": last_creator_response
+        })
+        feedback_msg = (
+            f"The validator found issues with your story:\n\n{feedback}\n\n"
+        )
         if errors:
-            feedback_msg += f"Structural Errors:\n{json.dumps(errors, indent=2)}\n\n"
-        feedback_msg += "Please fix these issues and provide the complete, updated story JSON."
+            feedback_msg += (
+                f"Structural Errors:\n{json.dumps(errors, indent=2)}\n\n"
+            )
+        feedback_msg += (
+            "Please fix these issues and provide the complete, updated "
+            "story JSON."
+        )
 
         history.append({"role": "user", "content": feedback_msg})
 
     return extract_json(last_creator_response), last_creator_response
+
 
 if __name__ == "__main__":
     logging.basicConfig(level=logging.INFO)
