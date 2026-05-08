@@ -1,0 +1,630 @@
+{
+  "title": "The Mysterious Island",
+  "nodes": {
+    "start": {
+      "text": "You've always been fascinated by the sea and its secrets. As a young marine biologist, you've spent countless hours studying the ocean and its creatures. One day, while on a research vessel in the middle of the Atlantic, you receive a distress signal from a nearby island. The signal is weak and unclear, but it seems to be a call for help. The captain of the vessel decides to investigate, and you're invited to join the expedition. As you approach the island, you notice that it's shrouded in a thick fog. The vessel drops anchor, and you take a small boat to explore the island.",
+      "choices": [
+        {
+          "text": "Investigate the source of the distress signal",
+          "next_node": "signal_source"
+        },
+        {
+          "text": "Explore the island's coastline and look for any signs of danger",
+          "next_node": "coastline_exploration"
+        }
+      ]
+    },
+    "signal_source": {
+      "text": "You trek through the dense jungle, following the faint signal. The air is thick with humidity and the sounds of exotic birds and animals. As you push through the underbrush, you come across a small clearing and find a damaged radio transmitter. It's clear that someone or something was trying to send out a distress signal, but it looks like they've either fled or are no longer able to transmit.",
+      "choices": [
+        {
+          "text": "Search the perimeter of the clearing for any signs of the person who sent the signal",
+          "next_node": "search_perimeter"
+        },
+        {
+          "text": "Try to fix the radio transmitter to see if you can get a clearer message",
+          "next_node": "fix_transmitter"
+        }
+      ]
+    },
+    "coastline_exploration": {
+      "text": "As you make your way along the coastline, you notice that the island seems to be uninhabited, but there are signs of recent human activity. You see a piece of torn fabric caught in a bush and what looks like a makeshift shelter in the distance. You approach the shelter and find a small cache of supplies, including food, water, and a first aid kit.",
+      "choices": [
+        {
+          "text": "Take some of the supplies and continue exploring the island",
+          "next_node": "explore_island"
+        },
+        {
+          "text": "Investigate the makeshift shelter further to see if you can find any clues about the person who made it",
+          "next_node": "shelter_investigation"
+        }
+      ]
+    },
+    "search_perimeter": {
+      "text": "You carefully search the perimeter of the clearing, looking for any signs of the person who sent the signal. As you move through the jungle, you notice that the underbrush is disturbed, and there are faint footprints leading deeper into the island. You follow the footprints, which lead you to a small cave.",
+      "choices": [
+        {
+          "text": "Enter the cave to see if you can find any signs of the person",
+          "next_node": "cave_exploration"
+        },
+        {
+          "text": "Return to the clearing and try to fix the radio transmitter",
+          "next_node": "fix_transmitter"
+        }
+      ]
+    },
+    "fix_transmitter": {
+      "text": "You try to fix the radio transmitter, but it's clear that it's beyond your technical expertise. As you're working on it, you hear a faint noise coming from deeper in the jungle. It's hard to make out what it is, but it sounds like someone or something is moving through the underbrush.",
+      "choices": [
+        {
+          "text": "Investigate the noise and see what's making it",
+          "next_node": "investigate_noise"
+        },
+        {
+          "text": "Stay with the transmitter and hope that the person who sent the signal returns",
+          "next_node": "wait_for_signal"
+        }
+      ]
+    },
+    "explore_island": {
+      "text": "You take some of the supplies and continue exploring the island. As you move through the jungle, you come across a small stream and follow it to see where it leads. The stream takes you to a small waterfall, and behind the waterfall, you find a hidden cave.",
+      "choices": [
+        {
+          "text": "Enter the cave to see what's inside",
+          "next_node": "cave_exploration"
+        },
+        {
+          "text": "Return to the coastline and explore other parts of the island",
+          "next_node": "coastline_exploration"
+        }
+      ]
+    },
+    "shelter_investigation": {
+      "text": "You investigate the makeshift shelter further and find a small journal belonging to someone named 'Alex'. As you flip through the journal, you realize that Alex was stranded on the island after a shipwreck and has been trying to survive for weeks.",
+      "choices": [
+        {
+          "text": "Keep reading the journal to see if you can learn more about Alex's situation",
+          "next_node": "read_journal"
+        },
+        {
+          "text": "Search the island to see if you can find any signs of Alex",
+          "next_node": "search_island"
+        }
+      ]
+    },
+    "cave_exploration": {
+      "text": "You enter the cave and find that it's filled with strange rock formations and glittering crystals. As you move deeper into the cave, you hear a faint noise and see a figure in the distance.",
+      "choices": [
+        {
+          "text": "Approach the figure and try to communicate",
+          "next_node": "approach_figure"
+        },
+        {
+          "text": "Keep a safe distance and observe the figure",
+          "next_node": "observe_figure"
+        }
+      ]
+    },
+    "investigate_noise": {
+      "text": "You investigate the noise and find that it's a person, injured and disoriented. As you approach them, they look up and you see that it's Alex, the person who wrote the journal.",
+      "choices": [
+        {
+          "text": "Try to help Alex and tend to their injuries",
+          "next_node": "help_alex"
+        },
+        {
+          "text": "Ask Alex questions about their situation and how they ended up on the island",
+          "next_node": "question_alex"
+        }
+      ]
+    },
+    "wait_for_signal": {
+      "text": "You stay with the transmitter and hope that the person who sent the signal returns. As you wait, you hear the noise getting closer and closer, and suddenly, Alex appears, looking frantic and worried.",
+      "choices": [
+        {
+          "text": "Try to calm Alex down and figure out what's going on",
+          "next_node": "calm_alex"
+        },
+        {
+          "text": "Tell Alex about the transmitter and ask for their help in fixing it",
+          "next_node": "tell_alex"
+        }
+      ]
+    },
+    "read_journal": {
+      "text": "You keep reading the journal and learn that Alex has been trying to find a way off the island for weeks. As you read, you come across a passage that mentions a hidden exit from the island.",
+      "choices": [
+        {
+          "text": "Search the island for the hidden exit",
+          "next_node": "search_exit"
+        },
+        {
+          "text": "Continue reading the journal to see if you can learn more about the island",
+          "next_node": "continue_reading"
+        }
+      ]
+    },
+    "search_island": {
+      "text": "You search the island and find some signs of Alex's presence, including a makeshift bed and some abandoned supplies. As you continue searching, you come across a small hut in the distance.",
+      "choices": [
+        {
+          "text": "Investigate the hut and see if you can find any clues",
+          "next_node": "investigate_hut"
+        },
+        {
+          "text": "Return to the shelter and rest for a while",
+          "next_node": "return_shelter"
+        }
+      ]
+    },
+    "approach_figure": {
+      "text": "You approach the figure and try to communicate. As you get closer, you see that it's Alex, and they look relieved to see you.",
+      "choices": [
+        {
+          "text": "Ask Alex questions about their situation and how they ended up on the island",
+          "next_node": "question_alex_cave"
+        },
+        {
+          "text": "Try to help Alex and figure out a way off the island",
+          "next_node": "help_alex_cave"
+        }
+      ]
+    },
+    "observe_figure": {
+      "text": "You keep a safe distance and observe the figure. As you watch, you realize that it's Alex, and they seem to be searching for something.",
+      "choices": [
+        {
+          "text": "Approach Alex and try to communicate",
+          "next_node": "approach_alex_observe"
+        },
+        {
+          "text": "Keep observing Alex and see if you can learn more about their situation",
+          "next_node": "continue_observing"
+        }
+      ]
+    },
+    "help_alex": {
+      "text": "You try to help Alex and tend to their injuries. As you work, Alex tells you about their situation and how they ended up on the island.",
+      "choices": [
+        {
+          "text": "Ask Alex questions about their past and what they were doing on the island",
+          "next_node": "ask_alex_past"
+        },
+        {
+          "text": "Help Alex find a way off the island",
+          "next_node": "find_way_off"
+        }
+      ]
+    },
+    "question_alex": {
+      "text": "You ask Alex questions about their situation and how they ended up on the island. Alex tells you about the shipwreck and their struggles to survive.",
+      "choices": [
+        {
+          "text": "Try to help Alex find a way off the island",
+          "next_node": "help_alex_escape"
+        },
+        {
+          "text": "Ask Alex more questions about their past and what they were doing on the island",
+          "next_node": "ask_alex_more"
+        }
+      ]
+    },
+    "calm_alex": {
+      "text": "You try to calm Alex down and figure out what's going on. Alex tells you that they've been searching for a way off the island and are getting desperate.",
+      "choices": [
+        {
+          "text": "Try to help Alex find a way off the island",
+          "next_node": "help_alex_escape"
+        },
+        {
+          "text": "Tell Alex about the transmitter and ask for their help in fixing it",
+          "next_node": "tell_alex_transmitter"
+        }
+      ]
+    },
+    "tell_alex": {
+      "text": "You tell Alex about the transmitter and ask for their help in fixing it. Alex agrees to help, and together, you manage to fix the transmitter and send out a distress signal.",
+      "choices": [
+        {
+          "text": "Wait for help to arrive and try to survive on the island",
+          "next_node": "wait_for_help"
+        },
+        {
+          "text": "Try to find a way off the island before help arrives",
+          "next_node": "find_way_off"
+        }
+      ]
+    },
+    "search_exit": {
+      "text": "You search the island for the hidden exit and eventually find a small opening in the rocks. As you make your way through the opening, you find yourself on the other side of the island.",
+      "choices": [
+        {
+          "text": "Explore the new part of the island and see if you can find any signs of civilization",
+          "next_node": "explore_new_part"
+        },
+        {
+          "text": "Return to the shelter and rest for a while",
+          "next_node": "return_shelter"
+        }
+      ]
+    },
+    "investigate_hut": {
+      "text": "You investigate the hut and find some supplies and a small note that reads: 'Meet me at the cave at midnight. -A'.",
+      "choices": [
+        {
+          "text": "Go to the cave at midnight to see who it is",
+          "next_node": "go_to_cave"
+        },
+        {
+          "text": "Ignore the note and return to the shelter",
+          "next_node": "return_shelter"
+        }
+      ]
+    },
+    "question_alex_cave": {
+      "text": "You ask Alex questions about their situation and how they ended up on the island. Alex tells you about their struggles to survive and their fears about being stranded.",
+      "choices": [
+        {
+          "text": "Try to help Alex find a way off the island",
+          "next_node": "help_alex_escape"
+        },
+        {
+          "text": "Ask Alex more questions about their past and what they were doing on the island",
+          "next_node": "ask_alex_more"
+        }
+      ]
+    },
+    "help_alex_cave": {
+      "text": "You try to help Alex and figure out a way off the island. As you work, you realize that you're not alone on the island.",
+      "choices": [
+        {
+          "text": "Investigate the noise and see who or what it is",
+          "next_node": "investigate_noise_cave"
+        },
+        {
+          "text": "Keep working on finding a way off the island with Alex",
+          "next_node": "keep_working"
+        }
+      ]
+    },
+    "ask_alex_past": {
+      "text": "You ask Alex questions about their past and what they were doing on the island. Alex tells you about their life before the shipwreck and their goals.",
+      "choices": [
+        {
+          "text": "Try to help Alex find a way off the island",
+          "next_node": "help_alex_escape"
+        },
+        {
+          "text": "Ask Alex more questions about their past and what they were doing on the island",
+          "next_node": "ask_alex_more"
+        }
+      ]
+    },
+    "help_alex_escape": {
+      "text": "You try to help Alex find a way off the island. As you work, you realize that it's not going to be easy.",
+      "choices": [
+        {
+          "text": "Keep working on finding a way off the island",
+          "next_node": "keep_working"
+        },
+        {
+          "text": "Take a break and rest for a while",
+          "next_node": "take_break"
+        }
+      ]
+    },
+    "ask_alex_more": {
+      "text": "You ask Alex more questions about their past and what they were doing on the island. Alex tells you more about their life and their goals.",
+      "choices": [
+        {
+          "text": "Try to help Alex find a way off the island",
+          "next_node": "help_alex_escape"
+        },
+        {
+          "text": "Keep asking Alex questions",
+          "next_node": "keep_asking"
+        }
+      ]
+    },
+    "go_to_cave": {
+      "text": "You go to the cave at midnight and find a person waiting for you. It's Alex, and they look like they've been waiting for a long time.",
+      "choices": [
+        {
+          "text": "Ask Alex what they're doing here and what they want",
+          "next_node": "ask_alex_cave_midnight"
+        },
+        {
+          "text": "Tell Alex that you're trying to find a way off the island and ask for their help",
+          "next_node": "tell_alex_cave_midnight"
+        }
+      ]
+    },
+    "approach_alex_observe": {
+      "text": "You approach Alex and try to communicate. Alex looks up and seems relieved to see you.",
+      "choices": [
+        {
+          "text": "Ask Alex questions about their situation and how they ended up on the island",
+          "next_node": "question_alex_cave"
+        },
+        {
+          "text": "Try to help Alex and figure out a way off the island",
+          "next_node": "help_alex_cave"
+        }
+      ]
+    },
+    "continue_reading": {
+      "text": "You continue reading the journal and learn more about Alex's situation. You realize that they've been on the island for months and are getting desperate.",
+      "choices": [
+        {
+          "text": "Search the island for the hidden exit",
+          "next_node": "search_exit"
+        },
+        {
+          "text": "Return to the shelter and rest for a while",
+          "next_node": "return_shelter"
+        }
+      ]
+    },
+    "return_shelter": {
+      "text": "You return to the shelter and rest for a while. As you rest, you hear a noise outside and realize that someone or something is approaching.",
+      "choices": [
+        {
+          "text": "Investigate the noise and see who or what it is",
+          "next_node": "investigate_noise"
+        },
+        {
+          "text": "Stay in the shelter and hope that the person or thing goes away",
+          "next_node": "stay_in_shelter"
+        }
+      ]
+    },
+    "keep_working": {
+      "text": "You keep working on finding a way off the island. As you work, you realize that it's not going to be easy, but you're determined to succeed.",
+      "choices": [
+        {
+          "text": "Take a break and rest for a while",
+          "next_node": "take_break"
+        },
+        {
+          "text": "Keep working on finding a way off the island",
+          "next_node": "find_way_off"
+        }
+      ]
+    },
+    "explore_new_part": {
+      "text": "You explore the new part of the island and find some signs of civilization. You see a boat in the distance and realize that you might be able to escape.",
+      "choices": [
+        {
+          "text": "Try to get the boat and escape the island",
+          "next_node": "escape_island"
+        },
+        {
+          "text": "Return to the shelter and rest for a while",
+          "next_node": "return_shelter"
+        }
+      ]
+    },
+    "continue_observing": {
+      "text": "You keep observing Alex and see if you can learn more about their situation. As you watch, you realize that they're searching for something.",
+      "choices": [
+        {
+          "text": "Approach Alex and try to communicate",
+          "next_node": "approach_alex_observe"
+        },
+        {
+          "text": "Keep observing Alex and see if you can learn more about their situation",
+          "next_node": "continue_observing"
+        }
+      ]
+    },
+    "keep_asking": {
+      "text": "You keep asking Alex questions and learn more about their past and what they were doing on the island.",
+      "choices": [
+        {
+          "text": "Try to help Alex find a way off the island",
+          "next_node": "help_alex_escape"
+        },
+        {
+          "text": "Keep asking Alex questions",
+          "next_node": "keep_asking"
+        }
+      ]
+    },
+    "take_break": {
+      "text": "You take a break and rest for a while. As you rest, you realize that you're getting tired and need to keep going.",
+      "choices": [
+        {
+          "text": "Keep working on finding a way off the island",
+          "next_node": "find_way_off"
+        },
+        {
+          "text": "Take another break and rest for a while",
+          "next_node": "take_break"
+        }
+      ]
+    },
+    "investigate_noise_cave": {
+      "text": "You investigate the noise and see if you can find any signs of who or what it is. As you move through the cave, you hear a faint noise and see a figure in the distance.",
+      "choices": [
+        {
+          "text": "Approach the figure and try to communicate",
+          "next_node": "approach_figure"
+        },
+        {
+          "text": "Keep a safe distance and observe the figure",
+          "next_node": "observe_figure"
+        }
+      ]
+    },
+    "find_way_off": {
+      "text": "You think you see a way off the island. As you move towards it, you realize that it's a boat and you might be able to escape.",
+      "choices": [
+        {
+          "text": "Try to get the boat and escape the island",
+          "next_node": "escape_island"
+        },
+        {
+          "text": "Return to the shelter and rest for a while",
+          "next_node": "return_shelter"
+        }
+      ]
+    },
+    "wait_for_help": {
+      "text": "You wait for help to arrive and try to survive on the island. As you wait, you hear a noise in the distance and see a ship approaching.",
+      "choices": [
+        {
+          "text": "Try to signal the ship and get their attention",
+          "next_node": "signal_ship"
+        },
+        {
+          "text": "Stay on the island and wait for the ship to arrive",
+          "next_node": "stay_on_island"
+        }
+      ]
+    },
+    "tell_alex_transmitter": {
+      "text": "You tell Alex about the transmitter and ask for their help in fixing it. Alex agrees to help, and together, you manage to fix the transmitter and send out a distress signal.",
+      "choices": [
+        {
+          "text": "Wait for help to arrive and try to survive on the island",
+          "next_node": "wait_for_help"
+        },
+        {
+          "text": "Try to find a way off the island before help arrives",
+          "next_node": "find_way_off"
+        }
+      ]
+    },
+    "ask_alex_cave_midnight": {
+      "text": "You ask Alex what they're doing here and what they want. Alex tells you that they've been searching for a way off the island and are getting desperate.",
+      "choices": [
+        {
+          "text": "Try to help Alex find a way off the island",
+          "next_node": "help_alex_escape"
+        },
+        {
+          "text": "Tell Alex that you're trying to find a way off the island and ask for their help",
+          "next_node": "tell_alex_cave_midnight"
+        }
+      ]
+    },
+    "tell_alex_cave_midnight": {
+      "text": "You tell Alex that you're trying to find a way off the island and ask for their help. Alex agrees to help, and together, you manage to find a boat and escape the island.",
+      "choices": [
+        {
+          "text": "Escape the island and head back home",
+          "next_node": "escape_island"
+        },
+        {
+          "text": "Stay on the island and try to survive",
+          "next_node": "stay_on_island"
+        }
+      ]
+    },
+    "escape_island": {
+      "text": "You escape the island and head back home. As you sail away, you realize that you've had an incredible adventure and learned a lot about survival and teamwork.",
+      "choices": [
+        {
+          "text": "Return home and share your story with others",
+          "next_node": "return_home"
+        },
+        {
+          "text": "Keep sailing and explore more of the ocean",
+          "next_node": "keep_sailing"
+        }
+      ]
+    },
+    "stay_on_island": {
+      "text": "You decide to stay on the island and try to survive. As you stay, you realize that you're getting more and more tired and need to find a way off the island.",
+      "choices": [
+        {
+          "text": "Keep searching for a way off the island",
+          "next_node": "find_way_off"
+        },
+        {
+          "text": "Stay on the island and try to survive",
+          "next_node": "stay_on_island"
+        }
+      ]
+    },
+    "signal_ship": {
+      "text": "You try to signal the ship and get their attention. As you signal, you realize that the ship is getting closer and closer.",
+      "choices": [
+        {
+          "text": "Keep signaling the ship and try to get their attention",
+          "next_node": "ship_arrives"
+        },
+        {
+          "text": "Stay on the island and wait for the ship to arrive",
+          "next_node": "stay_on_island"
+        }
+      ]
+    },
+    "ship_arrives": {
+      "text": "The ship arrives and you get rescued. As you sail away, you realize that you've had an incredible adventure and learned a lot about survival and teamwork.",
+      "choices": [
+        {
+          "text": "Return home and share your story with others",
+          "next_node": "return_home"
+        },
+        {
+          "text": "Keep sailing and explore more of the ocean",
+          "next_node": "keep_sailing"
+        }
+      ]
+    },
+    "return_home": {
+      "text": "You return home and share your story with others. As you share, you realize that you've had an incredible adventure and learned a lot about survival and teamwork.",
+      "choices": [
+        {
+          "text": "End the story",
+          "next_node": "end_story"
+        }
+      ]
+    },
+    "keep_sailing": {
+      "text": "You keep sailing and explore more of the ocean. As you sail, you realize that there are many more adventures waiting for you.",
+      "choices": [
+        {
+          "text": "End the story",
+          "next_node": "end_story"
+        }
+      ]
+    },
+    "end_story": {
+      "text": "Congratulations, you've reached the end of the story!",
+      "choices": []
+    },
+    "stay_in_shelter": {
+      "text": "You stay in the shelter and hope that the person or thing goes away. As you stay, you realize that you're getting more and more tired.",
+      "choices": [
+        {
+          "text": "Investigate the noise and see who or what it is",
+          "next_node": "investigate_noise"
+        },
+        {
+          "text": "Stay in the shelter and hope that the person or thing goes away",
+          "next_node": "stay_in_shelter"
+        }
+      ]
+    }
+  },
+  "vocabulary": {
+    "distress signal": "a signal sent to ask for help",
+    "exiled": "sent away from a place, often as a punishment",
+    "transmitter": "a machine that sends out signals or messages",
+    "humidity": "the amount of water in the air",
+    "underbrush": "small trees and bushes in a forest",
+    "perimeter": "the edge or boundary of something",
+    "makeshift": "something made to use in an emergency or when something else is not available",
+    "cache": "a hidden store of food, money, or other valuable things",
+    "torn": "pulled or ripped apart",
+    "faint": "very weak or slight",
+    "disoriented": "confused and not knowing where you are",
+    "glittering": "shining brightly with flashes of light",
+    "formations": "shapes or structures",
+    "desperate": "feeling hopeless and in need of help",
+    "abandoned": "left or deserted",
+    "hidden exit": "a secret way out of a place"
+  }
+}
