@@ -5,6 +5,7 @@ from llm_client import LLMClient
 
 logger = logging.getLogger(__name__)
 
+
 def generate_story(
     topic: str,
     level: str = "B1",
@@ -27,8 +28,11 @@ def generate_story(
     client = LLMClient(llm="openai/gpt-oss-120b", max_tokens=8192)
 
     prompt = f"""
-    Create a "choose your own adventure" story about "{topic}" for a student in Germany who is learning English at the CEFR {level} level.
-    The reader is in the age range: {age_range}. Ensure the content is age-appropriate and does not contain any adult content if the reader is a kid.
+    Create a "choose your own adventure" story about "{topic}" for a student
+    in Germany who is learning English at the CEFR {level} level.
+    The reader is in the age range: {age_range}. Ensure the content is
+    age-appropriate and does not contain any adult content if the reader
+    is a kid.
 
     Guidelines:
     1. Language: English.
@@ -56,12 +60,30 @@ def generate_story(
            "word2": "simple English explanation"
          }}
        }}
-    5. Vocabulary: Identify 10-20 difficult or advanced words used in the story and provide simple English explanations for them. IMPORTANT: Do not use any of the chosen vocabulary words within the explanations themselves, as this causes display issues.
-    6. Ensure the JSON is valid and complete. Do not include any conversational text, explanations, or notes outside the JSON structure. Just return the JSON object.
+    5. Vocabulary: Identify 10-20 difficult or advanced words used in the story
+       and provide simple English explanations for them. IMPORTANT: Do not use
+       any of the chosen vocabulary words within the explanations themselves,
+       as this causes display issues.
+    6. Ensure the JSON is valid and complete. Do not include any conversational
+       text, explanations, or notes outside the JSON structure. Just return the
+       JSON object.
     """
 
     messages = [
-        {"role": "system", "content": "You are a creative story writer and English teacher."},
+        {
+            "role": "system",
+            "content": (
+                "You are a creative story writer and English teacher. "
+                "You must follow the storytelling skill described in "
+                "choose_your_own_adventure_story_skill.md "
+                "(https://github.com/dgaida/choose_adventure/blob/main/"
+                "choose_your_own_adventure_story_skill.md): "
+                "create highly engaging interactive stories with meaningful "
+                "choices, high momentum, suspenseful cliffhangers, and "
+                "emotionally difficult decisions. Ensure every choice "
+                "matters and the narrative reacts to the reader's decisions."
+            )
+        },
         {"role": "user", "content": prompt}
     ]
 
@@ -82,6 +104,7 @@ def generate_story(
         logger.error(f"Error parsing story JSON: {e}")
         logger.error(f"Raw response: {response}")
         return None, response
+
 
 if __name__ == "__main__":
     # Test generation

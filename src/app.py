@@ -8,36 +8,56 @@ from adventure_generator import generate_story
 from update_manifest import update_manifest
 
 # Configure logging
-logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(name)s - %(levelname)s - %(message)s")
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+)
 logger = logging.getLogger(__name__)
 
-def process_and_save_story(topic: str, level: str, length: str, age_range: str) -> Tuple[str, Optional[str], Optional[Dict[str, Any]], str]:
+
+def process_and_save_story(
+    api_key: str, topic: str, level: str, length: str, age_range: str
+) -> Tuple[str, Optional[str], Optional[Dict[str, Any]], str]:
     """
     Orchestrates story generation, saving, and manifest update.
 
     Args:
+        api_key: The LLM API key.
         topic: The description of the story to generate.
         level: The CEFR English level.
         length: The length of the story.
         age_range: The age range of the reader.
 
     Returns:
-        A tuple of (status message, file path for download, story data).
+        A tuple of (status message, file path for download, story data,
+        raw response).
     """
+    if api_key:
+        os.environ["API_KEY"] = api_key
+
     try:
-        story_data, raw_response = generate_story(topic, level, length, age_range)
+        story_data, raw_response = generate_story(
+            topic, level, length, age_range
+        )
         if not story_data:
-            return "Error: Could not parse story JSON. Showing raw response in preview.", None, None, raw_response
+            return (
+                "Error: Could not parse story JSON. Showing raw response in "
+                "preview.", None, None, raw_response
+            )
 
         # Ensure docs and docs/stories directories exist
-        base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        base_dir = os.path.dirname(
+            os.path.dirname(os.path.abspath(__file__))
+        )
         docs_dir = os.path.join(base_dir, "docs")
         stories_dir = os.path.join(docs_dir, "stories")
         os.makedirs(stories_dir, exist_ok=True)
 
         # Generate a filename for the story
         title = story_data.get("title", "story")
-        story_id = "".join(x for x in title if x.isalnum())[:20].lower() or "story"
+        story_id = "".join(
+            x for x in title if x.isalnum()
+        )[:20].lower() or "story"
         filename = f"{story_id}_{int(os.getpid())}.json"
         story_path = os.path.join(stories_dir, filename)
 
@@ -49,7 +69,9 @@ def process_and_save_story(topic: str, level: str, length: str, age_range: str) 
         update_manifest()
 
         # Ensure index.html is initialized from template
-        template_path = os.path.join(os.path.dirname(__file__), "templates", "story_template.html")
+        template_path = os.path.join(
+            os.path.dirname(__file__), "templates", "story_template.html"
+        )
         index_path = os.path.join(docs_dir, "index.html")
 
         if os.path.exists(template_path):
@@ -59,10 +81,14 @@ def process_and_save_story(topic: str, level: str, length: str, age_range: str) 
             with open(index_path, "w") as f:
                 f.write(template_content)
 
-        return f"Story '{story_data.get('title')}' generated successfully!", story_path, story_data, json.dumps(story_data, indent=2)
+        return (
+            f"Story '{story_data.get('title')}' generated successfully!",
+            story_path, story_data, json.dumps(story_data, indent=2)
+        )
     except Exception as e:
         logger.exception("Error in process_and_save_story")
         return f"An unexpected error occurred: {str(e)}", None, None, ""
+
 
 def create_github_pr(story_json: str) -> str:
     """
@@ -94,7 +120,9 @@ def create_github_pr(story_json: str) -> str:
 
         # Create a new branch
         title = story_data.get("title", "story")
-        story_id = "".join(x for x in title if x.isalnum())[:20].lower() or "story"
+        story_id = "".join(
+            x for x in title if x.isalnum()
+        )[:20].lower() or "story"
         branch_name = f"story-{story_id}-{os.getpid()}"
 
         repo.create_git_ref(ref=f"refs/heads/{branch_name}", sha=sb.commit.sha)
@@ -103,7 +131,9 @@ def create_github_pr(story_json: str) -> str:
         filename = f"{story_id}.json"
         story_path = f"docs/stories/{filename}"
         content = json.dumps(story_data, indent=2)
-        repo.create_file(story_path, f"Add story: {title}", content, branch=branch_name)
+        repo.create_file(
+            story_path, f"Add story: {title}", content, branch=branch_name
+        )
 
         # 2. Update manifest.json
         manifest_path = "docs/stories/manifest.json"
@@ -116,15 +146,23 @@ def create_github_pr(story_json: str) -> str:
             "filename": filename
         })
         # Sort manifest stories by title
-        manifest_data["stories"] = sorted(manifest_data["stories"], key=lambda x: x["title"])
+        manifest_data["stories"] = sorted(
+            manifest_data["stories"], key=lambda x: x["title"]
+        )
 
         updated_manifest_content = json.dumps(manifest_data, indent=2)
-        repo.update_file(manifest_path, "Update manifest.json", updated_manifest_content, manifest_file.sha, branch=branch_name)
+        repo.update_file(
+            manifest_path, "Update manifest.json", updated_manifest_content,
+            manifest_file.sha, branch=branch_name
+        )
 
         # 3. Create Pull Request
         pr = repo.create_pull(
             title=f"New Story: {title}",
-            body=f"This PR adds a new story titled '{title}' generated by the AI.",
+            body=(
+                f"This PR adds a new story titled '{title}' "
+                "generated by the AI."
+            ),
             head=branch_name,
             base=main_branch
         )
@@ -133,6 +171,7 @@ def create_github_pr(story_json: str) -> str:
     except Exception as e:
         logger.exception("Error creating Pull Request")
         return f"Error creating Pull Request: {str(e)}"
+
 
 # Create Gradio UI
 with gr.Blocks(title="Adventure Story Generator") as demo:
@@ -143,13 +182,30 @@ with gr.Blocks(title="Adventure Story Generator") as demo:
 
     with gr.Row():
         with gr.Column():
-            default_topic = "Create a branching story set in the universe of the 'Warriors' book series by Erin Hunter. It should involve a young apprentice's first hunt and a mysterious prophecy. The story should be appropriate for English learners."
-            topic_input = gr.Textbox(label="Story Description", lines=10, value=default_topic)
+            api_key_input = gr.Textbox(
+                label="LLM API Key", type="password",
+                placeholder="Enter your API Key here..."
+            )
+            default_topic = (
+                "Create a branching story set in the universe of the "
+                "'Warriors' book series by Erin Hunter. It should involve "
+                "a young apprentice's first hunt and a mysterious prophecy. "
+                "The story should be appropriate for English learners."
+            )
+            topic_input = gr.Textbox(
+                label="Story Description", lines=10, value=default_topic
+            )
         with gr.Column():
-            level_input = gr.Dropdown(label="English Level", choices=["A1", "A2", "B1", "B2", "C1", "C2"], value="B1")
+            level_input = gr.Dropdown(
+                label="English Level",
+                choices=["A1", "A2", "B1", "B2", "C1", "C2"], value="B1"
+            )
             length_input = gr.Dropdown(
                 label="Story Length",
-                choices=["short (15-20 nodes)", "medium (20-25 nodes)", "long (25-30 nodes)"],
+                choices=[
+                    "short (15-20 nodes)", "medium (20-25 nodes)",
+                    "long (25-30 nodes)"
+                ],
                 value="short (15-20 nodes)"
             )
             age_input = gr.Dropdown(
@@ -171,7 +227,9 @@ with gr.Blocks(title="Adventure Story Generator") as demo:
 
     generate_btn.click(
         fn=process_and_save_story,
-        inputs=[topic_input, level_input, length_input, age_input],
+        inputs=[
+            api_key_input, topic_input, level_input, length_input, age_input
+        ],
         outputs=[output_text, download_file, story_state, story_preview]
     )
 
