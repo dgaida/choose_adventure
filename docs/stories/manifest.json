@@ -1,6 +1,14 @@
 {
   "stories": [
     {
+      "title": "A Trip to London with Sherlock Holmes",
+      "filename": "sherlock_holmes.json"
+    },
+    {
+      "title": "Firepaw's First Patrol",
+      "filename": "thunderclan_6333.json"
+    },
+    {
       "title": "Moonpaw and the Lost Kit",
       "filename": "moonpaw_kit.json"
     },
@@ -9,16 +17,8 @@
       "filename": "shadowpaw_mission.json"
     },
     {
-      "title": "A Trip to London with Sherlock Holmes",
-      "filename": "sherlock_holmes.json"
-    },
-    {
-      "title": "The Multiverse Odyssey",
+      "title": "The Multiverse Dilemma",
       "filename": "themultiverseodyssey_57.json"
-    },
-    {
-      "title": "Firepaw's First Patrol",
-      "filename": "thunderclan_6333.json"
     }
   ]
 }
