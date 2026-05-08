@@ -7,6 +7,8 @@
 [![Docs](https://img.shields.io/badge/docs-GitHub%20Pages-blue)](https://dgaida.github.io/choose_adventure/)
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/dgaida/choose_adventure/graphs/commit-activity)
 ![Last commit](https://img.shields.io/github/last-commit/dgaida/choose_adventure)
+[![Code Quality](https://github.com/dgaida/choose_adventure/actions/workflows/lint.yml/badge.svg)](https://github.com/dgaida/choose_adventure/actions/workflows/lint.yml)
+[![CodeQL](https://github.com/dgaida/choose_adventure/actions/workflows/codeql.yml/badge.svg)](https://github.com/dgaida/choose_adventure/actions/workflows/codeql.yml)
 
 A "choose your own adventure" story generator for English learners in Germany.
 
@@ -15,16 +17,16 @@ You can try the generator live at: [https://choose-adventure.onrender.com/](http
 
 ## Features  
 - **Tailored Stories**: Generates branching narratives appropriate for a specified age (default 12) using an LLM.  
-- **Storytelling Skill**: Uses a specialized "Choose-Your-Own-Adventure Storytelling Skill" to ensure high-quality, reactive, and engaging narratives.
+- **Storytelling Skill**: Uses a specialized "Choose-Your-Own-Adventure Storytelling Skill" to ensure high-quality, reactive, and engaging narratives.  
 - **Vocabulary Support**: Advanced vocabulary in the story is highlighted. Hovering over a word reveals a simple English explanation.  
 - **GitHub Pages Integration**: The generated story is saved as a simple HTML page in the `docs/` folder, ready to be served by GitHub Pages.  
 - **Gradio Interface**: Easy-to-use UI for generating stories.  
 
 ## Getting Started: API Keys
-To generate stories, you will need an API Key for one of the supported LLM providers. You can follow these tutorials to create your keys:
-- [Creating a Groq API Key](https://dgaida.github.io/llm_client/dev/en/tutorials/rag-chatbot/#creating-a-groq-api-key)
-- [Creating a Google Gemini API Key](https://dgaida.github.io/llm_client/dev/en/tutorials/rag-chatbot/#creating-a-google-gemini-api-key)
-- [Creating an OpenAI API Key](https://dgaida.github.io/llm_client/dev/en/tutorials/rag-chatbot/#creating-an-openai-api-key)
+To generate stories, you will need an API Key for one of the supported LLM providers. You can follow these tutorials to create your keys:  
+- [Creating a Groq API Key](https://dgaida.github.io/llm_client/dev/en/tutorials/rag-chatbot/#creating-a-groq-api-key)  
+- [Creating a Google Gemini API Key](https://dgaida.github.io/llm_client/dev/en/tutorials/rag-chatbot/#creating-a-google-gemini-api-key)  
+- [Creating an OpenAI API Key](https://dgaida.github.io/llm_client/dev/en/tutorials/rag-chatbot/#creating-an-openai-api-key)  
 
 ## Installation  
 1. Clone the repository.  
@@ -39,11 +41,11 @@ To generate stories, you will need an API Key for one of the supported LLM provi
    ```bash
    python src/app.py
    ```
-2. Enter your **LLM API Key** in the provided field.
-3. Enter a story description and select the English level (A1-C2).
-4. Click "Generate Story".
-5. The story will be saved in `docs/stories/`.
-6. Review the preview and click "Create Pull Request on GitHub" to submit it to the collection.
+2. Enter your **LLM API Key** in the provided field.  
+3. Enter a story description and select the English level (A1-C2).  
+4. Click "Generate Story".  
+5. The story will be saved in `docs/stories/`.  
+6. Review the preview and click "Create Pull Request on GitHub" to submit it to the collection.  
 
 ### 🚀 Deploying to Render.com
 You can host the Gradio interface on Render.com:  
@@ -63,7 +65,7 @@ To host your stories, you must **manually enable** GitHub Pages in your reposito
 3. Once enabled, every push to `main` that updates the `docs/` folder will automatically trigger a deployment.  
 
 ## How it Works  
-- **Generation**: Uses the `llm_client` to prompt an LLM for a JSON-formatted branching story, following the storytelling skill.
+- **Generation**: Uses the `llm_client` to prompt an LLM for a JSON-formatted branching story, following the storytelling skill.  
 - **Frontend**: A JavaScript-based HTML template renders the story nodes and handles navigation between choices.  
 - **Vocabulary**: CSS tooltips are used for the mouse-over vocabulary explanations.  
 
