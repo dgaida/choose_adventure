@@ -1,15 +1,38 @@
 import logging
 import json
-from typing import Optional, Dict, Any
+from typing import Optional, Dict, Any, List
 from llm_client import LLMClient
 
 logger = logging.getLogger(__name__)
 
 
+def validate_story_nodes(story_data: Dict[str, Any]) -> List[str]:
+    """
+    Checks if all nodes referenced in choices actually exist in the story.
+
+    Returns:
+        A list of missing node IDs.
+    """
+    nodes = story_data.get("nodes", {})
+    referenced_nodes = set()
+
+    for node_id, node_data in nodes.items():
+        choices = node_data.get("choices", [])
+        for choice in choices:
+            next_node = choice.get("next_node")
+            if next_node:
+                referenced_nodes.add(next_node)
+
+    missing_nodes = [
+        node_id for node_id in referenced_nodes if node_id not in nodes
+    ]
+    return missing_nodes
+
+
 def generate_story(
     topic: str,
     level: str = "B1",
-    length: str = "short (15-20 nodes)",
+    length: str = "short (15-25 nodes)",
     age_range: str = "12-18"
 ) -> tuple[Optional[Dict[str, Any]], str]:
     """
@@ -60,11 +83,14 @@ def generate_story(
            "word2": "simple English explanation"
          }}
        }}
-    5. Vocabulary: Identify 10-20 difficult or advanced words used in the story
+    5. Node Integrity: Every "next_node" reference MUST point to a node that
+       exists in the "nodes" dictionary. Avoid dead ends unless the story
+       intentionally concludes.
+    6. Vocabulary: Identify 10-20 difficult or advanced words used in the story
        and provide simple English explanations for them. IMPORTANT: Do not use
        any of the chosen vocabulary words within the explanations themselves,
        as this causes display issues.
-    6. Ensure the JSON is valid and complete. Do not include any conversational
+    7. Ensure the JSON is valid and complete. Do not include any conversational
        text, explanations, or notes outside the JSON structure. Just return the
        JSON object.
     """
@@ -87,23 +113,62 @@ def generate_story(
         {"role": "user", "content": prompt}
     ]
 
-    response = client.chat_completion(messages)
+    attempts = 0
+    max_attempts = 3
+    last_response = ""
 
-    # Try to extract JSON if the LLM added markdown markers
-    try:
-        if "```json" in response:
-            json_str = response.split("```json")[1].split("```")[0].strip()
-        elif "```" in response:
-            json_str = response.split("```")[1].split("```")[0].strip()
-        else:
-            json_str = response.strip()
+    while attempts < max_attempts:
+        attempts += 1
+        last_response = client.chat_completion(messages)
 
-        story_data = json.loads(json_str)
-        return story_data, response
-    except Exception as e:
-        logger.error(f"Error parsing story JSON: {e}")
-        logger.error(f"Raw response: {response}")
-        return None, response
+        # Try to extract JSON
+        try:
+            if "```json" in last_response:
+                json_str = last_response.split("```json")[1].split(
+                    "```"
+                )[0].strip()
+            elif "```" in last_response:
+                json_str = last_response.split("```")[1].split(
+                    "```"
+                )[0].strip()
+            else:
+                json_str = last_response.strip()
+
+            story_data = json.loads(json_str)
+
+            # Validate nodes
+            missing_nodes = validate_story_nodes(story_data)
+            if not missing_nodes:
+                return story_data, last_response
+
+            logger.warning(
+                f"Attempt {attempts}: Missing nodes detected: {missing_nodes}"
+            )
+
+            # Update messages for the next attempt
+            messages.append({"role": "assistant", "content": last_response})
+            error_message = (
+                f"The generated story has references to missing nodes: "
+                f"{missing_nodes}. Please fix the story so that all "
+                f"referenced nodes exist in the \"nodes\" dictionary."
+            )
+            messages.append({"role": "user", "content": error_message})
+
+        except Exception as e:
+            logger.error(
+                f"Error parsing story JSON on attempt {attempts}: {e}"
+            )
+            if attempts == max_attempts:
+                return None, last_response
+
+            # Ask the LLM to provide valid JSON if it failed parsing
+            messages.append({"role": "assistant", "content": last_response})
+            messages.append({
+                "role": "user",
+                "content": "The JSON was invalid. Please return a valid JSON."
+            })
+
+    return None, last_response
 
 
 if __name__ == "__main__":

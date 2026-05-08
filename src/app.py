@@ -203,10 +203,10 @@ with gr.Blocks(title="Adventure Story Generator") as demo:
             length_input = gr.Dropdown(
                 label="Story Length",
                 choices=[
-                    "short (15-20 nodes)", "medium (20-25 nodes)",
-                    "long (25-30 nodes)"
+                    "short (15-25 nodes)", "medium (25-35 nodes)",
+                    "long (35-50 nodes)"
                 ],
-                value="short (15-20 nodes)"
+                value="short (15-25 nodes)"
             )
             age_input = gr.Dropdown(
                 label="Reader Age Range",
