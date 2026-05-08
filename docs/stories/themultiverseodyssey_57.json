@@ -1,0 +1,427 @@
+{
+  "title": "The Multiverse Odyssey",
+  "nodes": {
+    "start": {
+      "text": "You are Evelyn, a Chinese immigrant living in California. You run a small laundromat with your husband, Waymond. Your life is ordinary, but you're struggling to make ends meet. The IRS is auditing your business, and you're worried about the future. As you sort laundry, you receive a visit from a tense IRS agent, Deirdre Beaubeirdre. She's stern and demanding. Suddenly, Waymond does something strange, and his body starts to change.",
+      "choices": [
+        {
+          "text": "Ask Waymond what's happening to him",
+          "next_node": "node_1"
+        },
+        {
+          "text": "Try to ignore the situation and focus on the IRS audit",
+          "next_node": "node_2"
+        }
+      ]
+    },
+    "node_1": {
+      "text": "Waymond's body is taken over by Alpha-Waymond, a version of himself from a parallel universe. Alpha-Waymond explains that many universes exist, and every life choice creates a new one. He tells you that you're about to embark on a journey through the multiverse.",
+      "choices": [
+        {
+          "text": "Agree to explore the multiverse with Alpha-Waymond",
+          "next_node": "node_3"
+        },
+        {
+          "text": "Refuse to get involved and try to return to your normal life",
+          "next_node": "node_4"
+        }
+      ]
+    },
+    "node_2": {
+      "text": "You try to focus on the IRS audit, but Deirdre is relentless. She threatens to shut down your laundromat if you don't comply with her demands. Just as things are getting out of hand, Waymond interrupts the meeting, holding a strange device.",
+      "choices": [
+        {
+          "text": "Ask Waymond what the device is and what he's doing",
+          "next_node": "node_5"
+        },
+        {
+          "text": "Tell Deirdre that you're not interested in discussing anything further",
+          "next_node": "node_6"
+        }
+      ]
+    },
+    "node_3": {
+      "text": "Alpha-Waymond takes you to a strange, futuristic world. You see versions of yourself and your loved ones from different universes. Alpha-Waymond explains that a rogue entity, Jobu Tupaki, threatens the multiverse.",
+      "choices": [
+        {
+          "text": "Agree to help Alpha-Waymond stop Jobu Tupaki",
+          "next_node": "node_7"
+        },
+        {
+          "text": "Refuse to get involved and try to return to your own universe",
+          "next_node": "node_8"
+        }
+      ]
+    },
+    "node_4": {
+      "text": "You refuse to get involved and try to return to your normal life. However, you soon realize that your decisions have consequences in the multiverse. You start to experience strange occurrences and encounter alternate versions of yourself.",
+      "choices": [
+        {
+          "text": "Try to find a way to control your abilities and navigate the multiverse",
+          "next_node": "node_9"
+        },
+        {
+          "text": "Seek help from Alpha-Waymond and his allies",
+          "next_node": "node_10"
+        }
+      ]
+    },
+    "node_5": {
+      "text": "Waymond explains that the device is a verse-jumping tool, which allows him to access skills and memories from parallel universes. He offers to teach you how to use it.",
+      "choices": [
+        {
+          "text": "Accept Waymond's offer and learn how to use the device",
+          "next_node": "node_11"
+        },
+        {
+          "text": "Decline the offer and focus on your laundromat business",
+          "next_node": "node_12"
+        }
+      ]
+    },
+    "node_6": {
+      "text": "Deirdre becomes increasingly aggressive and threatens to arrest you. Waymond intervenes, and you manage to escape the situation. However, you realize that you need to take action to protect your business and your family.",
+      "choices": [
+        {
+          "text": "Seek help from a lawyer to deal with the IRS",
+          "next_node": "node_13"
+        },
+        {
+          "text": "Take a more drastic approach to resolve the situation",
+          "next_node": "node_14"
+        }
+      ]
+    },
+    "node_7": {
+      "text": "Alpha-Waymond takes you to meet his allies, a group of rebels fighting against Jobu Tupaki. They explain that Jobu has created a black hole-like entity, the 'Everything Bagel,' which could destroy the multiverse.",
+      "choices": [
+        {
+          "text": "Join the rebels and help them stop Jobu Tupaki",
+          "next_node": "node_15"
+        },
+        {
+          "text": "Refuse to get involved and try to find another way to stop Jobu",
+          "next_node": "node_16"
+        }
+      ]
+    },
+    "node_8": {
+      "text": "You try to return to your own universe but find that it's not possible. You're stuck in the multiverse, and you need to find a way to survive.",
+      "choices": [
+        {
+          "text": "Seek help from Alpha-Waymond and his allies",
+          "next_node": "node_17"
+        },
+        {
+          "text": "Try to find a way to navigate the multiverse on your own",
+          "next_node": "node_18"
+        }
+      ]
+    },
+    "node_9": {
+      "text": "You start to experience strange occurrences and encounter alternate versions of yourself. You realize that you have abilities that you never knew you had.",
+      "choices": [
+        {
+          "text": "Try to control your abilities and use them to your advantage",
+          "next_node": "node_19"
+        },
+        {
+          "text": "Seek help from someone who understands the multiverse",
+          "next_node": "node_20"
+        }
+      ]
+    },
+    "node_10": {
+      "text": "You seek help from Alpha-Waymond and his allies. They teach you how to navigate the multiverse and control your abilities.",
+      "choices": [
+        {
+          "text": "Use your new abilities to help Alpha-Waymond and the rebels",
+          "next_node": "node_21"
+        },
+        {
+          "text": "Try to use your abilities for personal gain",
+          "next_node": "node_22"
+        }
+      ]
+    },
+    "node_11": {
+      "text": "Waymond teaches you how to use the verse-jumping tool. You start to explore the multiverse and discover new abilities and skills.",
+      "choices": [
+        {
+          "text": "Use your new abilities to help Waymond and the rebels",
+          "next_node": "node_23"
+        },
+        {
+          "text": "Try to use your abilities for personal gain",
+          "next_node": "node_24"
+        }
+      ]
+    },
+    "node_12": {
+      "text": "You decline the offer and focus on your laundromat business. However, you soon realize that your decisions have consequences in the multiverse.",
+      "choices": [
+        {
+          "text": "Try to find a way to control your abilities and navigate the multiverse",
+          "next_node": "node_25"
+        },
+        {
+          "text": "Seek help from Alpha-Waymond and his allies",
+          "next_node": "node_26"
+        }
+      ]
+    },
+    "node_13": {
+      "text": "You seek help from a lawyer to deal with the IRS. However, you realize that the situation is more complex than you thought.",
+      "choices": [
+        {
+          "text": "Take a more drastic approach to resolve the situation",
+          "next_node": "node_27"
+        },
+        {
+          "text": "Try to find a way to negotiate with the IRS",
+          "next_node": "node_28"
+        }
+      ]
+    },
+    "node_14": {
+      "text": "You take a more drastic approach to resolve the situation. However, you soon realize that your actions have unintended consequences.",
+      "choices": [
+        {
+          "text": "Try to find a way to undo the damage you've done",
+          "next_node": "node_29"
+        },
+        {
+          "text": "Seek help from Alpha-Waymond and his allies",
+          "next_node": "node_30"
+        }
+      ]
+    },
+    "node_15": {
+      "text": "You join the rebels and help them stop Jobu Tupaki. However, you realize that the situation is more complex than you thought.",
+      "choices": [
+        {
+          "text": "Try to find a way to defeat Jobu Tupaki",
+          "next_node": "node_25"
+        },
+        {
+          "text": "Seek help from Alpha-Waymond and his allies",
+          "next_node": "node_26"
+        }
+      ]
+    },
+    "node_16": {
+      "text": "You refuse to get involved and try to find another way to stop Jobu. However, you soon realize that your decisions have consequences in the multiverse.",
+      "choices": [
+        {
+          "text": "Try to find a way to control your abilities and navigate the multiverse",
+          "next_node": "node_27"
+        },
+        {
+          "text": "Seek help from Alpha-Waymond and his allies",
+          "next_node": "node_28"
+        }
+      ]
+    },
+    "node_17": {
+      "text": "You seek help from Alpha-Waymond and his allies. They teach you how to navigate the multiverse and control your abilities.",
+      "choices": [
+        {
+          "text": "Use your new abilities to help Alpha-Waymond and the rebels",
+          "next_node": "node_29"
+        },
+        {
+          "text": "Try to use your abilities for personal gain",
+          "next_node": "node_30"
+        }
+      ]
+    },
+    "node_18": {
+      "text": "You try to find a way to navigate the multiverse on your own. However, you soon realize that it's not possible.",
+      "choices": [
+        {
+          "text": "Seek help from Alpha-Waymond and his allies",
+          "next_node": "node_1"
+        },
+        {
+          "text": "Try to find another way to survive in the multiverse",
+          "next_node": "node_2"
+        }
+      ]
+    },
+    "node_19": {
+      "text": "You start to experience strange occurrences and encounter alternate versions of yourself. You realize that you have abilities that you never knew you had.",
+      "choices": [
+        {
+          "text": "Try to control your abilities and use them to your advantage",
+          "next_node": "node_3"
+        },
+        {
+          "text": "Seek help from someone who understands the multiverse",
+          "next_node": "node_4"
+        }
+      ]
+    },
+    "node_20": {
+      "text": "You seek help from someone who understands the multiverse. They teach you how to navigate the multiverse and control your abilities.",
+      "choices": [
+        {
+          "text": "Use your new abilities to help others",
+          "next_node": "node_5"
+        },
+        {
+          "text": "Try to use your abilities for personal gain",
+          "next_node": "node_6"
+        }
+      ]
+    },
+    "node_21": {
+      "text": "You use your new abilities to help Alpha-Waymond and the rebels. However, you realize that the situation is more complex than you thought.",
+      "choices": [
+        {
+          "text": "Try to find a way to defeat Jobu Tupaki",
+          "next_node": "node_7"
+        },
+        {
+          "text": "Seek help from Alpha-Waymond and his allies",
+          "next_node": "node_8"
+        }
+      ]
+    },
+    "node_22": {
+      "text": "You try to use your abilities for personal gain. However, you soon realize that your actions have unintended consequences.",
+      "choices": [
+        {
+          "text": "Try to find a way to undo the damage you've done",
+          "next_node": "node_9"
+        },
+        {
+          "text": "Seek help from Alpha-Waymond and his allies",
+          "next_node": "node_10"
+        }
+      ]
+    },
+    "node_23": {
+      "text": "You use your new abilities to help Waymond and the rebels. However, you realize that the situation is more complex than you thought.",
+      "choices": [
+        {
+          "text": "Try to find a way to defeat Jobu Tupaki",
+          "next_node": "node_11"
+        },
+        {
+          "text": "Seek help from Alpha-Waymond and his allies",
+          "next_node": "node_12"
+        }
+      ]
+    },
+    "node_24": {
+      "text": "You try to use your abilities for personal gain. However, you soon realize that your actions have unintended consequences.",
+      "choices": [
+        {
+          "text": "Try to find a way to undo the damage you've done",
+          "next_node": "node_13"
+        },
+        {
+          "text": "Seek help from Alpha-Waymond and his allies",
+          "next_node": "node_14"
+        }
+      ]
+    },
+    "node_25": {
+      "text": "You try to find a way to defeat Jobu Tupaki. However, you realize that it's not possible.",
+      "choices": [
+        {
+          "text": "Seek help from Alpha-Waymond and his allies",
+          "next_node": "node_15"
+        },
+        {
+          "text": "Try to find another way to survive in the multiverse",
+          "next_node": "node_16"
+        }
+      ]
+    },
+    "node_26": {
+      "text": "You seek help from Alpha-Waymond and his allies. They teach you how to navigate the multiverse and control your abilities.",
+      "choices": [
+        {
+          "text": "Use your new abilities to help others",
+          "next_node": "node_17"
+        },
+        {
+          "text": "Try to use your abilities for personal gain",
+          "next_node": "node_18"
+        }
+      ]
+    },
+    "node_27": {
+      "text": "You try to find a way to undo the damage you've done. However, you realize that it's not possible.",
+      "choices": [
+        {
+          "text": "Seek help from Alpha-Waymond and his allies",
+          "next_node": "node_19"
+        },
+        {
+          "text": "Try to find another way to survive in the multiverse",
+          "next_node": "node_20"
+        }
+      ]
+    },
+    "node_28": {
+      "text": "You seek help from Alpha-Waymond and his allies. They teach you how to navigate the multiverse and control your abilities.",
+      "choices": [
+        {
+          "text": "Use your new abilities to help others",
+          "next_node": "node_21"
+        },
+        {
+          "text": "Try to use your abilities for personal gain",
+          "next_node": "node_22"
+        }
+      ]
+    },
+    "node_29": {
+      "text": "You use your new abilities to help Alpha-Waymond and the rebels. However, you realize that the situation is more complex than you thought.",
+      "choices": [
+        {
+          "text": "Try to find a way to defeat Jobu Tupaki",
+          "next_node": "node_23"
+        },
+        {
+          "text": "Seek help from Alpha-Waymond and his allies",
+          "next_node": "node_24"
+        }
+      ]
+    },
+    "node_30": {
+      "text": "You try to use your abilities for personal gain. However, you soon realize that your actions have unintended consequences.",
+      "choices": [
+        {
+          "text": "Try to find a way to undo the damage you've done",
+          "next_node": "node_25"
+        },
+        {
+          "text": "Seek help from Alpha-Waymond and his allies",
+          "next_node": "node_26"
+        }
+      ]
+    }
+  },
+  "vocabulary": {
+    "multiverse": "a hypothetical set of multiple universes",
+    "assimilation": "the process of becoming part of a different culture",
+    "relentless": "unwilling to give up or become weaker",
+    "toroid": "a shape that is like a doughnut",
+    "singularity": "a point in space-time where the laws of physics do not apply",
+    "verse-jumping": "the act of moving from one universe to another",
+    "exacerbate": "to make a problem or situation worse",
+    "splintered": "broken or divided into small parts",
+    "entities": "things that exist, especially ones that are abstract or hard to understand",
+    "manipulate": "to control or influence someone or something",
+    "unintended": "not planned or expected",
+    "navigate": "to plan and control the route or course of something",
+    "complex": "complicated or difficult to understand",
+    "consequences": "the results or effects of an action",
+    "abstract": "existing in thought or idea rather than in physical reality",
+    "hypothetical": "based on possible ideas or situations rather than actual ones",
+    "rebels": "people who fight against authority or control"
+  }
+}
